@@ -2441,7 +2441,7 @@ const probabilityQ = [
                 hint: "Use the choose function",
                 step: "Find the total number of paths to \\((5,5)\\)",
                 topic: "counting"
-    }
+    },
     {
                 title: `<a href="https://drive.google.com/file/d/13JgWp8yZP76xGkW3LAbRZODvHdTVCrBz/view" target="_blank" class="pset-link">Solvefire Bronze 8 Problem 2</a>`,
                 text: `A bag contains \\(4\\) red balls and \\95\\) blue balls. Two balls are drawn simultaneously at random. Given that at
