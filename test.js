@@ -916,7 +916,9 @@ Andy and Betsy both live in Mathville. Andy leaves Mathville on his bicycle at \
         $$
         <p> Two hours after Betsy's starting time is <b> 4:30 <b> </p>
         <p><b>Solution by Fluffy1234</b><p>
-        <p>First, use \\(d=rt\\) to find the time it took to reach another. With the distance as \\(45\\) miles and the rate as \\(30\\), (The math: \\(18+12=30\\)) we get time as \\(1 \\frac{1}{2}\\) hours. At this point Beth has traveled \\(18\\) miles (\\(12 \\cdot 1.5 = 18\\)) and Alicia has biked \\(27\\) (\\(18 \\cdot 1.5)\\). Checking we get \\(27+18=45\\). Ergo, our answer is twenty-seven.
+        <p>First, use \\(d=rt\\) to find the time it took to reach another. With the distance as \\(45\\) miles and the rate as \\(30\\), (The math: \\(18+12=30\\)) we get time as \\(1 \\frac{1}{2}\\) hours. At this point Beth has traveled \\(18\\) miles (\\(12 \\cdot 1.5 = 18\\)) and Alicia has biked \\(27\\) (\\(18 \\cdot 1.5)\\). Checking we get \\(27+18=45\\). Ergo, our answer is twenty-seven.</p>
+        <b>Solution by Toulouse 100</b>
+        <p>Andy travels \\(8\\) miles before Betsy starts, subtracting his distance from hers, she travels \\(4\\)mph faster, therefore it would take \\(2\\) hours
         `,
         topic: "systems of equations",
         hint: "Set up an algebraic equation relating the two",
