@@ -1,4 +1,92 @@
+const toggleBrightness = document.getElementById("brightness")
+let colorMode = 'light'
+let colorModeTrue = localStorage.getItem("colorMode")
+console.log(colorModeTrue)
+let textColor = "#e3e2f0"
+let backgroundColor = "rgb(253, 253, 255)"
+if  (colorModeTrue !== false){
+        console.log("setting color mode")
+       colorMode =  colorModeTrue
+       console.log(colorModeTrue)
+ if (colorMode === 'dark'){
+                colorMode = 'dark';
+                document.documentElement.style.colorScheme = 'dark'; 
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                toggleBrightness.textContent = "sunny"
+                localStorage.setItem("colorMode", "dark")
+                textColor = "#e3e2f0"
+                backgroundColor = "#222329"
 
+        } else {
+                colorMode = 'light';
+                document.documentElement.style.colorScheme = 'light';
+                document.documentElement.classList.add('light');
+                document.documentElement.classList.remove('dark');
+                toggleBrightness.textContent = "bedtime"
+                localStorage.setItem("colorMode", "light")
+                textColor = "#625c6e"
+                backgroundColor = "rgb(253, 253, 255)"
+        }
+} else {
+function toggleSystemTheme() {
+  const root = document.documentElement;
+  
+  // 1. Check what the system preference is, or if it's already set
+  if (!root.style.colorScheme) {
+    // If it's not set yet, match the user's system preferences
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.style.colorScheme = prefersDark ? 'dark' : 'light';
+  }
+  
+  colorMode = root.style.colorScheme;
+
+  // 2. Add the correct matching class right away so the logos render correctly!
+  if (colorMode === 'dark') {
+      root.classList.add('dark');
+      root.classList.remove('light');
+      textColor = "#e3e2f0"
+  } else {
+      root.classList.add('light');
+      root.classList.remove('dark');
+      textColor = "#625c6e"
+  }
+}
+toggleSystemTheme();
+}
+toggleBrightness.addEventListener("click", function(){
+        if (colorMode === 'dark'){
+                colorMode = 'light';
+                document.documentElement.style.colorScheme = 'light'; 
+                document.documentElement.classList.add('light');
+                document.documentElement.classList.remove('dark');
+                toggleBrightness.textContent = "bedtime"
+                localStorage.setItem("colorMode", colorMode)
+                textColor = "#625c6e"
+                backgroundColor="rgb(253, 253, 255)"
+                updatePieChart()
+                updateRadarChart()
+                updateBarGraph()
+        } else {
+                colorMode = 'dark';
+                document.documentElement.style.colorScheme = 'dark';
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                toggleBrightness.textContent = "sunny"
+                localStorage.setItem("colorMode", colorMode)
+                textColor = "#e3e2f0"
+                backgroundColor = "#222329"
+                updatePieChart()
+                updateRadarChart()
+                updateBarGraph()
+        }
+        console.log(localStorage.getItem("colorMode"));
+});
+// Gets the live computed color string from your CSS :root
+
+function getThemeColor(variableName) {
+    return getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
+}
 let correctCount = 0;
 let wrongCount = 0;
 let longestStreak = 0;
@@ -4494,21 +4582,17 @@ stuckBtn.addEventListener("click", function(){
     updateBarGraph()
     localStorage.setItem("stuckSolve", stuck)
 })
-let myChart = null; // 1. Define this OUTSIDE the function
+let myChart = null;
 
 function updateBarGraph() {
     const xValues = ["Unfamiliar With Topic", "Stuck / Reached Dead End", "Arithmetic Issue"];
     const yValues = [unfamiliar, stuck, mistake];
     const barColors = ["#88B0FF", "#88B0FF", "#88B0FF"];
-
-    // 2. The Fix: If a chart exists, kill it before creating a new one
     if (myChart) {
         myChart.destroy();
     }
 
     const ctx = document.getElementById("barChart");
-    
-    // 3. Create the new chart and store it in our variable
     myChart = new Chart(ctx, {
         type: "bar",
         data: {
@@ -4521,6 +4605,16 @@ function updateBarGraph() {
         },
         options: {
             responsive: true,
+scales: {
+                x: {
+                    grid: { color: textColor }, // Dynamic gridlines
+                    ticks: { color: textColor } // Dynamic label text
+                },
+                y: {
+                    grid: { color: textColor },
+                    ticks: { color: textColor }
+                }
+            },
             plugins: {
                 legend: { display: false }
             }
@@ -4529,6 +4623,8 @@ function updateBarGraph() {
 }
 let pieChart = null
 function updatePieChart(){
+
+    console.log("updating pie chart")
     if (pieChart) {
         pieChart.destroy();
     }
@@ -4537,8 +4633,14 @@ function updatePieChart(){
     let xValues = []
     let yValues = []
     topicsToWorkOn.forEach(i => {
+        console.log(i)
+        console.log(TOPIC_GLOSSARY)
         const topicObj = TOPIC_GLOSSARY.find(x => x.id === i);
+                console.log("running for each")
+                console.log(topicObj)
 if (topicObj && topicObj.errors && topicObj.errors > 0) {
+            console.log('running search')
+            console.log("Adding to chart:", topicObj.id, topicObj.errors);
             xValues.push(topicObj.name || topicObj.id); // Use name if available
             yValues.push(topicObj.errors);
         }
@@ -4550,19 +4652,24 @@ pieChart = new Chart("pieChart", {
     labels: xValues,
     datasets: [{
       data: yValues,
+      backgroundColor: ["#88B0FF", "#c7deff", "#FFB192", "#ffd0c0"],
+      borderColor: backgroundColor
     }]
   },
-  options: {
-    responsive: true,
+options: {
     plugins: {
-        legend: {display: true}
+      legend: {
+        labels: {
+          color: textColor
+        }
+      }
     }
   }
 });
 }
 let myRadarChart = null
 function updateRadarChart(){
-    const data = {
+                    const data = {
         labels: 
         ["Algebra", "Geometry", "Number Theory", "Probability"],
         datasets: [{label: "Incorrect", 
@@ -4572,7 +4679,22 @@ function updateRadarChart(){
             data: [algebraTotal, geometryTotal, numTotal, probTotal], borderColor: '#88B0FF', backgroundColor: '#ebf3ff'
         },
 ]
+
     }
+            if (colorMode  === 'dark'){
+                const data = {
+        labels: 
+        ["Algebra", "Geometry", "Number Theory", "Probability"],
+        datasets: [{label: "Incorrect", 
+            data: [algebraWrong, geometryWrong, numWrong, probWrong], borderColor: '#ffb192', backgroundColor: '#fff0eb'
+        },
+        {label: "Attempted", 
+            data: [algebraTotal, geometryTotal, numTotal, probTotal], borderColor: '#88B0FF', backgroundColor: '#88B0FF'
+        },
+]
+        }      
+        }
+
 if (myRadarChart) {
         myRadarChart.destroy();
     }
@@ -4582,30 +4704,39 @@ if (myRadarChart) {
     myRadarChart = new Chart(ctx, {
         type: 'radar',
         data: data,
-        options: {
-            elements: {
-                line: { borderWidth: 3 }
-            },
-            scales: {
-                r: {
-                    angleLines: { display: true },
-                    suggestedMin: 0,
-                    ticks: { stepSize: 1 } // Good for low question counts
-                }
-            },
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Accuracy Per Subject',
-                    color: '#333',
-                    font: { size: 16 }
-                }
-            }
+ options: {
+    scales: {
+      r: {
+        // 1. Change color of the category labels (e.g., "Speed", "Strength")
+        pointLabels: {
+          color: textColor, 
+          font: {
+            size: 14
+          }
+        },
+        // 2. Change color of the numbers on the radial axis
+        ticks: {
+          color: textColor,
+          showLabelBackdrop: false,
+
         }
+      }
+    },
+    plugins: {
+      // 3. Change color of the legend text
+      legend: {
+        labels: {
+          color: textColor
+        }
+      }
+    }
+  }
 
     })
-    
 }
+updatePieChart()
+updateRadarChart()
+updateBarGraph()
 updatePieChart()
 updateRadarChart()
 updateBarGraph()
@@ -4619,3 +4750,4 @@ updateTopicsDropdown()
 loadAlgebra()
 window.loadTopicQuestion = loadTopicQuestion;
 window.loadQuestion = loadQuestion;
+console.log(allQ.length)

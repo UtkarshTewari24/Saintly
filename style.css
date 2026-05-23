@@ -1,14 +1,32 @@
 
 :root {
-  --primary-color: #88B0FF ;
-  --background-variant: rgb(255, 255, 255);
-  --background-color: rgb(253, 253, 255);
-  --highlight-color: #ebf3ff;
+  color-scheme: light dark;
+  --primary-color: light-dark(#88B0FF, #88B0FF) ;
+  --background-variant: light-dark(rgb(255, 255, 255), #212227) ;
+  --background-color: light-dark(rgb(253, 253, 255), #222329);
+  --highlight-color: light-dark(#ebf3ff, #2c3146);
   --accent-color: #ffb192;
-  --text-color: #625c6e;
-  --text-variant: #9e99aa;
-  --shadow-color: rgb(218, 217, 235);
+  --text-color: light-dark(#625c6e, #e3e2f0);
+  --text-variant: light-dark(#9e99aa, #8e95a5);
+  --shadow-color: light-dark(rgb(218, 217, 235), rgba(7, 4, 3, 0.5));
+  --highlight-color-orange: light-dark(#fff0eb, #4e3931);
+  --border-color: light-dark(rgb(222, 222, 236), rgb(48, 48, 66));
+  --problemBtnColors: light-dark(white, white);
 }
+.problem button {
+  padding: 8px 15px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+.problem button:not(.topicBtn){
+  color: var(--problemBtnColors) !important
+}
+
 @keyframes typewriter {
   from { max-width: 0; }
   to { max-width: 100vw; }
@@ -106,7 +124,7 @@ main {
     height: 100vh;        /* full viewport height */
     width: 175px;
     background-color: var(--background-variant);
-    border-right: 1.9px solid rgb(222, 222, 236);
+    border-right: 1.9px solid var(--border-color);
     overflow-y: auto;     /* scroll inside sidebar if content too tall */
   transform: translateX(25px);
   font-family: 'National Park', sans-serif;
@@ -296,10 +314,7 @@ main {
   width:  75%;
   margin-left: -150px !important
 }
-.mc-choice.selected {
-  background-color: var(--accent-color);
-  color: var(--background-color);
-}
+
 h1 {
   color: var(--primary-color);
 }
@@ -429,7 +444,7 @@ p {
 /* Problem Card */
 .problem {
   background-color: var(--background-variant);
-  border: 2px solid var(--primary-color);
+  border: 2px solid light-dark(var(--primary-color), var(--border-color));
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
@@ -445,16 +460,6 @@ p {
   border-radius: 5px;
 }
 
-.problem button {
-  padding: 8px 15px;
-  font-size: 16px;
-  background-color: var(--primary-color);
-  color: var(--background-color);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 10px;
-}
 
 .problem button:hover {
   background-color: var(--accent-color);
@@ -466,15 +471,21 @@ p {
 }
 /* Solution Box */
 .solution {
-  background-color: #ebf3ff;
+  background-color: var(--highlight-color);
   border-left: 5px solid var(--primary-color);
   padding: 15px;
   margin-top: 10px;
   border-radius: 5px;
   color: var(--text-color)
 }
+.solution b{
+  color: var(--text-color)
+}
+.solution h1, .solution h2, .solution h3, .solution h4, .solution h5, .solution h6{
+  color: var(--text-color)
+}
 #stepOne {
-  background-color: #fff0eb;
+  background-color: var(--highlight-color-orange);
   border-left: 5px solid var(--accent-color);
   padding: 15px;
   margin-top: 10px;
@@ -519,7 +530,7 @@ p {
 
     height: 36px;
     padding: 0 15px;
-  background-color: #ebf3ff;
+  background-color: var(--highlight-color);
   border: 2px solid var(--primary-color);
   border-radius: 10px;
   margin-top: 10px;
@@ -569,6 +580,7 @@ button.ui-btn {
 }
 .ui-btn:hover {
     background-color: var(--accent-color);
+    color: white !important
 }
 
 
@@ -586,7 +598,6 @@ button.ui-btn {
     font-family: 'Roboto Flex', sans-serif;
 
     background-color: var(--primary-color);
-    color: var(--background-color);
     border-radius: 5px;
     border: none;
     font-weight: bold;
@@ -785,7 +796,7 @@ button.btn2 {
   padding: 20px;
   border: 2px solid var(--primary-color);
   border-radius: 12px;
-  background-color: #f9f9f9;
+  background-color: var(--background-variant);
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -811,7 +822,8 @@ button.btn2 {
 #progress-container {
     width: 100%;
     height: 20px;
-    background-color: #ddd;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     overflow: hidden;
     margin-top: 5px;
@@ -831,6 +843,7 @@ button.btn2 {
   padding: 10px;
   border-radius: 6px;
   cursor: pointer;
+  color: var(--text-color) !important
 }
 .level-toast {
   position: fixed;
@@ -957,7 +970,7 @@ margin-bottom: 0px;
   display: none;
     padding: 5px;
     margin-bottom: 10px;
-  background-color: #ebf3ff;
+  background-color: var(--highlight-color);
   border-left: 5px solid var(--primary-color);
   padding: 5px;
   margin-top: 10px;
@@ -1195,13 +1208,14 @@ input, textarea{
   padding-left: 5px;
   padding-bottom: 0px;
   padding-top: 0px;
-  border-bottom: 1px solid  rgb(222, 222, 236);
+  border-bottom: 1px solid  var(--border-color);
   background: var(--background-variant);
   z-index: 10;
   color: var(--primary-color);
   font-weight: 450;
   height: 45px;
   transition: transform 0.3s ease;
+  background-color: var(--background-variant) !important
 }
 
 #top-bar * {
@@ -1234,7 +1248,7 @@ input, textarea{
 }
 
 .tag {
-  background-color: #ebf3ff;
+  background-color: var(--highlight-color);
   color: #a5c9ff;
   padding: 7.5px 10px;
   justify-content: center;
@@ -1276,7 +1290,7 @@ input, textarea{
 }
 hr {
   border: none;
-  border-top: 1px solid rgb(222, 222, 236);
+  border-top: 1px solid var(--border-color);
   margin: 20px 0;
   margin-top:-5px;
   margin-bottom: 0px;
@@ -1307,6 +1321,7 @@ hr {
   font-weight: 300;
   margin-top: -10px;
   margin-bottom: 0px;
+  color: var(--text-color)
 }
 .par{
   font-family: "National Park", sans-serif;
@@ -1316,7 +1331,7 @@ hr {
   font-weight: 300;
 }
 .blue {
-  background-color: #ebf3ff;
+  background-color: var(--highlight-color);
   color: var(--primary-color);
   padding: 0 4px;
 }
@@ -1336,7 +1351,7 @@ width: 100%
 }
 .howworkcard{
   background-color: var(--background-variant);
-  border: 2px solid rgb(222, 222, 236);
+  border: 2px solid var(--border-color);
   border-radius: 10px;
   padding: 20px;
   transition: transform 0.2s;
@@ -1354,7 +1369,7 @@ align-items: flex-start;
 gap: 30px;
 }
 .orange{
-  background-color: #fff0eb;
+  background-color: var(--highlight-color-orange);
   color: var(--accent-color)
 }
 .orange:hover{
@@ -1457,7 +1472,7 @@ gap: 30px;
   align-content: center;
   justify-self: left;
   justify-content: center;
-  border:rgb(222, 222, 236) solid 2px;
+  border: var(--border-color) solid 2px;
   border-radius: 10px;
   padding: 20px;
   width: 600px;
@@ -1515,7 +1530,7 @@ gap: 30px;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(#d0ddff 1.5px, transparent 1.5px);
+  background-image: radial-gradient(var(--border-color) 1.5px, transparent 1.5px);
   background-size: 26px 26px;
   background-color: transparent;
   z-index: 0;
@@ -1548,11 +1563,10 @@ gap: 30px;
   display: flex;
   flex-direction: column; /* stack photo then text vertically */
   gap: 16px;
-  border: 1.5px solid rgb(222, 222, 236); /* matches your existing border color */
+  border: 1.5px solid var(--border-color); /* matches your existing border color */
   border-radius: 16px;
   padding: 24px;
   background: var(--background-variant); /* matches your card style */
-  box-shadow: 0 2px 12px rgba(119, 164, 255, 0.06);
   width: 90%
 }
 
@@ -1699,11 +1713,15 @@ button:not(.dropdown-btn):hover{
 #top-bar {
   display: flex;
   align-items: left;
+
+  background-color: var(--background-variant) !important
 }
 
 #top-bar .helpButton{
   margin-left: auto !important;
   margin-right: 10px;
+
+  background-color: var(--background-variant) !important
 }
 .right-align{
   display: flex;
@@ -1715,7 +1733,7 @@ button:not(.dropdown-btn):hover{
   display: block;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #ebf3ff;
+  background-color: var(--highlight-color);
   border-radius: 10px;
   border-left: 3px solid var(--primary-color);
   padding: 10px;
@@ -1751,7 +1769,7 @@ button:not(.dropdown-btn):hover{
 }
 .amc10card {
   background-color: var(--background-variant);
-  border: 1.5px solid rgb(222, 222, 236);
+  border: 1.5px solid var(--border-color);
   border-radius: 10px;
   padding: 20px;
   transition: border-color 0.2s;
@@ -1776,7 +1794,7 @@ button:not(.dropdown-btn):hover{
 }
 .topicCard{
   background-color: var(--background-variant);
-  border: 1.5px solid rgb(222, 222, 236);
+  border: 1.5px solid var(--border-color);
   border-radius: 10px;
   padding: 15px;
   transition: transform 0.2s;
@@ -1987,7 +2005,7 @@ li{
   left: 0;
   width: 100%;           /* full width */
   height: 100%;          /* full height */
-  background: linear-gradient(to top, rgba(255, 255, 255,0.9) 0%, transparent 75%);
+  background: linear-gradient(to top, var(--background-color) 0%, transparent 75%);
   z-index: 9;
 }
 #sidebar:not(.close) .iconsvg{
@@ -2015,6 +2033,7 @@ li{
   border: none;
   padding: none;
   background-color: transparent;
+  height: 100px !important;
 }
 .topBtn:hover{
   border: none !important;
@@ -2143,8 +2162,8 @@ th {
   align-items: center;
   gap: 10px;
   padding-top:-100px;
-  background-color: #ebf3ff;
-  border: 0.25px solid #a5c9ff;
+  background-color: var(--highlight-color);
+  border: 0.25px solid var(--primary-color);
   color: var(--primary-color);
   padding: 7px 10px;
   justify-content: center;
@@ -2243,7 +2262,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 .leaderboardCard{
-  border-color: rgb(222, 222, 236);
+  border-color: var(--border-color);
 }
 .leaderboardTitle{
   display: inline;
@@ -2287,6 +2306,9 @@ font-size: 20px !important
   }
   #joindiscord{
     display: none !important;
+  }
+  #joindiscord:hover {
+    color: white !important
   }
   .problem {
   background-color: var(--background-variant);
@@ -2788,14 +2810,15 @@ label{
 }
 .topicBtn:hover{
   background-color: var(--primary-color) !important;
-  color: var(--background-color) !important; 
+  color: white !important; 
   border: 1.5px solid var(--primary-color) !important;
 }
 .topicEnabled{
   background-color: var(--primary-color) !important;
-  color: var(--background-color) !important; 
+  color: white !important; 
   border: 1.5px solid var(--primary-color) !important;
 }
+
 .btnsWrapper{
   width: 100%;
   white-space: nowrap;
@@ -3025,7 +3048,7 @@ main {
   margin-top: 15px !important
 }
 .error-tag:hover{
-  background-color: #fff0eb !important;
+  background-color: var(--highlight-color-orange) !important;
   text-align: center !important;
   color: var(--accent-color) !important;
   border: 2px solid var(--accent-color) !important;
@@ -3055,7 +3078,7 @@ main {
     color: var(--primary-color)
 }
 .node.prime {
-    background: #fff0eb;
+    background: var(--highlight-color-orange);
     color: var(--accent-color);
     border-color: var(--accent-color);
 }
@@ -3082,7 +3105,7 @@ main {
   flex: 0 0 auto; /* IMPORTANT */
 }
 
-.indexCarousel img {
+.indexCarousel img{
   height: 100px;
   width: auto;
   object-fit: contain;
@@ -3156,8 +3179,62 @@ main {
 }
 .hover:hover{
   background-color: var(--primary-color);
-  color: var(--background-color)
+  color: white !important
+
 }
 .sample{
   color: var(--text-color) !important
+}
+/* Apply this to the immediate children inside your moving track */
+.carousel-track > div, 
+.carousel-track img {
+  flex-shrink: 0; /* Prevents the browser from squishing the logos */
+}
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap; /* Forces all logos onto one single horizontal line */
+  width: max-content; /* Allows the track to expand as wide as the images need */
+}
+.carousel-track img {
+  height: 40px; /* Or whatever height matches your design */
+  width: auto;  /* Maintains aspect ratio safely */
+  object-fit: contain;
+}
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+}
+#startpracticetop:hover{
+  color: white !important
+}
+#application-start:hover{
+  color: white !important
+}
+/* By default (Light Mode), show light logos and hide dark ones */
+.carousel-logo-dark {
+    display: none;
+}
+.carousel-logo-light {
+    display: inline-block;
+}
+
+/* When the <html> tag has the .dark class, swap them! */
+html.dark .carousel-logo-light {
+    display: none;
+}
+html.dark .carousel-logo-dark {
+    display: inline-block;
+}
+html.light .carousel-logo-light {
+    display: inline-block;
+}
+html.light .carousel-logo-dark {
+    display: none;
+}
+.mc-choice{
+  color: white !important
+}
+.mc-choice.selected {
+  background-color: var(--accent-color) !important;
+  color: white !important;
 }

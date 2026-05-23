@@ -9015,3 +9015,70 @@ document.getElementById("next-btn").addEventListener("click", function() {
         
 })
 loadQuestion()
+const toggleBrightness = document.getElementById("brightness")
+const carouselLight = document.querySelectorAll("carousel-logo-light")
+const carouselDark = document.querySelectorAll("carousel-logo-dark")
+let colorMode = 'light'
+let colorModeTrue = localStorage.getItem("colorMode")
+console.log(colorModeTrue)
+if  (colorModeTrue !== false){
+        console.log("setting color mode")
+       colorMode =  colorModeTrue
+       console.log(colorModeTrue)
+ if (colorMode === 'dark'){
+                colorMode = 'dark';
+                document.documentElement.style.colorScheme = 'dark'; 
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                toggleBrightness.textContent = "sunny"
+                localStorage.setItem("colorMode", "dark")
+        } else {
+                colorMode = 'light';
+                document.documentElement.style.colorScheme = 'light';
+                document.documentElement.classList.add('light');
+                document.documentElement.classList.remove('dark');
+                toggleBrightness.textContent = "bedtime"
+                localStorage.setItem("colorMode", "light")
+        }
+} else {
+function toggleSystemTheme() {
+  const root = document.documentElement;
+  
+  // 1. Check what the system preference is, or if it's already set
+  if (!root.style.colorScheme) {
+    // If it's not set yet, match the user's system preferences
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.style.colorScheme = prefersDark ? 'dark' : 'light';
+  }
+  
+  colorMode = root.style.colorScheme;
+
+  // 2. Add the correct matching class right away so the logos render correctly!
+  if (colorMode === 'dark') {
+      root.classList.add('dark');
+      root.classList.remove('light');
+  } else {
+      root.classList.add('light');
+      root.classList.remove('dark');
+  }
+}
+toggleSystemTheme();
+}
+toggleBrightness.addEventListener("click", function(){
+        if (colorMode === 'dark'){
+                colorMode = 'light';
+                document.documentElement.style.colorScheme = 'light'; 
+                document.documentElement.classList.add('light');
+                document.documentElement.classList.remove('dark');
+                toggleBrightness.textContent = "bedtime"
+                localStorage.setItem("colorMode", colorMode)
+        } else {
+                colorMode = 'dark';
+                document.documentElement.style.colorScheme = 'dark';
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                toggleBrightness.textContent = "sunny"
+                localStorage.setItem("colorMode", colorMode)
+        }
+        console.log(localStorage.getItem("colorMode"));
+});
