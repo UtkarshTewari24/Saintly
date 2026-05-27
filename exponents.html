@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Saintly | Exponents</title>
+  <link rel="stylesheet" href="style.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">   
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap&icon_names=ads_click,bedtime,book,check,close_small,exclamation,handshake,lab_profile,leaderboard,local_fire_department,playlist_add_check,select_check_box,send,star,sunny,volunteer_activism,warning" />
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=close" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&display=swap&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<script>
+window.addEventListener("load", function () {
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  setTimeout(() => {
+    loader.style.display = "none";
+    document.body.style.overflow = ""; // restore scrolling
+  }, 300); // slightly shorter
+});
+</script>
+ 
+<meta name="keywords" content="arithmetic, what is arithmetic, AMC 10 practice, AMC 10 prep, AMC 12 prep, AMC 12 practice, competition math problems, free math olympiad prep, free amc10 prep with adaptive practice, AMC solutions, high school math competitions">
+    <meta property="og:title" content="Saintly | Exponents" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://saintlymath.com" />
+<meta property="og:image" content="https://adalynn-le.github.io/Saintly/opengraph6.png" />
+<meta name="twitter:card" content="summary_large_image">
+    <meta property="og:description" content="a free program built to make Olympiads, competitions, and learning accessible to all students. Free, high-quality content in the form of 
+    real AMC 10/12 practice problems and comprehensive solutions written by students, for students. Try it out to feel a kind of learning so good it feels saintly" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+
+</head>
+<body>
+   <div id="loader" style="
+  position: fixed; inset: 0;
+  background: rgb(255, 255, 255);
+  display: flex; align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.4s ease;
+">
+  <p style="font-family: 'Instrument Serif', serif;
+     font-size: 48px; color: #77a4ff; font-style: italic;">
+    Saintly
+  </p>
+</div>
+<div id="sidebarPlaceholder"></div>
+<script src="sidebar.js"></script>
+<nav id = "top-bar">
+  <a class="aContainer" href="index.html">Home</a>
+  <p class="aContainer">•</p>
+  <a class="aContainer" href = "topics dash.html">Topics Dashboard</a>
+  <p class="aContainer">•</p>
+  <a class="aContainer" href = "algebraic manipulation.html">Exponents</a>
+  <div class="center-align">
+  <button class='topBtn' onclick="window.location.href='index.html'">
+  <img class="fullLogo" src="fullLogo.png">
+  </button>
+  </div>
+  <div class="right-align">
+    <a href="https://discord.gg/SuAvtn7595" style="justify-self: flex-end;" class="start-practice hover" id="joindiscord">Join Our Discord!</a>
+  <span class="material-symbols-outlined airplane helpButton" id="helpButton">
+
+send
+</span>
+<span onclick="window.location.href='volunteer.html'"class="material-symbols-outlined volunteerButton" >
+volunteer_activism
+</span>
+<span class="material-symbols-outlined volunteerButton brightness" id="brightness">
+sunny
+</span>
+    </div>
+</nav>
+<main> 
+    <div class="minicontainer">
+
+  <h1 class="amc10title">Exponents</h1>
+  <p class="amc10subtitle"></p>
+  <h2 class="amc10subtitle">3 Problems • 3 sub-topics</h2>
+  <h2 class="par" style="display: inline; vertical-align: middle !important;">Adalynn Le • 5/26/2026</h2>
+<!-- Table of Contents  -->
+  <div id="tableOfContents">
+  <h3 class="amc10subtitle ittybitty" style="color: var(--primary-color)">Table of Contents</h3>
+  <ol><a href="#intro">Introduction</a></ol>
+  <ol><a href="#operations">Operations</a></ol>
+    <ol><a href="#geometric">Geometric Series</a></ol>
+        <ol><a href="#graphing">Graphing</a></ol>
+<ol><a href="#conclusion">Conclusion</a></ol>
+  </div>
+  <h2 class="amc10subtitle" id="introduction">Introduction</h2>
+  <p class="par">An exponent is an operation that represents repeated multiplication of a constant value. In PEMDAS, it comes right after Parantheseis. Exponents, because of their intrinsic simplicty and wide range of applications, are 
+    very likely to come up <i>at least</i> once on the AMC 10. They really are a building block of advanced math and are an important fundamental to know.
+  </p>
+<span style="display: flex; flex-direction: row">
+        <span style="display: inline-block; flex: 1" class="howworkcard">
+    <span class="material-symbols-outlined">select_check_box
+
+    <span class="howworkcardtitle">What is it?</span>
+
+</span>
+    <hr class="hrcard">
+    <div class= "howworkcardtext">Exponents, written as the superscript \(k\) in \(x^k\), represent repeated multiplication by \(x\), \(k\) times. It can be said that \(x\) is raised to the power of \(k\). 
+    </div>
+</span>
+
+  <span class="howworkcard" style="display: inline-block; flex: 1">
+    <div class="howworkcardicon">
+    <span class="material-symbols-outlined">select_check_box</span>
+    <span class="howworkcardtitle">Why Study?</span>
+    </div>
+    <hr class="hrcard">
+    <div class= "howworkcardtext">When it comes down to it, exponents really are just a baseline operation. They are used in equations, functions, models, etc. If anything, they are not the whole structure but a simple, essential building block in mathematics.
+    </div>
+  </span>
+    </span>
+</div>
+<h2 id="operations" class="amc10subtitle">Operations</h2>
+<p class="par">In order to simply familiarize yourself with exponents, you need to understand <mark class="blue">what they are, and how they interact.</mark></p>
+<p class="par">Starting with what exponents are, <mark class="blue">they are effectively a shorthand for repeated multiplication of the same value.</mark> To say \(2^5\) is the same as to say \(2 \times 2 \times 2 \times 2 \times 2\). The key difference between 
+exponents and multiplication, however, is that <mark class="blue">exponents come first</mark> (the E is before the M in PEMDAS). At first, this does seem pretty odd. After all, exponents are really just multiplication, right? Yes, but notation really does matter. Technically
+multiplication is repeated addition, so why does multiplication undoubtedly come first? Mathematical convention, although not explictly proven, <mark class="blue">is important to understand and conform to in order to be successful in competition math.</mark></p>
+<p class="par">Once you have a strong grasp of what an exponent does, we need to truly explore its behavior. There are no identities for adding powers. This makes sense, because how would you simplify \(2^5+2^3=2 \times 2 \times 2 \times 2 \times 2 + 2 \times 2 \times 2\), realisticall, for all powers? You can't, because
+    you can't combine addition and multiplication. Next is multiplication and divsion. Say we have \(2^5 \times 2^3\). If we were to expand this, we would have \((2 \times 2 \times 2 \times 2 \times 2) \times (2 \times 2 \times 2)=2^8\). <mark class="blue">For all values of \(k\) and \(j\), \(x^k \times x^j=x^{k+j}\). </mark>The opposite is true for division, where
+    we subtract. Notice that <mark class="blue">this only works for a constant base \(x\)</mark>. What if we had the same exponent, but not the same base? Let's say we have \(5^2 \times 3^2\). This is \(5 \times 5 \times 3 \times 3 = 15 \times 15\). Thus, you can multiply the bases together. This is where
+    it gets a bit complicated, because <mark class="blue">you can do something close to factoring for powers.</mark> You take the smallest power that fits into all and multiply all of the bases that's powers are raised to that number or higher and multiply them and raise it to that power, and then add in (or multiply in, is more accurate) what is left. This 
+    can help you do algebraic manipulation in some cases, but it's honestly ok to just leave it as is as well. Finally, we have powers. Let's say we have \(2^{5^3}\), I'm not goint to write this out because it would be a lot, but effectively, if you were to write this out, you would have \(3\) sets of \(2^5\), which gives \(15\) \(2\)s, for \(2^{15}\). When you raise
+    exponents to exponents, <mark class="blue">you multiply the exponents.</mark>
+</p>
+<div style="display: flex; flex-direction: row">
+  <span style="display: inline-block; flex: 1" class="howworkcard">
+    <h3 class="amc10subtitle ittyBitty">Multiplication</h3>
+    <p class="par">\(x^k \times x^j=x^{k+j}\)</p>
+    <p class="par">\(\frac{x^k}{x^j}=x^{k-j}\)</p>
+    <p class="par">\(k^x \times j^x=(kj)^x\)</p>
+  </span>
+  <span style="display: inline-block; flex: 1" class="howworkcard">
+    <h3 class="amc10subtitle ittyBitty">Powers</h3>
+    <p class="par">\((x^k)^j=x^{kj}\)</p>
+  </span>
+  <span style="display: inline-block; flex: 1" class="howworkcard">
+    <h3 class="amc10subtitle ittyBityt">Fractions</h3>
+    <p class="par">\(x^{\frac{1}{2}}=\sqrt{x}\)</p>
+  </span>
+  <span style="display: inline-block; flex: 1" class="howworkcard">
+    <h3 class="amc10subtitle ittyBitty">Negative Exponents</h3>
+    <p class="par">\(x^{-n}=\frac{1}{x^n}\)</p>
+  </span>
+</div>
+<p class="par">In addition to these operations, there are properties of exponents that you need to know. For example, for any value \(x\), \(x^0=1\). You can check this by using the rule for division in exponents: \(\frac{x^k}{x^j}=x^{k-j}\). Setting \(k=j\), we get \(\frac{x^k}{x^k}=1=x^0\). Furthermore, <mark class="blue">exponents are invertible, but not entirely.</mark> The roots, or 
+exponents to fractional powers (e.g. \(x^{\frac{1}{2}}=\sqrt{x}\)) in theory would  reverse the operation. you can again test this by multiplying and using exponent rules. However, the caveat is that <mark class="blue">numbers raised to even powers will always return positive values, even if the input or base is negative.</mark> Thus, where \(2^2=(-2)^2\), the \(\sqrt{4}\) is denoted as \(2\), not \(-2\).
+One final property to consider is negative exponents. For any integer \(n\), \(x^{-n}=\frac{1}{x^n}\).</p>
+<h2 class="amc10subtitle" id="geometric">
+    Geometric Sequences
+</h2>
+<p class="par">A common application of exponents are geometric sequences, which<mark class="blue">which model an exponential relationship with a common ratio.</mark> The value \(a_{n}\) of a geometric sequence can be modeled as \(a_{n}=a \times r^n\). Just as the arithmetic sequence is graphed as a linear relationship, 
+    <mark class="blue">a geometric sequence can be measured with a exponential function.</mark> A common variant on geometric sequences-unlikely to come up on the AMC 10 but good to know-is compound interest, the growth of money invested by interest. This can be modeled as \(a(1 +\frac{r}{n})^{nt}\)</p>
+    <h3 class="amc10subtitle ittyBitty">Sum</h3>
+    <p class="par">The sum of a geometric series depends on whether it is said to be "convergent" or "divergent". Convergent series have \(|r| \leq 1\), meaning that oer time, they will begin to get closer and closer to \(0\). The sum for this would be \(\frac{a_{1}}{1-r}\). As you can see, there is no value for \(n\), because it should not be dependent on \(n\) because it is innfinite. A divergent, or finite series, is bounded 
+        by \(n\) and has \(|r| \geq 1\). The sum for this is \(a_{1}(\frac{1-r^n}{1-r})\)</p>
+        <h2 class="amc10subtitle" id="graphing">Graphing Exponential Functions</h2>
+        <p class="par">The graph of a polynomial \(x^n\) has a rapidly increasing slope where the slope increases at a rate of change of \(n\) (calculus knowledge, not really important for the AMC 10). The similar looking 
+          yet extremely different \(2^x\) increases much more rapidly with. One key difference is that \(x^n\) will always pass through the point \((1,1)\) unless there is a phase shift, whereas \(2^x\) will pass through \((0,1)\). In general, the graph of \(a^x\) will pass through \((0,1)\) and increase more rapidly as \(a\) increases. The graph of \(x^n\) will pass through \((1,1)\) and increase more rapidly as \(n\) increases. Both graphs will be increasing for positive values of \(x\), but the exponential function will grow much faster than the polynomial function as \(x\) increases.
+        </p>
+        <div id='exponentialGraph' style="width: 150%; height: 300px"></div>
+<h2 id="conclusion" class="amc10subtitle">Conclusion</h2>
+<p class="par">Exponents are a basic function that make up sequences and graphs. They have operations of their own and behave differently than any other function. They are a fundamental building block of mathematics and are important to understand for the AMC 10.
+</p>
+
+</div></p><div class="problem problemWrapper">
+<h3 id="question-title" class="amc10title small">Question 1:</h3>
+    <p id="question-text">Loading question...</p>
+    <input type="text" id="answer-input" placeholder="Your answer">
+<div id="mc-container" class="hidden">
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+</div>
+
+    <button id="check-btn" class="problemBtn">Check Answer</button>
+
+    <div class="solution" id="solution" style="display:none;">
+      <h2>Solution</h2>
+      <p id="solution-text"></p>
+      <button id="next-btn" class="problemBtn" style="display:none;">Next Question</button>
+      </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+
+    </main>
+<footer class="saintly-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <img class="footer-logo" src="fullLogo.png" height="35px"></img>
+            <p>Making competition math accessible for everyone.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="am10.html">AMC 10</a></li>
+                <li><a href="amc10adaptivepractice.html">Adaptive Practice</a></li>
+                <li><a href="amc10algebra.html">Algebra</a></li>
+                <li><a href="algebra.html">Topics Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>saintly.math@gmail.com</p>
+            <div class="social-icons">
+      <a>saintly.math@gmail.com</a>
+              <span style="display: flex; flex-direction: row">
+<a href="https://instagram.com/saintly.math" class="fa fa-instagram" style="display: inline-block"><p style='font-family: "National Park", sans-serif; display: inline-block; margin-left: 10px'>@saintly.math</p></a>
+</span>
+                            <span style="display: flex; flex-direction: row">
+<a href="https://pinterest.com/saintlymath" class="fa fa-pinterest" style="display: inline-block"><p style='font-family: "National Park", sans-serif; display: inline-block; margin-left: 10px'>Saintly</p></a>
+
+</span>
+                </div>
+        </div>
+        <div class="footer-section">
+          <h4>Privacy</h4>
+          <ul><li><a href="javascript:void(0)" onclick="myFunction()">Privacy Policy</a></li>
+            <li><a href="javascript:void(0)" onclick="myFunctionTwo()">Terms and Conditions</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Saintly Math. Built with drive.
+    </div>
+</footer>
+</body>
+<script src="exponentsjs.js"></script>
+</html>
