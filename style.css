@@ -1238,7 +1238,7 @@ input, textarea{
     width: 75%;        /* was 50%, which cut off the heading */
     margin-right: auto;
     text-align: center; /* ensures block-level centering */
-    margin-bottom: -140px;
+    margin-bottom: -0px;
     overflow: visible;
 }
 
@@ -3269,4 +3269,93 @@ html.light .carousel-logo-dark {
     gap: 20px;
     width: 100%;
     box-sizing: border-box;
+}
+.action-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.number-box.crossed {
+  background-color: var(--highlight-color-orange);
+  border-color: var(--accent-color);
+  text-decoration: line-through;
+  color: var(--accent-color);
+}
+
+.number-box.current {
+  background-color: var(--highlight-color-orange);
+  border-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.number-box.current .sub-label {
+  color: var(--accent-color);
+}
+
+.number-box.median-active {
+  background-color: var(--highlight-color);
+  border-color: var(--primary-color);
+  transform: scale(1.1);
+  font-weight: 700;
+}
+
+.number-box.median-active .sub-label {
+  color: var(--primary-color);
+}
+.custom-input-area.hidden {
+  display: none;
+}
+
+.custom-input-area input {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  flex-grow: 1;
+  font-size: 14px;
+}
+.display-board {
+  border-radius: 8px;
+  padding: 24px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.board-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 16px;
+}
+
+.number-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.number-box {
+  width: 54px;
+  height: 54px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.sub-label {
+  position: absolute;
+  bottom: -22px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
 }

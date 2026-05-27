@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Saintly | Medians</title>
+  <link rel="stylesheet" href="style.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">   
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap&icon_names=ads_click,bedtime,book,check,close_small,exclamation,handshake,lab_profile,leaderboard,local_fire_department,playlist_add_check,select_check_box,send,star,sunny,volunteer_activism,warning" />
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=close" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&display=swap&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<script>
+window.addEventListener("load", function () {
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  setTimeout(() => {
+    loader.style.display = "none";
+    document.body.style.overflow = ""; // restore scrolling
+  }, 300); // slightly shorter
+});
+</script>
+ 
+<meta name="keywords" content="arithmetic, what is arithmetic, AMC 10 practice, AMC 10 prep, AMC 12 prep, AMC 12 practice, competition math problems, free math olympiad prep, free amc10 prep with adaptive practice, AMC solutions, high school math competitions">
+    <meta property="og:title" content="Saintly | Medians" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://saintlymath.com" />
+<meta property="og:image" content="https://adalynn-le.github.io/Saintly/opengraph6.png" />
+<meta name="twitter:card" content="summary_large_image">
+    <meta property="og:description" content="a free program built to make Olympiads, competitions, and learning accessible to all students. Free, high-quality content in the form of 
+    real AMC 10/12 practice problems and comprehensive solutions written by students, for students. Try it out to feel a kind of learning so good it feels saintly" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+
+</head>
+<body>
+   <div id="loader" style="
+  position: fixed; inset: 0;
+  background: rgb(255, 255, 255);
+  display: flex; align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.4s ease;
+">
+  <p style="font-family: 'Instrument Serif', serif;
+     font-size: 48px; color: #77a4ff; font-style: italic;">
+    Saintly
+  </p>
+</div>
+<div id="sidebarPlaceholder"></div>
+<script src="sidebar.js"></script>
+<nav id = "top-bar">
+  <a class="aContainer" href="index.html">Home</a>
+  <p class="aContainer">•</p>
+  <a class="aContainer" href = "topics dash.html">Topics Dashboard</a>
+  <p class="aContainer">•</p>
+  <a class="aContainer" href = "medians.html">Medians</a>
+  <div class="center-align">
+  <button class='topBtn' onclick="window.location.href='index.html'">
+  <img class="fullLogo" src="fullLogo.png">
+  </button>
+  </div>
+  <div class="right-align">
+    <a href="https://discord.gg/SuAvtn7595" style="justify-self: flex-end;" class="start-practice hover" id="joindiscord">Join Our Discord!</a>
+  <span class="material-symbols-outlined airplane helpButton" id="helpButton">
+
+send
+</span>
+<span onclick="window.location.href='volunteer.html'"class="material-symbols-outlined volunteerButton" >
+volunteer_activism
+</span>
+<span class="material-symbols-outlined volunteerButton brightness" id="brightness">
+sunny
+</span>
+    </div>
+</nav>
+<main> 
+    <div class="minicontainer">
+
+  <h1 class="amc10title">Medians</h1>
+  <p class="amc10subtitle"></p>
+  <h2 class="amc10subtitle">2 Problems • 2 sub-topics</h2>
+  <h2 class="par" style="display: inline; vertical-align: middle !important;">Adalynn Le • 5/27/2026</h2>
+<!-- Table of Contents  -->
+  <div id="tableOfContents">
+  <h3 class="amc10subtitle ittybitty" style="color: var(--primary-color)">Table of Contents</h3>
+  <ol><a href="#intro">Introduction</a></ol>
+  <ol><a href="#finding">Finding the Median</a></ol>
+  <ol><a href="#properties">Properties of Medians</a></ol>
+<ol><a href="#conclusion">Conclusion</a></ol>
+  </div>
+  <h2 class="amc10subtitle" id="introduction">Introduction</h2>
+  <p class="par">The median can be <mark class="blue">statistical or geometric</mark>, but regardless of in what field they are applied <mark class="blue">medians represent the mathematical middle.</mark>
+</p>
+<span style="display: flex; flex-direction: row">
+        <span style="display: inline-block; flex: 1" class="howworkcard">
+    <span class="material-symbols-outlined">select_check_box
+
+    <span class="howworkcardtitle">What is it?</span>
+
+</span>
+    <hr class="hrcard">
+    <div class= "howworkcardtext">The statistical median of a set is <mark class="blue">the value at the exact middle index of a set sorted in ascending order.</mark> It is less dependent on the values 
+        of external numbers, and indicates <mark class="blue">the true middle of a dataset</mark>
+    </div>
+</span>
+
+  <span class="howworkcard" style="display: inline-block; flex: 1">
+    <div class="howworkcardicon">
+    <span class="material-symbols-outlined">select_check_box</span>
+    <span class="howworkcardtitle">Why Study?</span>
+    </div>
+    <hr class="hrcard">
+    <div class= "howworkcardtext">Because the median is almost entirely independent of any other values and thus does not include our get weighed down by outliers, <mark class="blue">it is considerd the <i>true</i> middle of a dataset.</mark>
+    </div>
+  </span>
+    </span>
+</div>
+<h2 class="amc10subtitle" id="finding">Finding the Median</h2>
+<p class="par">The process of finding the median effectively consists of <mark class="blue">organizing the set in ascending order and "crossing off" values from both ends until you reach the center.</mark> If you are left with two values at the center (a set with 
+an even number of elements), the median is <mark class="blue">the arithmetic mean of the two numbers.</mark></p>
+<div class="howworkcard">
+  <h3 class="amc10subtitle ittyBitty">Visualizing the Median</h3>
+
+  <div class="control-row">
+    <button id="btn-odd" class="problemBtn">Odd Count (7 items)</button>
+    <button id="btn-even" class="problemBtn">Even Count (6 items)</button>
+    <button id="btn-custom" class="problemBtn">Custom</button>
+  </div>
+
+  <div id="custom-input-area" class="custom-input-area hidden">
+    <input type="text" id="custom-input" value="4, 11, 2, 9, 7, 15, 6" placeholder="Comma separated numbers" />
+    <button id="btn-apply" class="startPractice start-practice">Apply</button>
+  </div>
+
+  <div class="display-board">
+    <div id="board-label" class="board-label">Current Raw Dataset (Unsorted):</div>
+    <div id="number-row" class="number-row"></div>
+  </div>
+
+  <div class="action-row">
+    <button id="btn-next" class="start-practice -btn">Sort Dataset</button>
+    <button id="btn-reset" class="start-practice -btn">Reset Animation</button>
+  </div>
+</div>
+<h2 id="#properties" class="amc10subtitle">Properties of Medians</h2>
+<p class="par">Median's are generally considered <mark class="blue">the most accurate measure of center</mark> because <mark class="blue">the numerical value of outliers will have no impact on it.</mark> I cannot emphasize enough that <mark class="blue">it is the true center of a dataset.</mark> I also
+mentioned this concept of a <mark class="blue">geometric median.</mark> This is a line that is drawn from a vertex to the midpoint of the opposite side. In reality, this isn't so different from a median by itself <mark class="blue">because it remains at the middle of the side it intersects</mark>. Medians
+are also used to find quartiles for box plots, which measure the distribution of a dataset.</p>
+<h2 id="conclusion" class="amc10subtitle">Conclusion</h2>
+<p class="par">The median is the center of a dataset. It is accurate because it does not account for outliers. Medians are essential for understanding the distribution of a dataset.
+</p>
+</div></p><div class="problem problemWrapper">
+<h3 id="question-title" class="amc10title small">Question 1:</h3>
+    <p id="question-text">Loading question...</p>
+    <input type="text" id="answer-input" placeholder="Your answer">
+<div id="mc-container" class="hidden">
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+</div>
+
+    <button id="check-btn" class="problemBtn">Check Answer</button>
+
+    <div class="solution" id="solution" style="display:none;">
+      <h2>Solution</h2>
+      <p id="solution-text"></p>
+      <button id="next-btn" class="problemBtn" style="display:none;">Next Question</button>
+      </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+
+    </main>
+<footer class="saintly-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <img class="footer-logo" src="fullLogo.png" height="35px"></img>
+            <p>Making competition math accessible for everyone.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="am10.html">AMC 10</a></li>
+                <li><a href="amc10adaptivepractice.html">Adaptive Practice</a></li>
+                <li><a href="amc10algebra.html">Algebra</a></li>
+                <li><a href="algebra.html">Topics Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>saintly.math@gmail.com</p>
+            <div class="social-icons">
+      <a>saintly.math@gmail.com</a>
+              <span style="display: flex; flex-direction: row">
+<a href="https://instagram.com/saintly.math" class="fa fa-instagram" style="display: inline-block"><p style='font-family: "National Park", sans-serif; display: inline-block; margin-left: 10px'>@saintly.math</p></a>
+</span>
+                            <span style="display: flex; flex-direction: row">
+<a href="https://pinterest.com/saintlymath" class="fa fa-pinterest" style="display: inline-block"><p style='font-family: "National Park", sans-serif; display: inline-block; margin-left: 10px'>Saintly</p></a>
+
+</span>
+                </div>
+        </div>
+        <div class="footer-section">
+          <h4>Privacy</h4>
+          <ul><li><a href="javascript:void(0)" onclick="myFunction()">Privacy Policy</a></li>
+            <li><a href="javascript:void(0)" onclick="myFunctionTwo()">Terms and Conditions</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Saintly Math. Built with drive.
+    </div>
+</footer>
+</body>
+<script src="mediansjs.js"></script>
+</html>re a building block of advanced math and are an important fundamental to know.
+  </p>
+<span style="display: flex; flex-direction: row">
+        <span style="display: inline-block; flex: 1" class="howworkcard">
+    <span class="material-symbols-outlined">select_check_box
+
+    <span class="howworkcardtitle">What is it?</span>
+
+</span>
+    <hr class="hrcard">
+    <div class= "howworkcardtext">Medians, written as the superscript \(k\) in \(x^k\), represent repeated multiplication by \(x\), \(k\) times. It can be said that \(x\) is raised to the power of \(k\). 
+    </div>
+</span>
+
+  <span class="howworkcard" style="display: inline-block; flex: 1">
+    <div class="howworkcardicon">
+    <span class="material-symbols-outlined">select_check_box</span>
+    <span class="howworkcardtitle">Why Study?</span>
+    </div>
+    <hr class="hrcard">
+    <div class= "howworkcardtext">When it comes down to it, medians really are just a baseline operation. They are used in equations, functions, models, etc. If anything, they are not the whole structure but a simple, essential building block in mathematics.
+    </div>
+  </span>
+    </span>
+</div>
