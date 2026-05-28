@@ -1238,7 +1238,7 @@ input, textarea{
     width: 75%;        /* was 50%, which cut off the heading */
     margin-right: auto;
     text-align: center; /* ensures block-level centering */
-    margin-bottom: -0px;
+    margin-bottom: -150px;
     overflow: visible;
 }
 
@@ -3358,4 +3358,158 @@ html.light .carousel-logo-dark {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
+}
+.similarity-container {
+  font-family: system-ui, sans-serif;
+  padding: 24px;
+  background-color: var(--background-variant);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  max-width: 750px;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+.similarity-title {
+  margin: 0 0 8px 0;
+  color: var(--text-color);
+}
+
+.similarity-instructions {
+  font-size: 14px;
+  color: var(--text-color);
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+.slider-wrapper {
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slider-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.slider-wrapper input[type="range"] {
+  width: 100%;
+  cursor: pointer;
+}
+
+.canvas-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.canvas-card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--background-variant);
+  overflow: hidden;
+  flex: 1;
+  min-width: 240px;
+}
+
+.card-header {
+  background-color: var(--background-variant);
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.geo-svg {
+  display: block;
+  margin: 0 auto;
+  background-color: var(--background-color);
+}
+
+/* SVG Vector Styles */
+.poly-static {
+  fill: var(--highlight-color);
+  stroke: var(--primary-color);
+  stroke-width: 2;
+}
+
+.poly-dynamic {
+  fill: var(--highlight-color-orange);
+  stroke: var(--accent-color);
+  stroke-width: 2;
+  transition: points 0.1s ease-out;
+}
+
+.svg-lbl {
+  font-size: 14px;
+  font-weight: bold;
+  fill: var(--primary-color);
+}
+.svg-lbl-dyn {
+  font-size: 14px;
+  font-weight: bold;
+  fill: var(--accent-color);
+}
+
+.val-lbl {
+  font-size: 12px;
+  fill: var(--text-color);
+  font-weight: 500;
+}
+
+.val-lbl-dyn {
+  font-size: 12px;
+  fill: var(--text-color);
+  font-weight: 600;
+}
+
+/* Proportionality Readout Block */
+.ratios-box {
+
+  border-radius: 8px;
+  padding: 16px;
+  color: var(--text-color);
+}
+
+.ratio-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.ratio-equations {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ratio-item {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.frac {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 600;
+}
+
+.math-run {
+  font-family: "National Park", sans-serif;
+  color: var(--text-color);
+  padding: 2px 6px;
+  border-radius: 4px;
 }
