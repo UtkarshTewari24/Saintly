@@ -2770,3 +2770,4 @@ if (myRadarChart) {
 updatePieChart()
 updateRadarChart()
 updateBarGraph()
+loadQuestion()
