@@ -8649,7 +8649,7 @@ async function loadUserStats(userId) {
 
   if (profile) {
     let userProfile = profile[0]
-    totalAttempts = userProfile.algebraIndex + userProfile.geometryIndex + userProfile.numTheoryIndex + userProfile.probabilityIndex + userProfile.algebraTotal + userProfile.geometryTotal + userProfile.numTotal + userProfile.probTotal + userProfile.algebraTotalSolvefire + userProfile.geometryTotalSolvefire + userProfile.numTotalSolvefire + userProfile.probTotalSolvefire + userProfile.algebraTotalYimo + userProfile.geometryTotalYimo + userProfile.numTotalYimo + userProfile.probTotalYimo || 0
+    totalAttempts = userProfile.algebraTotal + userProfile.geometryTotal + userProfile.numTotal + userProfile.probTotal + userProfile.algebraTotalSolvefire + userProfile.geometryTotalSolvefire + userProfile.numTotalSolvefire + userProfile.probTotalSolvefire + userProfile.algebraTotalYimo + userProfile.geometryTotalYimo + userProfile.numTotalYimo + userProfile.probTotalYimo || 0
     totalWrong = userProfile.algebraWrong + userProfile.geometryWrong + userProfile.numWrong + userProfile.probWrong + userProfile.algebraWrongSolvefire + userProfile.geometryWrongSolvefire + userProfile.numWrongSolvefire + userProfile.probWrongSolvefire + userProfile.algebraWrongYimo + userProfile.geometryWrongYimo + userProfile.numWrongYimo + userProfile.probWrongYimo || 0
     averageAccuracy = totalAttempts > 0 ? Math.round(((totalAttempts - totalWrong) / totalAttempts) * 100) : 0
     usernameStr = userProfile.username
@@ -8784,6 +8784,7 @@ supabase.auth.onAuthStateChange(async (event, session) => {
     if (usernameDisplayModal) usernameDisplayModal.style.display = "block" 
   const { data: profile, error } = await supabase
 loadUserStats(session.user.id)
+loadUserPercentileBadges(session.user.id)
 
 
   } else  {
@@ -9095,3 +9096,64 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
+// 1. Fetch data for the global top-10 leaderboard display board
+async function loadGlobalLeaderboard() {
+    const { data: topUsers, error } = await supabase
+        .from('profiles')
+        .select('id, elo, algebraTotal, geometryTotal, numTotal, probTotal,username')
+        .order('elo', { ascending: false }) // Sort highest Elo down
+        .limit(10); // Grab top 10 performers
+
+    if (error) {
+        console.error("Leaderboard load crash:", error.message);
+        return;
+    }
+document.getElementById("leaderboardTitleOne").innerHTML = topUsers[0].username
+document.getElementById("percentOne").innerHTML = topUsers[0].elo
+document.getElementById("leaderboardTitleTwo").innerHTML = topUsers[1].username
+document.getElementById("percentTwo").innerHTML = topUsers[1].elo
+document.getElementById("leaderboardTitleThree").innerHTML = topUsers[2].username
+document.getElementById("percentThree").innerHTML = topUsers[2].elo
+document.getElementById("leaderboardTitleFour").innerHTML = topUsers[3].username
+document.getElementById("percentFour").innerHTML = topUsers[3].elo
+document.getElementById("leaderboardTitleFive").innerHTML = topUsers[5].username
+document.getElementById("percentFive").innerHTML = topUsers[5].elo
+}
+
+// 2. Fetch the current logged-in user's exact percentile statistics
+async function loadUserPercentileBadges(userId) {
+    const { data, error } = await supabase
+        .rpc('get_user_percentiles', { target_user_id: userId });
+
+    if (error || !data || data.length === 0) {
+        console.error("Failed calculating telemetry percentiles:", error);
+        return;
+    }
+
+    const stats = data[0];
+    
+    // Inject custom percentile badges directly into your analytics dashboard markup
+    const eloBadge = document.getElementById("elo-percentile-text");
+    const problemBadge = document.getElementById("problem-percentile-text");
+    const streakBadge = document.getElementById("streak-percentile-text")
+    const averageBadge = document.getElementById("average-percentile-text")
+
+    if (eloBadge) {
+        eloBadge.innerHTML = ` <p>${stats.elo_top_percentile}th percentile</p> Rank #${stats.elo_rank} globally`;
+        eloBadge.style.textAlign = "center"
+    }
+    if (problemBadge) {
+        problemBadge.innerHTML = `<p>${stats.problems_top_percentile}th percentile </p>Rank #${stats.problems_rank} globally`;
+        problemBadge.style.textAlign = "center"
+    }
+    if (streakBadge) {
+        streakBadge.innerHTML = `<p>${stats.streak_top_percentile}th percentile </p>Rank #${stats.streak_rank} globally`;
+        streakBadge.style.textAlign = "center"
+    }
+    if (averageBadge){
+        averageBadge.innerHTML = `<p>${stats.accuracy_top_percentile}th percentile </p>Rank #${stats.accuracy_rank} globally`
+        averageBadge.style.textAlign = "center"
+    }
+}
+loadGlobalLeaderboard()

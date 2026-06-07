@@ -14,7 +14,7 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMC 10 - Algebra</title>
+  <title>Your Dashboard</title>
   <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -67,19 +67,22 @@ sunny
         <span class="howworkcard" style="flex: 1">
             <h2 class="amc10subtitle ittyBitty" style=" align-self: center; justify-content: center;">Questions Solved</h2>
             <p class="par" id="questionsSolved" style="font-size: 24px; align-self: center; justify-content: center;">0</p>
+                        <p id="problem-percentile-text" class="par" style="font-size: 24px; align-self: center; justify-content: center;">0%</p>
         </span>
                 <span class="howworkcard" style="flex: 1">
             <h2 class="amc10subtitle ittyBitty" style=" align-self: center; justify-content: center;">Average Accuracy</h2>
             <p class="par" style="font-size: 24px; align-self: center; justify-content: center;" id="avgAccuracy">0%</p>
+            <p id="average-percentile-text" class="par" style="font-size: 24px; align-self: center; justify-content: center;">0%</p>
         </span>
                 <span class="howworkcard" style="flex: 1">
             <h2 class="amc10subtitle ittyBitty" style=" align-self: center; justify-content: center;">ELO Rating</h2>
             <p id="eloRating" class="par" style="font-size: 24px; align-self: center; justify-content: center;">0</p>
-            <p id="eloRating" class="par" style="font-size: 24px; align-self: center; justify-content: center; color: var(accent-color)">0%</p>
+            <p id="elo-percentile-text" class="par" style="font-size: 24px; align-self: center; justify-content: center;">0%</p>
         </span>
                 <span class="howworkcard" style="flex: 1">
             <h2 class="amc10subtitle ittyBitty" style=" align-self: center; justify-content: center;">Longest Streak</h2>
             <p class="par" id="longestStreak" style="font-size: 24px; align-self: center; justify-content: center;">0 Days</p>
+            <p id="streak-percentile-text" class="par" style="font-size: 24px; align-self: center; justify-content: center;">0%</p>
         </span>
     </div>
     <div style="display: flex; flex-direction: row">
@@ -130,9 +133,46 @@ sunny
 
     <button id="next-btn" class="problemBtn" style="display:none;">Next Question</button>
   </div>
-   </div>
-   <div id="leaderboard-rows"></div>
+     <div id="leaderboardWrapper" style="display: inline-block">
+  <h2 class="amc10subtitle">Leaderboard<h2>
+    <p class="par">See the most highly ranked users by ELO</p>
 </div>
+  <div id="leaderboardOne" class="leaderboardCard problem problem-wrapper">
+    <div id="leaderboardOneCard">
+    <h3 style="display: inline; color: var(--text-variant); font-weight: 500;">1</h3>
+    <h3 class="leaderboardTitle amc10title ittyBitty" id="leaderboardTitleOne">No Registered User</h3>
+        <h3 class="leaderboardTitle amc10title ittyBitty percent" id="percentOne">xxx</h3>
+  </div>
+</div>
+  <div id="leaderboardTwo" class="leaderboardCard problem problem-wrapper">
+    <div id="leaderboardTwoCard">
+    <h3 style="display: inline; color: var(--text-variant); font-weight: 500;">2</h3>
+    <h3 class="leaderboardTitle amc10title ittyBitty" id="leaderboardTitleTwo">No Registerd User</h3>
+        <h3 class="leaderboardTitle amc10title ittyBitty percent" id="percentTwo">xxx</h3>
+  </div>
+</div>
+  <div id="leaderboardThree" class="leaderboardCard problem problem-wrapper">
+    <div id="leaderboardThreeCard">
+    <h3 style="display: inline; color: var(--text-variant); font-weight: 500;">3</h3>
+    <h3 class="leaderboardTitle amc10title ittyBitty" id="leaderboardTitleThree">No Registered User</h3>
+        <h3 class="leaderboardTitle amc10title ittyBitty percent" id="percentThree">xxx</h3>
+  </div>
+</div>
+  <div id="leaderboardFour" class="leaderboardCard problem problem-wrapper">
+    <div id="leaderboardFourCard">
+    <h3 style="display: inline; color: var(--text-variant); font-weight: 500;">4</h3>
+    <h3 class="leaderboardTitle amc10title ittyBitty" id="leaderboardTitleFour">No Registered User</h3>
+        <h3 class="leaderboardTitle amc10title ittyBitty percent" id="percentFour">xxx</h3>
+  </div>
+</div>
+  <div id="leaderboardFive" class="leaderboardCard problem problem-wrapper">
+    <div id="leaderboardFiveCard">
+    <h3 style="display: inline; color: var(--text-variant); font-weight: 500;">5</h3>
+    <h3 class="leaderboardTitle amc10title ittyBitty" id="leaderboardTitleFive">No Registered User</h3>
+        <h3 class="leaderboardTitle amc10title ittyBitty percent" id="percentFive">xxx</h3>
+  </div>
+</div>
+   </div>
 <div class="helpPannel"  id="accountPannel">
   <div id="login">
     <h2 class="amc10subtitle ittyBitty">Welcome Back!</h2>
