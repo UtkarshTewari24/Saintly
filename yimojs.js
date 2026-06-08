@@ -2783,10 +2783,12 @@ document.getElementById("btn-signup").addEventListener("click", async () => {
   const email = document.getElementById("auth-email").value;
   const password = document.getElementById("auth-password").value;
   const username = document.getElementById("auth-username").value;
+  const passwordCheck = document.getElementById("auth-password-check").value
   if (!email || !password || !username) {
     document.getElementById("signup-error").innerHTML = "Please fill out all fields"
     return;
   }
+    if (password === passwordCheck){
   const { data, error } = await supabase.auth.signUp({ email, password });
   if (error) return alert(error.message);
   if (data.user) {
@@ -2817,6 +2819,9 @@ document.getElementById("btn-signup").addEventListener("click", async () => {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById("username-display").innerHTML = username
     loadQuestion()
+  }
+  } else {
+    document.getElementById("signup-error").innerHTML = "Passwords do not match"
   }
 });
 async function loadUserStats(userId) {
@@ -2962,38 +2967,6 @@ if (deleteAccountBtn) {
     window.location.reload();
   });
 }
-
-document.getElementById("btn-signup").addEventListener("click", async () => {
-    
-  const email = document.getElementById("auth-email").value;
-  const password = document.getElementById("auth-password").value;
-  const username = document.getElementById("auth-username").value;
-  if (!email || !password || !username) {
-    document.getElementById("signup-error").innerHTML = "Please fill out all fields"
-    return;
-  }
-  const { data, error } = await supabase.auth.signUp({ email, password });
-  if (error) return alert(error.message);
-  if (data.user) {
-    
-    await supabase.from('profiles').insert([
-      { 
-        id: data.user.id, 
-        username: username, 
-      }
-    ]);
-    
-    alert("Account created!");
-    
-    document.getElementById('accountPannel').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById("username-display").innerHTML = username
-    loadQuestion()
-  }
-});
-
-
-
 supabase.auth.onAuthStateChange(async (event, session) => {
   const accountBtn = document.getElementById('accountBtn');
   const logoutBtn = document.getElementById('btn-logout');

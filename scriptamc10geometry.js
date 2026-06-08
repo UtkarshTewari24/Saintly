@@ -2542,13 +2542,15 @@ helpBtn.addEventListener("click", function () {
 });
 
 document.getElementById("btn-signup").addEventListener("click", async () => {
-  const email = document.getElementById("auth-email").value;
-  const password = document.getElementById("auth-password").value;
-  const username = document.getElementById("auth-username").value;
+  const email = document.getElementById("auth-email").value
+  const password = document.getElementById("auth-password").value
+  const username = document.getElementById("auth-username").value
+  const passwordCheck = document.getElementById("auth-password-check").value
   if (!email || !password || !username) {
     document.getElementById("signup-error").innerHTML = "Please fill out all fields"
     return;
   }
+  if (password === passwordCheck){
   const { data, error } = await supabase.auth.signUp({ email, password });
   if (error) return alert(error.message);
   if (data.user) {
@@ -2567,6 +2569,10 @@ document.getElementById("btn-signup").addEventListener("click", async () => {
     document.getElementById('accountPannel').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
     document.getElementById("username-display").innerHTML = username
+  }
+  } else {
+    document.getElementById("signup-error").innerHTML = "Passwords do not match"
+    return;
   }
 });
 async function loadUserStats(userId) {
@@ -2670,40 +2676,6 @@ if (deleteAccountBtn) {
   });
 }
 
-document.getElementById("btn-signup").addEventListener("click", async () => {
-    
-  const email = document.getElementById("auth-email").value;
-  const password = document.getElementById("auth-password").value;
-  const username = document.getElementById("auth-username").value;
-
-  // Validate fields aren't empty
-  if (!email || !password || !username) {
-    document.getElementById("signup-error").innerHTML = "Please fill out all fields"
-    return;
-  }
-
-  // 1. Create the user credentials using your existing supabase client
-  const { data, error } = await supabase.auth.signUp({ email, password });
-
-  if (error) return alert(error.message);
-
-  // 2. Insert their CURRENT ELO ratings into your 'profiles' table
-  if (data.user) {
-    
-    await supabase.from('profiles').insert([
-      { 
-        id: data.user.id, 
-        username: username, 
-      }
-    ]);
-    
-    alert("Account created!");
-    
-    document.getElementById('accountPannel').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById("username-display").innerHTML = username
-  }
-});
 console.log(supabase)
 
 

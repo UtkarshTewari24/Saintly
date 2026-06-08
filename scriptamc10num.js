@@ -2249,34 +2249,6 @@ helpBtn.addEventListener("click", function () {
     }
 });
 //-----------------------Authentication--------------------------
-document.getElementById("btn-signup").addEventListener("click", async () => {
-  const email = document.getElementById("auth-email").value;
-  const password = document.getElementById("auth-password").value;
-  const username = document.getElementById("auth-username").value;
-  if (!email || !password || !username) {
-    document.getElementById("signup-error").innerHTML = "Please fill out all fields"
-    return;
-  }
-  const { data, error } = await supabase.auth.signUp({ email, password });
-  if (error) return alert(error.message);
-  if (data.user) {
-    await supabase.from('profiles').insert([
-      { 
-        id: data.user.id, 
-        username: username, 
-        numTheorySorted: questions,
-        numTheoryIndex: currentQuestion,
-        numTheoryStreak: streakCount
-      }
-    ]);
-    
-    alert("Account created!");
-    
-    document.getElementById('accountPannel').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById("username-display").innerHTML = username
-  }
-});
 async function loadUserStats(userId) {
   const { data: profile, error } = await supabase
     .from('profiles')
@@ -2383,14 +2355,12 @@ document.getElementById("btn-signup").addEventListener("click", async () => {
   const email = document.getElementById("auth-email").value;
   const password = document.getElementById("auth-password").value;
   const username = document.getElementById("auth-username").value;
-
-  // Validate fields aren't empty
+  const passwordCheck = document.getElementById("auth-password-check").value
   if (!email || !password || !username) {
     document.getElementById("signup-error").innerHTML = "Please fill out all fields"
-    return;
+    return
   }
-
-  // 1. Create the user credentials using your existing supabase client
+  if (password === passwordCheck){
   const { data, error } = await supabase.auth.signUp({ email, password });
 
   if (error) return alert(error.message);
@@ -2402,6 +2372,9 @@ document.getElementById("btn-signup").addEventListener("click", async () => {
       { 
         id: data.user.id, 
         username: username, 
+        numTheorySorted: questions,
+        numTheorySorted: currentQuestion,
+        numTheoryStreak: streakCount
       }
     ]);
     
@@ -2410,6 +2383,10 @@ document.getElementById("btn-signup").addEventListener("click", async () => {
     document.getElementById('accountPannel').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
     document.getElementById("username-display").innerHTML = username
+  }
+  } else {
+    document.getElementById("signup-error").innerHTML = "Passwords do not match"
+    return
   }
 });
 console.log(supabase)
