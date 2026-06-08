@@ -188,6 +188,7 @@ The test is designed to <mark class="blue">challenge critical thinking</mark> in
   <div id="auth-container">
   <input type="email" id="auth-email" placeholder="Email" />
   <input type="password" id="auth-password" placeholder="Password" />
+        <input type="password" id="auth-password-check" placeholder = "Confirm Password"/>
   <input type="text" id="auth-username" placeholder="Display Name" />
   </div>
       <button id="btn-signup" class="start-practice">Sign Up</button>
@@ -394,7 +395,8 @@ toggleBrightness.addEventListener("click", function(){
 </script>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script type="module">
+<script type="module">
+  const helpPannel = document.getElementById("helpPannel")
 const { createClient } = window.supabase;
 const supabaseURL = 'https://joevkictcfaoofqhbhgw.supabase.co';
 const supabaseKey = 'sb_publishable_8Iat4psKXuFn91uT8yuw7g_2n3Buc5w';
@@ -456,31 +458,6 @@ helpBtn.addEventListener("click", function () {
     }
 });
 //-----------------------Authentication--------------------------
-document.getElementById("btn-signup").addEventListener("click", async () => {
-  const email = document.getElementById("auth-email").value;
-  const password = document.getElementById("auth-password").value;
-  const username = document.getElementById("auth-username").value;
-  if (!email || !password || !username) {
-    document.getElementById("signup-error").innerHTML = "Please fill out all fields"
-    return;
-  }
-  const { data, error } = await supabase.auth.signUp({ email, password });
-  if (error) return alert(error.message);
-  if (data.user) {
-    await supabase.from('profiles').insert([
-      { 
-        id: data.user.id, 
-        username: username, 
-      }
-    ]);
-    
-    alert("Account created!");
-    
-    document.getElementById('accountPannel').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById("username-display").innerHTML = username
-  }
-});
 async function loadUserStats(userId) {
   const { data: profile, error } = await supabase
     .from('profiles')
@@ -584,19 +561,21 @@ document.getElementById("btn-signup").addEventListener("click", async () => {
   const email = document.getElementById("auth-email").value;
   const password = document.getElementById("auth-password").value;
   const username = document.getElementById("auth-username").value;
-
-  // Validate fields aren't empty
+  const passwordCheck = document.getElementById("auth-password-check").value
   if (!email || !password || !username) {
     document.getElementById("signup-error").innerHTML = "Please fill out all fields"
     return;
   }
 
-  // 1. Create the user credentials using your existing supabase client
+
+
+  // 2. Insert their CURRENT ELO ratings into your 'profiles' table
+  if (password === passwordCheck){
+
+      // 1. Create the user credentials using your existing supabase client
   const { data, error } = await supabase.auth.signUp({ email, password });
 
   if (error) return alert(error.message);
-
-  // 2. Insert their CURRENT ELO ratings into your 'profiles' table
   if (data.user) {
     
     await supabase.from('profiles').insert([
@@ -611,6 +590,10 @@ document.getElementById("btn-signup").addEventListener("click", async () => {
     document.getElementById('accountPannel').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
     document.getElementById("username-display").innerHTML = username
+  }
+  } else {
+    document.getElementById("signup-error").innerHTML = "Passwords do not match"
+    return
   }
 });
 console.log(supabase)
@@ -639,7 +622,6 @@ supabase.auth.onAuthStateChange(async (event, session) => {
     if (createAccount) createAccount.style.display = "none"
     if (deleteAccount) deleteAccount.style.display = "block"
     if (usernameDisplayModal) usernameDisplayModal.style.display = "block"
-
     // 1. Fetch cloud records safely using correct lowercase columns
   const { data: profile, error } = await supabase
 loadUserStats(session.user.id)
@@ -652,7 +634,7 @@ loadUserStats(session.user.id)
     if (usernameDisplay) usernameDisplay.innerHTML = "Log In";
     if (createAccount) createAccount.style.display = "block"
     if (deleteAccount) deleteAccount.style.display = "none"
-        if (usernameDisplayModal) usernameDisplayModal.style.display = "none"
+    if (usernameDisplayModal) usernameDisplayModal.style.display = "none"
   }
 });
     </script>

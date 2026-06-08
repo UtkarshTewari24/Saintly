@@ -586,6 +586,7 @@ sunny
   <div id="auth-container">
   <input type="email" id="auth-email" placeholder="Email" />
   <input type="password" id="auth-password" placeholder="Password" />
+        <input type="password" id="auth-password-check" placeholder = "Confirm Password"/>
   <input type="text" id="auth-username" placeholder="Display Name" />
   </div>
       <button id="btn-signup" class="start-practice">Sign Up</button>
@@ -796,31 +797,6 @@ helpBtn.addEventListener("click", function () {
     }
 });
 //-----------------------Authentication--------------------------
-document.getElementById("btn-signup").addEventListener("click", async () => {
-  const email = document.getElementById("auth-email").value;
-  const password = document.getElementById("auth-password").value;
-  const username = document.getElementById("auth-username").value;
-  if (!email || !password || !username) {
-    document.getElementById("signup-error").innerHTML = "Please fill out all fields"
-    return;
-  }
-  const { data, error } = await supabase.auth.signUp({ email, password });
-  if (error) return alert(error.message);
-  if (data.user) {
-    await supabase.from('profiles').insert([
-      { 
-        id: data.user.id, 
-        username: username, 
-      }
-    ]);
-    
-    alert("Account created!");
-    
-    document.getElementById('accountPannel').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById("username-display").innerHTML = username
-  }
-});
 async function loadUserStats(userId) {
   const { data: profile, error } = await supabase
     .from('profiles')
@@ -837,6 +813,7 @@ async function loadUserStats(userId) {
     let userProfile = profile[0]
     console.log(userProfile.username)
     document.getElementById("username-display").innerHTML = userProfile.username
+    document.getElementById("btn-dashboard").innerHTML = userProfile.username
   } 
 }
 const loginBtn = document.getElementById("btn-login");
@@ -923,19 +900,21 @@ document.getElementById("btn-signup").addEventListener("click", async () => {
   const email = document.getElementById("auth-email").value;
   const password = document.getElementById("auth-password").value;
   const username = document.getElementById("auth-username").value;
-
-  // Validate fields aren't empty
+  const passwordCheck = document.getElementById("auth-password-check").value
   if (!email || !password || !username) {
     document.getElementById("signup-error").innerHTML = "Please fill out all fields"
     return;
   }
 
-  // 1. Create the user credentials using your existing supabase client
+
+
+  // 2. Insert their CURRENT ELO ratings into your 'profiles' table
+  if (password === passwordCheck){
+
+      // 1. Create the user credentials using your existing supabase client
   const { data, error } = await supabase.auth.signUp({ email, password });
 
   if (error) return alert(error.message);
-
-  // 2. Insert their CURRENT ELO ratings into your 'profiles' table
   if (data.user) {
     
     await supabase.from('profiles').insert([
@@ -951,6 +930,10 @@ document.getElementById("btn-signup").addEventListener("click", async () => {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById("username-display").innerHTML = username
   }
+  } else {
+    document.getElementById("signup-error").innerHTML = "Passwords do not match"
+    return
+  }
 });
 console.log(supabase)
 
@@ -965,6 +948,7 @@ supabase.auth.onAuthStateChange(async (event, session) => {
   const usernameDisplay = document.getElementById("username-display");
   const createAccount = document.getElementById("no-account")
   const deleteAccount = document.getElementById("btn-delete-account")
+  const usernameDisplayModal = document.getElementById("btn-dashboard")
 
   // A. Check if a secure user session actually exists
   if (session && (event === 'SIGNED_IN' || event === 'INITIAL_SESSION')) {
@@ -976,7 +960,7 @@ supabase.auth.onAuthStateChange(async (event, session) => {
     console.log("login goes invisible")
     if (createAccount) createAccount.style.display = "none"
     if (deleteAccount) deleteAccount.style.display = "block"
-
+    if (usernameDisplayModal) usernameDisplayModal.style.display = "block"
     // 1. Fetch cloud records safely using correct lowercase columns
   const { data: profile, error } = await supabase
 loadUserStats(session.user.id)
@@ -989,6 +973,7 @@ loadUserStats(session.user.id)
     if (usernameDisplay) usernameDisplay.innerHTML = "Log In";
     if (createAccount) createAccount.style.display = "block"
     if (deleteAccount) deleteAccount.style.display = "none"
+    if (usernameDisplayModal) usernameDisplayModal.style.display = "none"
   }
 });
     </script></body>
