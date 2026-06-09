@@ -3719,7 +3719,7 @@ rating: 1000,
         $$
         1+2+3-4+5+6+7-8+...+197+198+199-200?
         $$`,
-        solution: `<b>9900</b><p>The patern,as we can tell, is that you add \\(3\\) integers, and then subtrac the next one. This 
+        solution: `<b>9900</b><p>The patern,as we can tell, is that you add \\(3\\) integers, and then subtract the next one. This 
         repeats until you reach \\(200\\). We can thus group the equation into sets of \\(4\\). We can start evaluating these:</p>
         $$
         1+2+3-4=2
@@ -3745,7 +3745,11 @@ exclamation
 </span></h3>
         <p>Even though this never explicity states to use an arithmetic series, we can always try to find a sequence/series  whenever we see a pattern in numbers.
         A lot of what we know about sequences and series has already been proven, so we can use that to our advantage and save time.</p>
-        `,
+        <p><b>Solution by Luz C.</b></p>
+        <p>We know that the sum of the \\(200\\) numbers is \\(\\frac{200 \\times 201}{2}\\) (by sum of all integers less than \\(n=\\frac{n(n-1)}{2}\\)). Now, we need to know the sum of the multiples of four, since 
+        all the multiples of four are being subtracted. In the first \\(200\\) numbers, there are \\(50\\) multiples of \\(4\\) (\\(\\frac{200}{4}=50\\)). However, that's not all, we need to find the sum. To do this, we find the sum of
+        all numbers \\(leq 50\\) and multiply them by \\(4\\) to "scale them up" to being multiples of \\(4\\) (\\frac{4 \\times 50 \\times 51}{2}\\). We then multiply that by two, because not only is it subtracted from the total sum of the numbers less than \\(200\\), is is subtracted and not included to begin with. 
+        We thus have the equation \\(\\frac{200 \\times 201}{2}-2(\\frac{4 \\times 50 \\times 51}{2})\\). We have that \\(\\frac{200 \\times 201}{2}=20100\\) and \\(-2(\\frac{4 \\times 50 \\times 51}{2})=-10200\\). We solve this and get \\(9900\\)`,
         answer: '9900',
         topic: 'series',
         hint: "What is the pattern, and what is the sum of each group? Is there a pattern to that?",
