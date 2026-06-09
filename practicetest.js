@@ -8098,4 +8098,4 @@ mcChoicesAllblah.forEach(i => {
     if (window.MathJax) {
         MathJax.typesetPromise([i]).catch(()=>{});
     } 
-})
+}) 
