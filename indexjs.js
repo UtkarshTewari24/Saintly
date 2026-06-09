@@ -8971,3 +8971,26 @@ function reset() {
 if (reset() === true){
         streakVar = 0
 }
+const resetBtn = document.getElementById("btn-request-reset");
+
+if (resetBtn) {
+  resetBtn.addEventListener("click", async () => {
+    const email = document.getElementById("login-email").value;
+
+    if (!email) {
+      alert("Please enter your email address first.");
+      return;
+    }
+
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.origin + '/update-password.html',
+    });
+
+    if (error) {
+      console.error("Reset request failed:", error.message);
+      alert("Error: " + error.message);
+    } else {
+      alert("Check your inbox! A secure password reset link has been sent.");
+    }
+  });
+}
