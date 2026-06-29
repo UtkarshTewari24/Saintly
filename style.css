@@ -3602,3 +3602,25 @@ html.light .carousel-logo-dark {
   'opsz' 24;
   font-size: 30px
 }
+#btn-toggle-scratchpad{
+    display: inline-block;
+  background: transparent !important;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color) !important;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-family: "National Park", sans-serif;
+  font-size: 15px;  
+  font-weight: 500;
+}
+#btn-toggle-scratchpad:hover{
+    display: inline-block;
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color);
+  color: white !important;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-family: "National Park", sans-serif;
+  font-size: 15px;  
+  font-weight: 500;
+}
