@@ -11,13 +11,13 @@
 
   gtag('config', 'G-N3X50VWZM2');
 </script>
-    <link rel="stylesheet" href="site.css?v=10">
+    <link rel="stylesheet" href="site.css?v=11">
     <meta charset="UTF-8">
     <title>AMC 10</title>
 
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://t.contentsquare.net/uxa/cb77e0fd80dbf.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,balance,bedtime,book,dashboard_2_gear,draw_abstract,function,functions,handshake,ifl,leaderboard,local_fire_department,send,sunny,volunteer_activism" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,balance,bedtime,book,dashboard_2_gear,draw_abstract,function,functions,handshake,ifl,leaderboard,local_fire_department,school,send,sunny,volunteer_activism" />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon.png">
@@ -66,9 +66,33 @@ sunny
 <main>
   <div class="amc10container">      
   <h1 class="amc10title">AMC 10</h1>
-<p class="par">The AMC 10 (American Mathematics Competition)is a 25-question, 75-minute multiple-choice test that covers high school math. 
+<p class="par">The AMC 10 (American Mathematics Competition)is a 25-question, 75-minute multiple-choice test that covers high school math.
 The test is designed to <mark class="blue">challenge critical thinking</mark> in addition to knowledge.
  It is taken by students in grades 10 and below. There are also several variants of the AMC 10. These include the AMC 8 for 8th and below and the AMC 12 for 12th and below.</p>
+<section class="halo-study-guide" aria-labelledby="halo-study-title">
+  <div class="halo-study-header">
+    <div class="halo-study-mark"><span class="material-symbols-outlined" aria-hidden="true">school</span></div>
+    <div>
+      <span class="halo-eyebrow">COACH HALO</span>
+      <h2 id="halo-study-title">Let’s decide what to study next.</h2>
+    </div>
+    <button class="halo-plan-refresh" id="halo-plan-refresh" type="button">Refresh plan</button>
+  </div>
+  <p class="halo-study-intro" id="halo-study-intro">I’ll use your practice, mastery, and mistake log to build a short prep sequence.</p>
+  <div class="halo-next-steps" id="halo-next-steps" aria-live="polite"></div>
+  <div class="halo-guide-chat" id="halo-guide-chat" aria-live="polite">
+    <div class="halo-guide-message">You can also ask me where to learn a topic, what to drill, or how to use any part of Saintly.</div>
+  </div>
+  <form class="halo-guide-form" id="halo-guide-form">
+    <input id="halo-guide-input" type="text" autocomplete="off" placeholder="Try “Where can I review similar triangles?”" aria-label="Ask Coach Halo">
+    <button type="submit">Ask Halo <span aria-hidden="true">→</span></button>
+  </form>
+  <div class="halo-guide-prompts" aria-label="Suggested questions">
+    <button type="button" data-halo-prompt="What should I study next?">What should I do next?</button>
+    <button type="button" data-halo-prompt="Where can I practice Geometry?">Geometry drill</button>
+    <button type="button" data-halo-prompt="Take me to my mistakes">Review mistakes</button>
+  </div>
+</section>
 <span class="info">
   <span class="amc10cardscontainer">
       <h2 class="amc10subtitle quickInfo">Quick Info</h2>
@@ -644,3 +668,4 @@ if (resetBtn) {
 }
     </script>
 <script src="site-footer.js"></script>
+<script type="module" src="amc-10-halo.js?v=2"></script>

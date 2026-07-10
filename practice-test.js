@@ -1,6 +1,8 @@
 // Saintly Practice Arena
 // Full past competitions + adaptive topic trainer + mistake log + AI coach.
 
+import { buildHaloKnowledgePrompt } from './halo-knowledge.js';
+
 const DATA_URL = 'data/amc-10-problems.json';
 const TEST_DURATION_SECONDS = 75 * 60;
 const COMPLETION_STORAGE_KEY = 'saintly-amc10-completions-v1';
@@ -1024,6 +1026,8 @@ Coaching rules:
 - ${ctx.problem && !ctx.unlocked ? 'HARD RULE: Do NOT state or confirm the final answer, the answer letter, or complete the last step. If asked directly, warmly refuse and offer a hint instead. Do not reveal the contents of the reference solution.' : 'You may discuss the full solution, but still lead with intuition before mechanics.'}
 - Keep replies short (under ~120 words) unless the student asks for depth.
 - Write math in LaTeX with $...$ delimiters. No markdown headings or bullet spam — talk like a person.`;
+
+  system += `\n\n${buildHaloKnowledgePrompt()}`;
 
   const trainer = loadTrainer();
   const profile = topics.map(({ name }) => {

@@ -1943,6 +1943,103 @@ text-align: vertical;
   background: var(--highlight-color);
 }
 .amc-topic-links small { color: var(--text-variant); font-size: 12px; font-variant-numeric: tabular-nums; }
+.halo-study-guide {
+  margin: 30px 0 34px;
+  padding: 22px;
+  border: 1.5px solid color-mix(in srgb, var(--primary-color) 50%, var(--border-color));
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--highlight-color), var(--background-variant) 58%);
+  box-shadow: 0 12px 34px var(--shadow-color);
+  text-align: left;
+}
+.halo-study-header { display: flex; align-items: center; gap: 12px; }
+.halo-study-mark {
+  display: grid;
+  flex: 0 0 42px;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+.halo-study-mark .material-symbols-outlined { width: auto; height: auto; color: #fff !important; font-size: 23px; line-height: 1; }
+.halo-eyebrow { color: var(--primary-color); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.halo-study-header h2 { margin: 1px 0 0; color: var(--text-color); font-family: "Instrument Serif", Georgia, serif; font-size: 28px; font-weight: 400; }
+.halo-plan-refresh {
+  margin: 0 0 0 auto !important;
+  padding: 7px 12px !important;
+  border: 1px solid var(--primary-color) !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: var(--primary-color) !important;
+  font: inherit;
+  font-size: 12px;
+}
+.halo-plan-refresh:hover { background: var(--primary-color) !important; color: #fff !important; }
+.halo-study-intro { margin: 14px 0; color: var(--text-variant); font-size: 14px; }
+.halo-next-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.halo-next-step {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 9px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: transform .16s ease, border-color .16s ease;
+}
+.halo-next-step:hover { transform: translateY(-2px); border-color: var(--primary-color); }
+.halo-step-number { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--highlight-color-orange); color: var(--accent-color); font-weight: 800; }
+.halo-next-step > span:nth-child(2) { display: grid; gap: 3px; min-width: 0; }
+.halo-next-step strong { font-size: 14px; }
+.halo-next-step small { color: var(--text-variant); font-size: 11.5px; line-height: 1.4; }
+.halo-step-link { grid-column: 2; color: var(--primary-color); font-size: 11px; font-weight: 750; }
+.halo-guide-chat { display: grid; gap: 8px; max-height: 210px; margin-top: 14px; overflow-y: auto; }
+.halo-guide-message { justify-self: start; max-width: min(720px, 88%); padding: 9px 12px; border-radius: 12px 12px 12px 3px; background: var(--background-color); color: var(--text-color); font-size: 13px; line-height: 1.5; }
+.halo-guide-message--user { justify-self: end; border-radius: 12px 12px 3px 12px; background: var(--highlight-color-orange); }
+.halo-guide-message--thinking { color: var(--text-variant); font-style: italic; }
+.halo-guide-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
+.halo-guide-links a { padding: 4px 8px; border: 1px solid var(--primary-color); border-radius: 999px; color: var(--primary-color); font-size: 11px; font-weight: 700; }
+.halo-guide-form { display: flex; gap: 8px; margin-top: 10px; }
+.halo-guide-form input {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 11px;
+  background: var(--background-color);
+  color: var(--text-color);
+  font: inherit;
+  font-size: 13px;
+}
+.halo-guide-form button {
+  margin: 0 !important;
+  padding: 8px 14px !important;
+  border: 0 !important;
+  border-radius: 11px !important;
+  background: var(--primary-color) !important;
+  color: #fff !important;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+.halo-guide-prompts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.halo-guide-prompts button {
+  margin: 0 !important;
+  padding: 4px 8px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: var(--text-variant) !important;
+  font: inherit;
+  font-size: 11px;
+}
+.halo-guide-prompts button:hover { color: var(--primary-color) !important; text-decoration: underline; }
 .amc10cardtext{
   color: var(--text-color);
 }
@@ -2623,6 +2720,11 @@ line-height: 1.75 !important;
   .amc-topic-group { grid-template-columns: 1fr; gap: 6px; }
   .amc-topic-links { gap: 7px; }
   .amc-topic-links a { min-height: 34px; padding: 6px 11px; font-size: 13px; }
+  .halo-study-guide { padding: 17px 14px; }
+  .halo-study-header { align-items: flex-start; flex-wrap: wrap; }
+  .halo-plan-refresh { margin-left: 54px !important; }
+  .halo-next-steps { grid-template-columns: 1fr; }
+  .halo-guide-form { align-items: stretch; flex-direction: column; }
 
   /* Tags specifically should wrap as row not column */
   #application-start{
