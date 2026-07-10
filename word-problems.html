@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <meta property="og:title" content="Saintly | Accessible Competition Math Prep by Students for Students" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://saintlymath.com" />
+<meta property="og:image" content="https://adalynn-le.github.io/Saintly/assets/social/open-graph-lessons.png" />
+<meta name="twitter:card" content="summary_large_image">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N3X50VWZM2"></script>
+<script src="https://t.contentsquare.net/uxa/cb77e0fd80dbf.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N3X50VWZM2');
+</script>
+  <meta charset="UTF-8">
+  <title>Saintly | Word Problems</title>
+  <link rel="stylesheet" href="site.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma<link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/branding/favicon-16.png">
+<link rel="manifest" href="assets/branding/site.webmanifest">   
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap&icon_names=account_circle,ads_click,bedtime,book,check,close_small,exclamation,handshake,lab_profile,leaderboard,local_fire_department,playlist_add_check,select_check_box,send,star,sunny,volunteer_activism,warning" />
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=close" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&display=swap&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<script>
+window.addEventListener("load", function () {
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  setTimeout(() => {
+    loader.style.display = "none";
+    document.body.style.overflow = ""; // restore scrolling
+  }, 300); // slightly shorter
+});
+</script>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+</head>
+
+<body>
+   <div id="loader" style="
+  position: fixed; inset: 0;
+  background: rgb(255, 255, 255);
+  display: flex; align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.4s ease;
+">
+  <p style="font-family: 'Instrument Serif', serif;
+     font-size: 48px; color: #77a4ff; font-style: italic;">
+    Saintly
+  </p>
+</div>
+<div id="sidebarPlaceholder"></div>
+<script type="module" src="site-sidebar.js"></script>
+<nav id = "top-bar">
+  <a class="aContainer" href="index.html">Home</a>
+  <p class="aContainer">•</p>
+  <a class="aContainer" href = "topics-dashboard.html">Topics Dashboard</a>
+  <p class="aContainer">•</p>
+  <a class="aContainer" href = "word-problems.html">Word Problems</a>
+  <div class="center-align">
+  <button class='topBtn' onclick="window.location.href='index.html'">
+  <img class="fullLogo" src="assets/branding/saintly-full-logo.png">
+  </button>
+  </div>
+  <div class="right-align">
+
+  <span class="material-symbols-outlined airplane helpButton" id="helpButton">
+
+send
+</span>
+<span onclick="window.location.href='volunteer.html'"class="material-symbols-outlined volunteerButton" >
+volunteer_activism
+</span>
+<span class="material-symbols-outlined volunteerButton brightness" id="brightness">
+sunny
+</span>
+    <a href="https://discord.gg/SuAvtn7595" style="justify-self: flex-end;" class="start-practice hover" id="joindiscord">Join Our Discord!</a>
+<button id="accountBtn" style=" height: 34px; display: inline-flex; flex-direction: row; align-items: center; justify-content: center; gap: 6px; color: #88b0ff; font-family: 'National Park', sans-serif; padding: 0 12px; margin: 0 5px; cursor: pointer;  width: auto !important; max-width: fit-content !important;" class="start-practice hover">
+  <span class="material-symbols-outlined" style="margin: 0; font-size: 20px; display: inline-flex; align-items: center; justify-content: center; color: #88b0ff;">
+    account_circle
+  </span>
+  <span style="white-space: nowrap;" id="username-display">Log In</span>
+</button>
+    </div>
+</nav>
+<main>  
+
+<div class="minicontainer">
+
+  <h1 class="amc10title">Word Problems</h1>
+  <p class="amc10subtitle"></p>
+  <h2 class="amc10subtitle">7 Problems • 4 sub-topics</h2>
+  <h2 class="par" style="display: inline; vertical-align: middle !important;">Adalynn Le • 5/2/2026</h2>
+<!-- Table of Contents  -->
+  <div id="tableOfContents">
+  <h3 class="amc10subtitle ittybitty" style="color: var(--primary-color)">Table of Contents</h3>
+  <ol><a href="#intro">Introduction</a></ol>
+<ol><a href="#understanding">Understanding Word Problems</a></ol>
+<ol><a href="#systemsofequations">Systems of Equations</a></ol>
+<ol><a href="#specialcases">Special Cases + Popular Applications</a></ol>
+<ol><a href="#conclusion">Conclusion</a></ol>
+  </div>
+
+
+
+<!--Intro-->
+  <div id="introContainer">
+    <h2 class="amc10subtitle" id="intro">Introduction</h2>
+    <p class="par">Word problems are the foundation for everything in mathematics-especially the AMC 10. By definition, word problems are "mathematical problem[s] expressed entirely in words typically used as an educational tool" (<a href="https://www.merriam-webster.com/dictionary/word%20problem" target="_blank">Meriam-Webster Dictionary</a>). Due to their nature,
+    word problems require <mark class="blue">you to exercise a different level of thinking and make connections between mathematics and language</mark>. The AMC 10, which especially focuses on applied and puzzling mathematics, incorporates these with other topics in order to challenge you.</p>
+
+  </div>
+  
+<span id = "howworkcards">
+  <span class="howworkcard">
+    <div class="howworkcardicon">
+    <span class="material-symbols-outlined">select_check_box</span>
+    <span class="howworkcardtitle">What is it?</span>
+    </div>
+    <hr class="hrcard">
+    <div class= "howworkcardtext">A word problem is any problem that <mark class="orange">uses words to describe a mathematical situation</mark> rather than just equations. This involves simple and clear limits where the equation/constraints are described, or more commonly, situations
+    explained via words that convey the numbers and operations nescessary.</div>
+  </span>
+  <span class="howworkcard">
+    <div class="howworkcardicon">
+    <span class="material-symbols-outlined">select_check_box</span>
+    <span class="howworkcardtitle">Why Study?</span>
+    </div>
+    <hr class="hrcard">
+    <div class= "howworkcardtext">AMC 10 especially uses word problems everywhere because they <mark class="orange">encourage curiosity and test your thinking.</mark> Even outside the AMC though, word problems can model things in our lives and be used
+    to represent real-world scenarios</div>
+  </span>
+</span>
+
+
+
+<!--Understanding Word Problems-->
+<div id="understandingContainer">
+  <h3 class="amc10subtitle" id="understanding">Understanding Word Problems</h3>
+  <p class="par">Word problems typically do not explicity tell you the formulas nor all of the numerical values nescessary to solve, at least not outright. The most important part of solving a word problem is to <mark class="blue">identify what is being asked and find what you need to get there</mark>. Let's break it down:</p>
+  <div class="subsubtopic">
+  <p class="amc10subtitle ittyBitty">Identifying what is being asked</p>
+  <p class="par">The first step should always to be to know what the question is asking for. If you really want, sometimes you can just <mark class="blue">skip to the last sentence</mark> where the problem directly asks the question. This will allow you to <mark class="blue">focus on the core point of the problem</mark>. In 
+  some situations, this can even remove some answer choices, like in the example below:</p>
+  <div class="problem problem-wrapper">
+    <h3 class="amc10title small">Practice Question</h3>
+    <p>Jack has a collection of dimes, quarters, and nickels. If the total value of his coins is $2.50 and he has some number of each type of coin, what is the maximum number of dimes he could have?</p>
+    <p class="par" style="color: var(--accent-color)">Without solving this question, what answer(s) can you rule out?</p>
+  <button class=" problemBtn" id="problemOneA">\\((A) 25\\)</button>
+  <button class=" problemBtn" id="problemOneB" >\\((B) 20\\)</button>
+  <button class=" problemBtn" id="problemOneC">\\((C) 15\\)</button>
+  <button class=" problemBtn" id="problemOneD" >\\((D) 10\\)</button>
+    <button class=" problemBtn" id="problemOneE">\\((E) 1.10\\)</button>
+    <div class="solution" id="solutionOne" style="display:none;">
+    </div>
+  </div>
+    <p class="amc10subtitle ittyBitty">Finding Keywords</p>
+    <p class="par">Chances are that you've been taught the main keywords to look for in word problems, especially for operations like addition, subtraction, multiplication, and division. Recognizing these is an
+      instant key as to what you're solving for and how to do it. If you see one you recognize, you know exactly what operation you need to do. It's like verbally explaining an equation to a friend. For reference, here's a list of the most common basic keywords:</p>
+      <table>
+        <tr>
+          <th>Addition</th>
+          <th>Subtraction</th>
+          <th>Multiplication</th>
+          <th>Division</th>
+        </tr>
+        <tr>
+          <td>sum</td>
+          <td>difference</td>
+          <td>product</td>
+          <td>quotient</td>
+        </tr>
+        <tr>
+          <td>total</td>
+          <td>less</td>
+          <td>times</td>
+          <td>divided by</td>
+        </tr>
+        <tr>
+          <td>combined</td>
+          <td>decreased by</td>
+          <td>of</td>
+          <td>per</td>
+        </tr>
+        <tr>
+          <td>increased by</td>
+          <td></td>
+          <td></td>
+          <td>per unit</td>
+      </table>
+      <p class="par">Other <mark class="blue">explicit situations</mark> are indicative of certain operations. For example, if the question is asking about buying something or costs, that could technically mean all of them. That being said, if you are finding the total cost of things with multiple costs, you add. If you 
+        have multiple of the same item, then you multiply. If you are finding the cost for one specific item, it's division (that's a big one). <mark class="blue">Context will also allow you, in addition to keywords, to figure out which operations to use</mark>
+      </p>
+      <p class="par">These are pretty simple and elementrary examples though. <mark class="blue">The AMC 10 uses much more complex scenarios</mark>. This could involve merging operations, using series/sequences, exponents, etc. Often times, these mathematical ideas are too complex to have a few keywords, so <mark class="blue">it is first important to understand what the things are and how to use them</mark>.
+      Arithmetic series are repeated addition. Geometric series and exponents are repeated multiplication, and so on. In the end, <mark class="blue">everything boils down to a few basic operations</mark>. Let's look at a few examples that use these sorts of operations and <mark class="blue">see if you can see a common thread in the wording.</mark></p>
+      <span class="howworkcardsrow">
+      <div class="howworkcard split" style="display: inline-block">
+        <h3 class="amc10title small">AMC 10A 2021 Spring Problem 4</h3>
+        <p id="exampleOne"></p>
+      </div>
+          <div class="howworkcard split" style="display: inline-block">
+        <h3 class="amc10title small">Practice Problem</h3>
+        <p id="exampleTwo"></p>
+      </div>
+      </span>
+      <p class="par" id="exampleTwo">The first example involves an arithmetic series. The second uses a geometric series. Keep in mind that both of these are just repeated addition and multiplication, repeatedly. Let's disect them to see what the pattern is. In the first example, <mark class="blue">we see the use of the word "accelerating", which means speeding up. This means that 
+        something is growing, so we know it's a series</mark>. We also see that the question uses <mark class="blue"> intervals, which is reminiscent of a common difference, or essentially segmented periods of growth</mark>. In the second example, we see the use of the word "doubles". <mark class="blue">This indicates exponential growth because the quanity is being multiplied by the same constant over time.</mark> The word "interval" is not specifically used,
+        but the question marks growth over time, specifically 21 hours, which is our interval of time, t. In the end, <mark class="blue">both of these problems utilize a few common themes that are indicative of growth </mark> and the use of series.</p>
+      </p>
+      <p class = "par">With this information, we can create another table of other values for different types of series. Try to sort it on your own</p>
+      <span style="display: flex; flex-direction: row; align-items: start">
+<table style="display: inline; justify-self: center;" id="seriesTable">
+  <thead>
+    <tr>
+      <th>Arithmetic Series</th>
+      <th>Geometric Series</th>
+    </tr>
+  </thead>
+  <tbody>
+    </tbody>
+</table>
+              <span style="display: inline; align-items: center; text-align: center; width: 100%;">
+        <h3 id="amc10subtitle" style="color: var(--accent-color)" id="sort">Sort The Following</h3>
+        <p class="par" id="subjectToSort">Subject to sort</p>
+        <button class="topicBtn btn2" id="sortArithmetic">Arithmetic Series</button>
+        <button class="topicBtn btn2" id="sortGeometric">Geometric Series</button>
+        <div class="solution" id="sortExplanation" style="display: none"></div>
+      <button class='topicBtn btn2' id='nextSort' style="display: none;">Next</button>
+      </span>
+      </span>
+      <p>Once you understand the concepts, you can string them together to make equations and model the question.</p>
+</div>
+
+
+
+<!--Systems of Equations-->
+<div id="systemsOfEquationsContainer">
+<h3 class="amc10subtitle" id="systemsofequations">Systems of Equations</h3>
+<p><mark class="blue">Every question needs to be modeled numerically in order to be solved algebraicly.</mark> This step can sometimes be skipped when you are dealing with more logically/visually oriented problems. In order to model problems, we use <mark class="blue">expressions
+  and equations</mark>. When we string multiple of these together in order to model the full problem and we use the same set of variables, we get a system of equations.</p>
+</mark></p>
+<div class="subsubtopic">
+  <p class="amc10subtitle ittyBitty">Equations vs Expressions</p>
+  <p class="par"><mark class="blue">An expression is simply a statement, whereas an equation is a comparison.</mark> When interpreting word problems, each independent event or rule can be expressed via an expression. When two rules, events or quantities must be equal, that's when you use an equation.
+  The key thing to remember is <mark class="blue">you cannot solve an expression, or for a variable in a expression.</mark> A variable is not bound by anything. Although expressions are technically what we use to model the problem, we use equations to model the interactions between them. <mark class="blue">You do 
+    not always need a equation, because you can also use inequalities.
+  </mark></p>
+  <p class="amc10subtitle ittyBitty">Using Variables</p>
+  <p class="par">Variables can be anything. Although common mathematical practice is to use letters, the simple definition is to just <mark class="blue">represent a number or quantity</mark>. Variables are fairly simple, so there are just a few rule to keep in mind</p>
+  <ul>
+    <li>Variables represent ONE value</li>
+    <li>In an expression, variables can be anything</li>
+    <li>In an equation, variables must represent a specific value OR will have an affect on other variables in the equation</li>
+  </ul>
+  <p>Typically, you need as many equations in your system as variables, but there are some special cases.</p>
+  <p class="amc10subtitle ittyBitty">Diophantine Equations</p>
+  <p class="par">How to Solve Systems of Equations</p>
+  <span class="howworkcardsrow">
+      <div class="howworkcard split" style="display: inline-block">
+        <h3 class = "amc10subtitle ittyBitty">Graphing</h3>
+        <p>Use desmos (or on the AMC 10) just sketch each equation and see the common meeting place (best for when there are only 2 variables)</p>
+      </div>
+                  <div class="howworkcard split" style="display: inline-block">
+        <h3 class = "amc10subtitle ittyBitty">Subtraction</h3>
+        <p>Add or subtract equations to eliminate variables. Really quick but only works in some cases.</p>
+      </div>
+      <div class="howworkcard split" style="display: inline-block">
+        <h3 class = "amc10subtitle ittyBitty">Substitution</h3>
+        <p>Isolte one variable and substitute into others. Best with linear equations</p>
+      </div>
+      </span>
+  <p class="par">A Diophantine equation is an equation that contradicts the rule that <mark class="blue">you need to have as many equations in a system as variables</mark> by bounding the values of the variables. The most typical example of this is <mark class="blue">binding to only integers</mark>. A specific enough 
+  range or similar technique can also limit the array of solutions (e.g. only positive numbers), but typically cannot make the solution set finite. Consider the two models below</p>
+  <span class="howworkcardsrow">
+      <div class="howworkcard split" style="display: inline-block">
+        <h3 class = "amc10subtitle ittyBitty" id="nonDiophantineLabel">A Standard Equation</h3>
+        <p id = "nonDiophantineEquation"></p>
+        <p id="nonDiophantineExampleLabel"></p>        
+        <input type="range" id="nonDiophantineSlider" min="0" max="10" step="0.000000001" value="0`">
+        <p id="nonDiophantineOutput"></p>
+        <p id="nonDiophantineExampleContent">Notice how there are seemingly infinite values for both of the variables, and that's considering we limited the range too!</p>
+      </div>
+          <div class="howworkcard split" style="display: inline-block">
+        <h3 class = "amc10subtitle ittyBitty" id="diophantineLabel">A Diophantine Equation</h3>
+        <p id = "diophantineEquation"></p>
+        <p id="diophantineExampleLabel"></p>        
+        <input type="range" id="diophantineSlider" min="0" max="10" step="1" value="0`">
+        <p id="diophantineOutput">y=</p>
+        <p id="diophantineExampleContent">With this, there are only 10 total values for each variable, still dependent on each other. That makes an impossible equation possible</p>
+      </div>
+      </span>
+</div>
+<p class="par">You can learn more about solving Systems of Equations in <a href="algebraic-manipulation.html">our article about Algebraic Manipulation</a></p>
+</div>
+
+
+
+<!--Word Problems w/ Speed Distance Time-->
+<div id="specialcases">
+  <h3 class="amc10subtitle">Special Cases + Popular Applications</h3>
+  <div class="subsubtopic">
+    <div class="amc10subtitle ittyBitty">Speed Distance Time</div>
+      <p class="par">A common staple of the AMC 10 is to use word problems modeling speed, distance and time. These are fairly straightforward, but there are two main things to remember</p>
+  <ul>
+    <li><mark class="blue">Speed is equal to distance divided by time</mark>. If you forget this, just remember miles per hour, or another speed measurement</li>
+    <li>Units are important. The units for speed are the units of distance per the units of time. Units must match and must conform to what is asked in the equation</li>
+  </ul>
+  <p class="par">Now, that's not to say speed, distance, time doesn't get complex. Although the concept and equation are simple, there are quite a few branches and types of problems utilizing them. Three examples are listed below. The first is "overtaking", a simple problem structure where <mark class="blue">'
+there is a race or two moving objects where one starts later/at a different distance but moves faster. You can model this with systems of equations</mark> and set the distances equal to each other to find the place where they meet. The next situation is average speed. Notice that the average speed is calculated by <mark class="blue"> finding the average of the speeds with weights (or importance) relative to the time spent at that speed</mark>. This
+means going the same distance at a fast speed and short speed gives more weight to the short speed. Finally, we have heatwind, current, or direction questions. This happens when <mark class="blue">something's movement can be modeled as the sum of two vectors, it's intended movement and another opposing vector that can act in any non-parallel direction</mark>. Often, this can require you to do conversions between speed and distance.
+  </mark></p>
+  <span class="split-container">
+<div class="howworkcard split" style="width: 45%; display: inline-block; height: 600px">
+    <h3 class="amc10subtitle">"Outrunning" System of Equations</h3>
+    
+    <div style="display: flex; justify-content: space-around; margin-bottom: 15px; font-family: monospace; background: var(--background-variant); padding: 10px; border-radius: 8px;">
+        <div id="eqLeader" style="color: var(--primary-color);"></div>
+        <div id="eqChaser" style="color: var(--accent-color);"></div>
+    </div>
+
+    <div id="space" style="width: 100%; height: 100px; background: var(--background-variant); position: relative; border-radius: 8px; overflow: hidden; margin: 20px 0; border: 1px solid var(--primary-color);">
+        <div id="runner1" style="width: 25px; height: 25px; background: var(--primary-color); position: absolute; top: 15px; left: 0; border-radius: 50%; transition: left 0.1s linear; z-index: 2;"></div>
+        <div id="runner2" style="width: 25px; height: 25px; background: var(--accent-color); position: absolute; top: 55px; left: 0; border-radius: 50%; transition: left 0.1s linear; z-index: 2;"></div>
+        <div id="catchUpLine" style="position: absolute; height: 100%; width: 2px; background: #625c6e; display: none; top: 0; border-left: 2px dashed white;"></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+        <div>
+            <label class="par" style="font-size: 0.8em;">Blue Headstart</label>
+            <input type="range" id="headStartSlider" min="0" max="60" value="30" style="width:100%">
+        </div>
+        <div>
+            <label class="par" style="font-size: 0.8em;">Blue Speed</label>
+            <input type="range" id="leaderSpeedSlider" min="1" max="15" value="5" style="width:100%">
+        </div>
+        <div>
+            <label class="par" style="font-size: 0.8em;">Orange Speed</label>
+            <input type="range" id="chaserSpeedSlider" min="1" max="30" value="15" style="width:100%">
+        </div>
+    </div>
+
+    <p id="sdtExplanation" class="par" style="text-align: center; margin-top: 15px; min-height: 3em;"></p>
+</div>
+<div class="howworkcard split" style="width: 45%; display: inline-block; height: 600px">
+  <h3 class="amc10subtitle">Average Speed</h3>
+  <p class="par">Assume somebody covers the same distance twice at two different speeds, going one way and then going back. What is their average speed in the time it takes them to go back and forth (assume the distance is 10 miles)</p>
+  <p id="avgOneLabel">Speed: 55mph</p>
+  <p id="avgOneTime">Time: 5.5 hrs</p>
+          <input type="range" id="avgOne" min="10" max="100" step="1" value="0`">
+  <p id="avgTwoLabel">Speed: 55mph</p>
+  <p id="avgTwoTime">Time 5.5 hrs</p>
+            <input type="range" id="avgTwo" min="10" max="100" step="1" value="0`">
+  <p id="avgSpeed"></p>
+
+
+</div>
+</span>
+<div class="howworkcard">
+  <p class="amc10subtitle">Combined Speed (Currents and Wind)</p>
+    <p class="par">You can model combined speed from two different directions using vectors! Typically, we add vectors from head-to-tail, but for simplicity we're finding the average here, essentially</p>
+
+    <div id="vectorMap" style="width: 250px; height: 250px; background: var(--highlight-color); margin: 20px auto; position: relative; border: 2px solid var(--shadow-color); border-radius: 8px;">
+        <div style="position: absolute; top: 50%; left: 50%; width: 4px; height: 4px; background: black; border-radius: 50%; transform: translate(-50%, -50%);"></div>
+        
+        <div id="boatVector" style="position: absolute; top: 50%; left: 50%; height: 2px; background: var(--primary-color); transform-origin: left center; z-index: 2;">
+             <div style="position: absolute; right: -5px; top: -4px; border: 5px solid transparent; border-left-color: var(--primary-color);"></div>
+        </div>
+
+        <div id="currentVector" style="position: absolute; top: 50%; left: 50%; height: 2px; background: var(--accent-color); transform-origin: left center; z-index: 1;">
+             <div style="position: absolute; right: -5px; top: -4px; border: 5px solid transparent; border-left-color: var(--accent-color);"></div>
+        </div>
+
+        <div id="resultantVector" style="position: absolute; top: 50%; left: 50%; height: 2px; border-top: 2px dashed #625c6e; transform-origin: left center;"></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <div>
+            <label class="par">Object Speed</label>
+            <input type="range" id="magBoat" min="0" max="100" value="70" style="width:100%">
+        </div>
+        <div>
+            <label class="par">Current/Wind Speed</label>
+            <input type="range" id="magCurrent" min="0" max="100" value="40" style="width:100%">
+        </div>
+        <div style="grid-column: span 2;">
+            <label class="par">Current/Wind Angle: <span id="angleVal">90</span>°</label>
+            <input type="range" id="angleCurrent" min="0" max="360" value="90" style="width:100%">
+        </div>
+    </div>
+
+    <div id="vectorExplanation" class="par" style="margin-top: 15px; text-align: center;"></div>
+</div>
+  <p>Try some practice problems!</p>
+  <div id="problemsSDT" class="problem problemWrapper">
+    <h3 id="question-title-SDT" class="amc10title small">Question 1:</h3>
+    <p id="question-text-SDT">Loading question...</p>
+    <input type="text" id="answer-input-SDT" placeholder="Your answer">
+<div id="mc-container-SDT" class="hidden">
+  <button class=" problemBtn mc-choiceSDT"></button>
+  <button class=" problemBtn mc-choiceSDT"></button>
+  <button class=" problemBtn mc-choiceSDT"></button>
+  <button class=" problemBtn mc-choiceSDT"></button>
+  <button class=" problemBtn mc-choiceSDT"></button>
+</div>
+
+    <button id="check-btn-SDT" class="problemBtn">Check Answer</button>
+
+    <div class="solution" id="solution-SDT" style="display:none;">
+      <h2>Solution</h2>
+      <p id="solution-text-SDT"></p>
+        <button id="next-btn-SDT" class="problemBtn" style="display:none;">Next Question</button>
+  </div>
+  </div>
+  <p class="amc10subtitle">Work and Rates</p>
+  <p class="par">Work and rates is like an addition onto speed distance time. Instead of just using distance, you find the amount of something made, done, etc. This makes it diffucult because <mark class="blue">unlike speed distance time, many work questions
+    will combine rates, and you can't accurately visualize it. 
+  </mark></p>
+      <p class="par">What's tricky about work is it typically does not give you time explicitly. The most important thing is to convert into speed and find the average. You'll find that in many work problems, it is most important to use speed</p>
+
+</div>
+<h3 id="conclusion"class="amc10subtitle">Conclusion</h3>
+<p class="par">Word problems are the base for everything in the AMC 10. With a thorough understanding of how to use and apply them, you'll be more equipped for similar AMC 10 questions</p>
+
+<div class="problem problemWrapper">
+<h3 id="question-title" class="amc10title small">Question 1:</h3>
+    <p id="question-text">Loading question...</p>
+    <input type="text" id="answer-input" placeholder="Your answer">
+<div id="mc-container" class="hidden">
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+  <button class="mc-choice problemBtn"></button>
+</div>
+
+    <button id="check-btn" class="problemBtn">Check Answer</button>
+
+    <div class="solution" id="solution" style="display:none;">
+      <h2>Solution</h2>
+      <p id="solution-text"></p>
+      <button id="next-btn" class="problemBtn" style="display:none;">Next Question</button>
+      </div>
+</div>
+<div id = "helpPannel" class = "helpPannel">
+  <h2>Need Some Help?</h2>
+  <p class="par">Contact us through our form</p>
+<div data-fs-success></div>
+<div data-fs-error></div>
+
+<form
+  action="https://formspree.io/f/mwvwgrwr"
+  method="POST"
+>
+<label class="formsubmission">
+  Name:
+  <input type="text" name="name" placeholder="First Last">
+</label>
+  <label class="formsubmission">
+    Email:
+    <input type="email" name="email" placeholder="youremail@gmail.com">
+  </label>
+  <label class="formsubmission">
+    Message:
+    <input type="text"name="message" required></input>
+  </label>
+  <!-- your other form fields go here -->
+<label class="formsubmission">
+  <p>What type of message is this?</p>
+  <div class="mcqwrapper" style="display: flex; flex-wrap: wrap; gap: 8px 16px;">
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Reporting an Error
+    </label>
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Suggesting an addition
+    </label>
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Feedback or Review
+    </label>
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Other
+    </label>
+  </div>
+</label>
+
+<label class="formsubmission">
+  <p>Do you want to be contacted back?</p>
+  <div style="display: flex; gap: 16px;">
+    <label class="radio-option">
+      <input type="radio" name="contact"> Yes
+    </label>
+    <label class="radio-option">
+      <input type="radio" name="contact"> No
+    </label>
+  </div>
+</label>
+  <button type="submit" class="problemBtn">Send</button>
+</form>
+  <p>Or email us at <a href="mailto:saintly.math@gmail.com">saintly.math@gmail.com</a></p>
+</div>
+<div class="helpPannel" id="privacyPolicy" display="none">
+  <h4>Privacy Policy</h4>
+  <h5>Data Collection</h5>
+  <li>We use local storage to track and save your ELO on your device</li>
+  <li>We use Supabase backend to track overall acuracy on questions</li>
+  <li>We trackk individual user usage on our website, pages, etc. by tracking time spent and interaction</li>
+  <h5>How we use your data</h5>
+  <li>To personalize your learning experience</li>
+  <li>We never sell your data to third parties</li>
+  <h5>Children's Privacy</h5>
+  <li>Saintly is intended for students. We encourage parents to monitor their children's internet usage. We do not knowingly collect personal information from children under 13 without parental consent (per COPPA guidelines).</li>
+</div>
+<div class="helpPannel" id="termsAndConditions" display="none">
+  <h4>Terms and Conditions</h4>
+  <li>By using Saintly you agree to the terms and conditions</li>
+  <li>You may not scrape the site or re-distribute our unique interactive code without permission.</li>
+  <li>Be "Saintly." No harassment, no attempts to hack the site, and no using the platform to cheat on active competitions.</li>
+  <li>Math is hard! While we strive for 100% accuracy, Saintly is provided "as is." We aren't responsible if a specific formula explanation doesn't lead to a perfect AMC score (though we hope it does!).</li>
+  <li>Saintly and its volunteers are not liable for any damages arising from your use of the site.</li>
+</div>
+<div class="helpPannel"  id="accountPannel">
+  <div id="login">
+    <h2 class="amc10subtitle ittyBitty">Welcome Back!</h2>
+      <p class="par">Access your progress across all your devices</p>
+    <p id="login-error" style="color: red"></p>
+    <input type="email" id="login-email" placeholder="Email"/>
+    <input type="password" id="login-password" placeholder = "Password"/>
+  <span style="display: flex; flex-direction: row; justify-content: flex-start; gap: 16px">
+
+  </span>
+        <button id="btn-login" class="start-practice">Log In</button>
+        <button class="start-practice" id="btn-request-reset">Forgot Your Password? Send a Reset Email</button>
+
+
+  </div>
+  <div id="signup" style="display: none">
+    <p id="signup-error" style="color: red"></p>
+  <h2 class="amc10subtitle ittyBitty">Make an Account</h2>
+  <p class="par">Want to store your progress, see how you stand in comparison to other students, and climb the leaderboard? Create a free account today!</p>
+  <div id="auth-container">
+  <input type="email" id="auth-email" placeholder="Email" />
+  <input type="password" id="auth-password" placeholder="Password" />
+        <input type="password" id="auth-password-check" placeholder = "Confirm Password"/>
+  <input type="text" id="auth-username" placeholder="Display Name" />
+  </div>
+      <button id="btn-signup" class="start-practice">Sign Up</button>
+</div>
+<a class="amc10subtitle ittyBitty pset-link" href="dashboard.html" id="btn-dashboard">Username</a>
+        <button id="btn-logout" class="start-practice"style="display: none; cursor: pointer;">Log Out</button>
+  <button id="no-account" class="start-practice">Don't have an account? Sign Up!</button>
+  <button id="btn-delete-account" class="start-practice" style="display: none">
+  Delete Account & Wipe Progress
+</button>
+</div>
+
+<div id = "helpPannel" class = "helpPannel">
+  <h2>Need Some Help?</h2>
+  <p class="par">Contact us through our form</p>
+<div data-fs-success></div>
+<div data-fs-error></div>
+
+<form
+  action="https://formspree.io/f/mwvwgrwr"
+  method="POST"
+>
+<label class="formsubmission">
+  Name:
+  <input type="text" name="name" placeholder="First Last">
+</label>
+  <label class="formsubmission">
+    Email:
+    <input type="email" name="email" placeholder="youremail@gmail.com">
+  </label>
+  <label class="formsubmission">
+    Message:
+    <input type="text"name="message" required></input>
+  </label>
+  <!-- your other form fields go here -->
+<label class="formsubmission">
+  <p>What type of message is this?</p>
+  <div class="mcqwrapper" style="display: flex; flex-wrap: wrap; gap: 8px 16px;">
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Reporting an Error
+    </label>
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Suggesting an addition
+    </label>
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Feedback or Review
+    </label>
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Other
+    </label>
+  </div>
+</label></form></div>
+</main>
+</div>
+<footer class="saintly-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <img class="footer-logo" src="assets/branding/saintly-full-logo.png" height="35px"></img>
+            <p>Making competition math accessible for everyone.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="amc-10.html">AMC 10</a></li>
+                <li><a href="amc-10-adaptive-practice.html">Adaptive Practice</a></li>
+                <li><a href="amc-10-algebra.html">Algebra</a></li>
+                <li><a href="topics-dashboard.html">Topics Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <div class="social-icons">
+      <a>saintly.math@gmail.com</a>
+              <span style="display: flex; flex-direction: row">
+<a href="https://instagram.com/saintly.math" class="fa fa-instagram" style="display: inline-block"><p style='font-family: "National Park", sans-serif; display: inline-block; margin-left: 10px'>@saintly.math</p></a>
+</span>
+                            <span style="display: flex; flex-direction: row">
+<a href="https://pinterest.com/saintlymath" class="fa fa-pinterest" style="display: inline-block"><p style='font-family: "National Park", sans-serif; display: inline-block; margin-left: 10px'>Saintly</p></a>
+
+</span>
+                </div>
+        </div>
+        <div class="footer-section">
+          <h4>Privacy</h4>
+          <ul><li><a href="javascript:void(0)" onclick="myFunction()">Privacy Policy</a></li>
+            <li><a href="javascript:void(0)" onclick="myFunctionTwo()">Terms and Conditions</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Saintly Math. Built with drive.
+    </div>
+</footer>
+</body>
+<div id="level-toast" class="level-toast">
+  Level Up
+</div>
+<div id="overlay"></div>
+
+<!-- Confetti Canvas -->
+<canvas id="confetti-canvas"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="word-problems.js"></script>
+<script src="site-footer.js"></script>
+
+
+<script type="module">
+  const helpPannel = document.getElementById("helpPannel")
+const { createClient } = window.supabase;
+const supabaseURL = 'https://joevkictcfaoofqhbhgw.supabase.co';
+const supabaseKey = 'sb_publishable_8Iat4psKXuFn91uT8yuw7g_2n3Buc5w';
+const supabase = createClient(supabaseURL, supabaseKey);
+      let helpOn = false;
+  let helpBtn = document.getElementById('helpButton')
+let accountTrue = false
+let accountBtn = document.getElementById("accountBtn")
+let accountPannel = document.getElementById("accountPannel")
+let overlay = document.getElementById("overlay")
+accountBtn.addEventListener("click", function () {
+        let account = true
+
+    document.getElementById("no-account").addEventListener("click", function() {
+    if (account === false){
+        account = true
+        document.getElementById("login").style.display = "block"
+        document.getElementById("signup").style.display = "none"
+                document.getElementById("no-account").innerHTML = "Don't have an account? Sign up!"
+    } else {
+        document.getElementById('login').style.display = "none"
+        account = false
+        document.getElementById("signup").style.display = "block"
+        document.getElementById("no-account").innerHTML = "Already have an account? Log in!"
+    }
+    })
+    helpPannel.style.display  = "none"
+    if (accountTrue === false){
+        accountPannel.style.display = "block"
+        overlay.style.display = "block"
+        accountTrue = true
+    } else {
+        accountPannel.style.display = "none"
+        overlay.style.display = "none"
+        accountTrue = false
+    }
+})
+overlay.addEventListener("click", function(){
+    if (helpOn === true){
+        helpPannel.style.display = "none";
+        overlay.style.display = "none"; 
+        helpOn = false;
+    } 
+    if (accountTrue === true){
+        accountPannel.style.display = "none"
+        overlay.style.display = "none"
+        accountTrue = false
+    }
+})
+helpBtn.addEventListener("click", function () {
+    if (helpOn === true){
+        helpPannel.style.display = "none";
+        overlay.style.display = "none"; 
+        helpOn = false;
+    } else {
+        helpPannel.style.display = "block";
+        overlay.style.display = "block";
+        helpOn = true
+    }
+});
+//-----------------------Authentication--------------------------
+async function loadUserStats(userId) {
+  const { data: profile, error } = await supabase
+    .from('profiles')
+   .select('id, username')
+   .eq('id', userId)
+
+  if (error) {
+    console.error("Error downloading profile data:");
+    return;
+  }
+
+  if (profile) {
+    console.log(profile)
+    let userProfile = profile[0]
+    console.log(userProfile.username)
+    document.getElementById("username-display").innerHTML = userProfile.username
+    document.getElementById("btn-dashboard").innerHTML = userProfile.username
+  } 
+}
+const loginBtn = document.getElementById("btn-login");
+loginBtn.addEventListener("click", async () => {
+  console.log("clicked")
+    const email = document.getElementById("login-email").value.trim()
+    const password = document.getElementById("login-password").value
+    if (!email || !password) {
+        
+document.getElementById("login-error").innerHTML = "Please Input Both Fields"
+    return;
+  }
+  loginBtn.disabled = true;
+const { data, error } = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password,
+  });
+
+  if (error) {
+    alert("Login Error: " + error.message);
+    loginBtn.disabled = false;
+    loginBtn.innerText = "Login";
+    return;
+  }
+  document.getElementById('accountPannel').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
+  accountTrue = false
+  // 3. Pull their ELO data out of the database (Step 2 below)
+  await loadUserStats(data.user.id);
+  
+  // Reset button state
+  loginBtn.disabled = false;
+
+})
+const logoutBtn = document.getElementById('btn-logout');
+
+logoutBtn.addEventListener('click', async () => {
+            document.getElementById("login").style.display = "block"
+  // 1. Call Supabase to clear the secure cloud session
+  console.log('logging out')
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    alert("Error logging out: " + error.message);
+    return;
+  }
+
+
+  alert("You have been logged out successfully!");
+  window.location.reload();
+});
+
+const deleteAccountBtn = document.getElementById('btn-delete-account');
+
+if (deleteAccountBtn) {
+  deleteAccountBtn.addEventListener('click', async () => {
+    const confirmed = confirm("Are you absolutely sure you want to delete your account? This will permanently erase your math rankings, diagnostic logs, and history. This action cannot be undone.");
+    
+    if (!confirmed) return;
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) return;
+
+    const userId = session.user.id;
+
+    // 3. Clear their specific user row from your public profiles table
+    const { error: dbError } = await supabase
+      .from('profiles')
+      .delete()
+      .eq('id', userId);
+
+    if (dbError) {
+      alert("Error erasing profile data: " + dbError.message);
+      return;
+    }
+
+    await supabase.auth.signOut();
+    alert("Your account records and progress have been completely erased.");
+    window.location.reload();
+  });
+}
+
+document.getElementById("btn-signup").addEventListener("click", async () => {
+    
+  const email = document.getElementById("auth-email").value;
+  const password = document.getElementById("auth-password").value;
+  const username = document.getElementById("auth-username").value;
+  const passwordCheck = document.getElementById("auth-password-check").value
+  if (!email || !password || !username) {
+    document.getElementById("signup-error").innerHTML = "Please fill out all fields"
+    return;
+  }
+
+
+
+  // 2. Insert their CURRENT ELO ratings into your 'profiles' table
+  if (password === passwordCheck){
+
+      // 1. Create the user credentials using your existing supabase client
+  const { data, error } = await supabase.auth.signUp({ email, password });
+
+  if (error) return alert(error.message);
+  if (data.user) {
+    
+    await supabase.from('profiles').insert([
+      { 
+        id: data.user.id, 
+        username: username, 
+      }
+    ]);
+    
+    alert("Account created!");
+    
+    document.getElementById('accountPannel').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById("username-display").innerHTML = username
+  }
+  } else {
+    document.getElementById("signup-error").innerHTML = "Passwords do not match"
+    return
+  }
+});
+console.log(supabase)
+
+
+
+supabase.auth.onAuthStateChange(async (event, session) => {
+  const accountBtn = document.getElementById('accountBtn');
+  const logoutBtn = document.getElementById('btn-logout');
+  const loginBtn = document.getElementById('btn-login');
+  const signup = document.getElementById('no-account');
+  const login = document.getElementById('login');
+  const usernameDisplay = document.getElementById("username-display");
+  const createAccount = document.getElementById("no-account")
+  const deleteAccount = document.getElementById("btn-delete-account")
+  const usernameDisplayModal = document.getElementById("btn-dashboard")
+
+  // A. Check if a secure user session actually exists
+  if (session && (event === 'SIGNED_IN' || event === 'INITIAL_SESSION')) {
+    console.log("Secure adaptive practice session discovered for:", session.user.email);
+
+    // Toggle UI display blocks safely
+    if (logoutBtn) logoutBtn.style.display = 'block';
+    if (login) login.style.display = "none";
+    console.log("login goes invisible")
+    if (createAccount) createAccount.style.display = "none"
+    if (deleteAccount) deleteAccount.style.display = "block"
+    if (usernameDisplayModal) usernameDisplayModal.style.display = "block"
+    // 1. Fetch cloud records safely using correct lowercase columns
+  const { data: profile, error } = await supabase
+loadUserStats(session.user.id)
+  } else  {
+    console.log("No user session found. Reverting adaptive practice to Guest defaults.");
+    if (typeof runDiagnostic === "function")
+    
+    if (logoutBtn) logoutBtn.style.display = 'none';
+    if (login) login.style.display = "block";
+    if (usernameDisplay) usernameDisplay.innerHTML = "Log In";
+    if (createAccount) createAccount.style.display = "block"
+    if (deleteAccount) deleteAccount.style.display = "none"
+    if (usernameDisplayModal) usernameDisplayModal.style.display = "none"
+  }
+})
+const resetBtn = document.getElementById("btn-request-reset");
+
+if (resetBtn) {
+  resetBtn.addEventListener("click", async () => {
+    const email = document.getElementById("login-email").value;
+
+    if (!email) {
+      alert("Please enter your email address first.");
+      return;
+    }
+
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.origin + '/update-password.html',
+    });
+
+    if (error) {
+      console.error("Reset request failed:", error.message);
+      alert("Error: " + error.message);
+    } else {
+      alert("Check your inbox! A secure password reset link has been sent.");
+    }
+  });
+}
+    </script>
+</html>
+

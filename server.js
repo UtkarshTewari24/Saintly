@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// This is your existing array from indexjs.js
+// This is your existing array from home-page.js
 const questions = [
     {
 title: `AMC 10A 2020 Problem 17 <span class="material-symbols-outlined">
@@ -732,7 +732,7 @@ star
         text: "Zelda played the <i>Adventures of Math</i> game on August 1 and scored \\(1,700\\) points. She continued to play daily over the next \\(5\\) days. The bar chart below shows the daily change in her score compared to the day before. (For example, Zelda's score on August 2 was \\(1,700+80=1,780\\) points.) What was Zelda's average score in points over the \\(6\\) days? <b>Do not put a comma in your answer</b> ",
         type: "fr",
         used: false,
-        image: "202412.png",
+        image: "assets/question-diagrams/amc-10-2024-problem-12.png",
         difficulty: 3,
 rating: 1200,
         answer: "1715",
@@ -3245,7 +3245,7 @@ star
         `,
         choices: ['\\(A) 16\\pi\\)', '\\(B) 24\\pi\\)', '\\(C) 32\\pi\\)', '\\(D) 48\\pi\\)', '\\(E) 64\\pi\\)'],
         answer: `\\(C) 32\\pi\\)`,
-        image: "AMC10A2025.png",
+        image: "assets/question-diagrams/amc-10a-2025.png",
         answer: "32pi",
         difficulty: 2,
 rating: 1000,
@@ -3286,7 +3286,7 @@ star
         text: `
 In the figure below, the outside square contains infinitely many squares, each of them with the same center and sides parallel to the outside square. The ratio of the side length of a square to the side length of the next inner square is \\(k\\) where \\(0\\lt k\\lt1\\). The spaces between squares are alternately shaded, as shown in the figure (which is not necessarily drawn to scale). The amount shaded is \\(64\\%\\). What is \\(k\\)? Write your answer as a decimal.
         `,
-        image: "AMC10A202513.png",
+        image: "assets/question-diagrams/amc-10a-2025-problem-13.png",
         difficulty: 3,
 rating: 1200,
         answer: "0.75",
@@ -3331,12 +3331,12 @@ star
 </span>`,
         text: `In the figure below \\(ABEF\\) is a rectangle, \\(\\overline{AD}\\perp\\overline{DE}=7\\), \\(AB=1\\), and \\(AD=5\\). What is the area of \\(\\triangle ABC\\)? Answer as a decimal.
         `,
-        image: "AMC10A202515.png",
+        image: "assets/question-diagrams/amc-10a-2025-problem-15.png",
         answer: "0.375",
         difficulty: 3,
 rating: 1200,
-        solution: `<b>0.375</b><p>My first step would be to label everything. In my drawing, I also included that \\(\\angle ACB\\) is equal to angle \\(\\angle ECD\\) by vertical angles. This also means that \\(\\triangle ABC\\) and \\(\\triangle ECD \\) are similar</p><br><img src='AMC10A13S1.png' style='max-width:100%; height:auto;' />
-        <p>Next, let's label \\(BC\\) as \\(x\\) so that we can calculate some metric for each other side using the pythagorean theorem, \\(a^2+b^2=c^2\\).</p><br><img src='AMC10A13S2.png' style='max-width:100%; height:auto;' />
+        solution: `<b>0.375</b><p>My first step would be to label everything. In my drawing, I also included that \\(\\angle ACB\\) is equal to angle \\(\\angle ECD\\) by vertical angles. This also means that \\(\\triangle ABC\\) and \\(\\triangle ECD \\) are similar</p><br><img src='assets/question-diagrams/amc-10a-problem-13-solution-step-1.png' style='max-width:100%; height:auto;' />
+        <p>Next, let's label \\(BC\\) as \\(x\\) so that we can calculate some metric for each other side using the pythagorean theorem, \\(a^2+b^2=c^2\\).</p><br><img src='assets/question-diagrams/amc-10a-problem-13-solution-step-2.png' style='max-width:100%; height:auto;' />
         <p>From here, we can use the fact that two triangles are similar to set up two ratios. We know that \\(AC\\) and \\(CE\\) are both hypotenuses to their respective triangles, and that the same is true for \\(CD\\) and \\(BC\\). Using this we can set up a ratio. Also notice that \\(CD\\) is equal to \\(5-sqrt{x^2-1}\\)</p>
         $$
         \\frac{CD}{EC} = \\frac{BC}{CA}
@@ -3455,7 +3455,7 @@ star
         difficulty: 3,
 rating: 1200,
         text: 'Triangle \\(AMC\\) is isoceles with \\(AM = CM\\). Medians \\(\\overline{MV}\\) and \\(\\overline{CU}\\) are perpendicular to each other, and \\(MV=CU=12\\). What is the area of \\(\\triangle AMC\\)?',
-        image: "amc10202012.png",
+        image: "assets/question-diagrams/amc-10-2020-problem-12.png",
         solution: `<b>96</b><p>By median theorem, we know that \\(\\overline{PC} = 2\\overline{UP}\\) and \\(\\overline{MP}=2\\overline{VP}\\) and also that \\(\\overline{PC}+\\overline{UP}=\\overline{MP}+\\overline{VP}=12\\).</p>
         <p>Solving gives us \\(\\overline{PC}=\\overline{MP}=8\\) and \\(\\overline{UP}=\\overline{VP}=4\\)</p>
         <p>If we remove \\(\\overline{UV}\\) and add a median between vertex \\(A\\) and line \\(\\overline{MC}\\) we can divide the triangle into \\(6\\) triangles of equal area.</p>
@@ -3680,7 +3680,7 @@ rating: 1200,
         What is the area of the shaded region - inside the hexagon but outside all of the semicircles?`,
         type: 'mc',
         choices: ['\\(A) 6\\sqrt{3}-3\\pi\\)', '\\(B) \\frac{8\\sqrt{3}}{2}-2\\pi\\)','\\(C) \\frac{3\\sqrt{3}}{2}-\\frac{\\pi}{3}\\)', '\\(D) 3\\sqrt{3} - \\pi\\)', '\\(E) \\frac{9\\sqrt{3}}{2}-\\pi\\)'],
-        image: "amc10202014.png",
+        image: "assets/question-diagrams/amc-10-2020-problem-14.png",
         solution: `<b>\\(A) 6\\sqrt{3}-3\\pi\\)</b><p>We start by finding the total area of the hexagon. This is a lot easier if you know the area of a hexagon, but a lot of us won't have that tidbit of information memorized, so let's derive it</p>
         <p>First off, a regular hexagon is composed of \\(6\\) equilateral triangles, in this case of side length \\(2\\). Once again, if you know the area of an equilateral triangle, that will make things easier, but here's a quick rundown:</p>
         <p>An equilateral triangle has \\(2\\) right triangles in it, with the longest leg being the height. We know, by the pythagorean theorem that \\(1^2+b^2=2^2\\) so \\(b=\\sqrt{3}\\). We find that the area is equal to \\(\\sqrt{3}\\), for a total
@@ -4042,7 +4042,7 @@ star
 rating: 1400,
         used: false,
         text: 'The figure is constructed from 11 line segments, each of which has length \\(2\\). The area of pentagon \\(ABCDE\\) can be written as \\(\\sqrt{m}+\\sqrt{n}\\) where \\(m\\) and \\(n\\) are positive integers. What is \\(m+n\\)?',
-        image: 'amc10202120.png',
+        image: 'assets/question-diagrams/amc-10-2021-problem-20.png',
         solution: `<b>23</b><p>We break \\(ABCDE\\) into \\(3\\) triangles by drawing lines through \\(AC\\) and \\(AD\\), then ignoring all other lines except for those and the perimeter.</p>
         <p>We know that the area of an oblique triangle can be expressed as \\(\\frac{1}{2} \\sin(C) ab\\) where \\(C\\) is the included angle. We already know \\(a\\) and \\(b\\) to be \\(2\\). Since we know that there are some
         quilateral triangles 'embeded' into the pentagon (one point is not labeled and I don't want to name them for the sake of one simple explanation), and those have \\(60\\) degrees, \\(\\angle ABC\\) has two adjacent angles of these, so we 
@@ -4090,7 +4090,7 @@ rating: 1000,
         text: `As shown in the figure below, point \\(E\\) lies on the opposite half plane determined by line \\(CD\\) from point \\(A\\) so that \\(\\angle CDE = 110^\\circ\\). Point
         \\(F\\) lies on \\(\\overline{AD}\\) so that \\(DE=DF\\), and \\(ABCD\\) is a square. What is the degree measure of \\(\\angle AFE\\)?`,
         solution: `<b>170</b><p>We see that \\(\\angle ADE = 270-110=160\\). Since \\(\\triangle DFE\\) is isoceles, we know that the base angles \\(\\angle EFD\\) and \\(\\angle DEF \\) measure \\(10^\\circ\\). \\(AFE=180-10=170^\\circ\\)`,
-        image: 'amc1020207.png',
+        image: 'assets/question-diagrams/amc-10-2020-problem-7.png',
         answer: '170',
         topic: 'angle relationships',
         hint: "Angle \\(EFD\\) and Angle \\(F\\) are congruent because triangle \\(FED\\) is isoceles",
@@ -4254,7 +4254,7 @@ star
 rating: 800,
         used: false,
         text: `What is the area of the shaded figure shown below?`,
-        image: `amc1020211.png`,
+        image: `assets/question-diagrams/amc-10-2021-problem-1.png`,
         type: 'fr',
         solution: `<b>6</b><p>Find the area of the whole rectangle that encloses everything, than subtract some parts out:</p>
         $$
@@ -4306,7 +4306,7 @@ star
 rating: 1200,
         used: false,
         text: `A square with side length \\(3\\) is inscribed in an isoceles triangle with one side of the square along the bae ofthe triangle. A square with side length \\(2\\) has two vertices on the other square and the other two sides of the triangle, as shown. What is the area of the triangle?`,
-        image: 'amc10202013.png',
+        image: 'assets/question-diagrams/amc-10-2020-problem-13.png',
         solution: `<b>\\(20\\frac{1}{4}\\)</b>We start by labeling all the sides we know. Since \\(3-2=1\\) and \\(1\\div 2= \\frac{1}{2}\\), we know that the sides on either side of the smaller square have lengths of \\(\\frac{1}{2}\\). Since the slanted sides of the triangle are straight, they must 
         have the same slope throughout. We find that the slope of the section we found jut before is \\(\\frac{2}{\\frac{1}{2}}=4\\). Thus, the lenghts on either side of the bottom triangle must be long enough to make the slope \\(4\\), so \\(\\frac{3}{4}\\). The total base length of the triangle is \\(3+\\frac{3}{4}+\\frac{3}{4}=\\frac{9}{2}\\).</p>
         <p>The height of the small triangle above the smaller square is \\(4\\), ,because the length of side of a half triangle is \\(1\\) and the slope must stay constant. Thus, the total height is \\(3+2+4=9\\) for a total area of \\(9 \\cdot \\frac{9}{2} \\cdot \\frac{1}{2}=20\\frac{1}{4}\\)`,
@@ -4330,7 +4330,7 @@ star
 rating: 1200,
         text: `In square \\(ABCD\\), points \\(P\\) and \\(Q\\) lie on \\(\\overline{AD}\\) and \\(\\overline{AB}\\), respectively.
         Segments \\(\\overline{BP}\\) and \\(\\overline{CQ}\\) intersect at right angles at \\(R\\) with \\(BR=6\\) and \\(PR=7\\). What is the area of the square?`,
-        image: 'amc10202115.png',
+        image: 'assets/question-diagrams/amc-10-2021-problem-15.png',
         solution: `<b>117</b><p>We know that \\(\\overline{AB}\\) and \\(\\overline{CB}\\) have the same length, since the figure is a square. We then know by \\(LA\\) congruence of right triangles that \\(\\triangle PAB\\) is congruent to \\(\\triangle QBC\\)</p>
         <p>We also know that \\(\\angle RBQ\\) and \\(\\angle CBR\\) are complementrary, and \\(\\angle RBQ\\) and \\(\\angle RQB\\) are complementary, thus \\(\\triangle QRB\\) is similar to \\(\\triangle BRC\\) by angle angle. </p>
         <p>We know that the hypotenuse of \\(\\triangle CQB\\) has length \\(6+7=13\\). We can call \\(QR\\) \\(x\\) and \\(CR=13-x\\)
@@ -4384,7 +4384,7 @@ star
 rating: 1400,
      text: `Three identical square sheets of paper each with side length \\(6\\) are stacked on top of each other. The middle sheet is rotated clockwise \\(30^\\circ\\) about its center and the top sheet is rotated clockwise \\(60^\\circ\\) about its center, resulting in the $24$-sided polygon shown in the figure below. 
      The area of this polygon can be expressed in the form \\(a-b\\sqrt{c}\\), where \\(a, b\\) and \\(c\\) are positive integers, and $c$ is not divisible by the square of any prime. What is \\(a+b+c?\\)`,
-     image: 'amc10202118.png',
+     image: 'assets/question-diagrams/amc-10-2021-problem-18.png',
     solution: `<b>147</b><p>By drawing lines fron the...indented..? parts of each point, we can see that the figure is divided into \\(11\\) kite-shaped figures. Now, dividing these in half by drawing a line from the 
     protruding point/vertex to the center, we have \\(24\\) triangles to deal with. Looking at these, my first instinct was to find the altitiude where the base is \\(\\frac{\\sqrt{6^2+6^2}}{2}=3\\sqrt{2}\\). We know this because the side lengths of the squares is \\(6\\), and we find the whole diagonal length and then divide by \\(2\\). </p>
     <p>At this point, I got stuck trying to find the altitude, although I'm not enitrely sure it's impossible and will try to look at it again</p>
@@ -4554,7 +4554,7 @@ rating: 1000,
         `,
         answer: '18',
         topic: 'pythagorean theorem',
-        image: 'amc10202210.png',
+        image: 'assets/question-diagrams/amc-10-2022-problem-10.png',
         hint: "Use the pythagorean theorem and quadratic equations",
         step: "Use the equations \\(a^2+b^2=8^2\\) and \\((a-2)^2+(b-2)^2=4\\sqrt{2}^2\\)"
     },
@@ -4630,7 +4630,7 @@ rating: 1400,
         What is the are of the octagon obtained by joining the top eight vertices of the four hexagons, situated on the rim of the bowl?`,
         type:'mc',
         choices: ['\\(A) 6\\)', "\\(B) 7\\)", "\\(C) 5+2\\sqrt{2}\\)", "\\(D) 8\\)", "\\(E) 9\\)"],
-        image: 'amc10202220.png',
+        image: 'assets/question-diagrams/amc-10-2022-problem-20.png',
         solution: `<b>7</b><p>We know that the interior angles of a regular and thus equiangular octagon are \\(135^\\circ\\). If we look at the vertice where two octagons and a triangle intersect, and imagine it in two dimensions, we see that the remaining angle, the one of the triangle, becomes \\(360-135-135=90\\). The triangles are right triangles with legs \\(1\\) for a hypotneuse of \\(\\sqrt{2}\\)</p>
         <p>Technically, the lsat bit of informatioin is extraneous, but it can be used in other situations. We can draw a square outside the octagon that is tangent at the side lengths of \\(1\\). This square has an area of \\(9\\). However, there are \\(4\\) cutout triangles of side length \\(1\\) and altitude \\(1\\) so we remove \\(2\\). Thus, the
         remaining area is \\(7\\)`,
@@ -4688,7 +4688,7 @@ rating: 1600,
         top two vertices of \\(T\\) are in \\(R\\cup S\\), and \\(T\\) contains \\(\\frac{1}{4}\\) of the lattice points contained in \\(R\\cup S\\). See the figure (not drawn to scale)</p>
         <p>The fraction of lattice points in \\(S\\) that are in \\(S \\cap T\\) is \\(27\\) times the fraction of lattice points in \\(R\\) that are in \\(R \\cap T\\). What 
         is the minimum possible value of the edge length of \\(R\\) plus the edge length of \\(S\\) plus the edge length of \\(T\\)?`,
-        image: "amc10202225.png",
+        image: "assets/question-diagrams/amc-10-2022-problem-25.png",
         solution: `<b>337</b><p>Call the siden lengths of \\(R, S\\), and \\(T\\) to be \\(r, s,\\) and \\(t\\), respectively. We know that the number of lattice points in a given square is equal to \\((r+1)^2\\), or whatever
         square you are looking at. However, to make calculations more simple, we can substitute \\((r+1)\\) for \\(x\\), \\((s+1)\\) for \\(y\\) and \\((t+1)\\) for \\(z\\). By the first condition, we know that \\(x^2=\\frac{9}{4}y^2\\). We take
         the square root of both sides to see that \\(x=\\frac{3}{2}y\\).</p>
@@ -4711,7 +4711,7 @@ star
 rating: 800,
         text: `In rhombus \\(ABCD\\), point \\(P\\) lies on segment \\(\\overline{AD}\\) so that \\(\\overline{BP} \\perp \\overline{AD}, AP=3\\), and
         \\(PD=2\\). What is the area of \\(ABCD\\)? (Note: The figure is not drawn to scale.)`,
-        image: 'amc1020222.png',
+        image: 'assets/question-diagrams/amc-10-2022-problem-2.png',
         type: 'mc',
         choices: ['\\(A) 3\\sqrt{5}\\)', '\\(B) 10\\)', '\\(C) 6\\sqrt{5}\\)', '\\(D) 20\\)', '\\(E) 25\\)'],
         solution: `<b>20</b><p>We know that \\(AD=2+3=5\\) and that, because a rhombus is an equilateral parallelogram, \\(\\AB=5\\) as well. By 
@@ -4736,7 +4736,7 @@ star
 rating: 1400,
         text: `The diagram below shows a rectangle with side lengths \\(4\\) and \\(8\\) and a square with side length \\(5\\). Three vertices of the square lie on three different sides of the
         rectangle, as shown. What is the area of the region inside both the square and the rectangle?`,
-        image: "amc10202216.png",
+        image: "assets/question-diagrams/amc-10-2022-problem-16.png",
         type: 'mc',
         choices: ['\\(A) 15\\frac{1}{8}\\)', '\\(B) 15\\frac{3}{8}\\)', '\\(C) 15\\frac{1}{2}\\)', '\\(D) 15\\frac{5}{8}\\)', '\\(E) 15\\frac{7}{8}\\)'],
         solution: `<b>\\(15\\frac{5}{8}\\)</b><p>We know that the leftmost point of the square intersects the rectangle at the top edge, which means that the right triangle we see has a height of 
@@ -4786,7 +4786,7 @@ star
 rating: 1200,
         text: `A square of area \\(2\\) is inscribed in a square of area \\(3\\), creating four congruent triangles, as shown below. What
         is the ratio of the shorter leg to the longer leg in the shaded right triangle?`,
-        image: `amc10202311.png`,
+        image: `assets/question-diagrams/amc-10-2023-problem-11.png`,
         solution: `<b>\\(2-\\sqrt{3}\\)</b><p>Call the short side of the right triangle \\(a\\) and the long side \\(b\\). We know that \\(a^2+b^2=2\\) and that \\(a+b=\\sqrt{3}\\) so \\(b=\\sqrt{3}-a\\)</p>
         <p>We substitute that back in to find that \\(a^2+(\\sqrt{3}-a)^2=2) so \\(a^2+3-2\\sqrt{3}+a^2=2\\) and \\(2a^2-2\\sqrt{3}+1=0\\). This really ends up being a pain to 
         factor, so we just use the quadratic formula:
@@ -4949,7 +4949,7 @@ star
 rating: 1400,
         text: `Circle \\(C_{1}\\) and \\(C_{2}\\) each have radius \\(1\\), and the distance betwen their centers is \\(\\frac{1}{2}\\). Circle \\(C_{3}\\) is the largest circle internally tangent to both \\(C_{1}\\) and \\(C_{2}\\).
         Cirlce \\(C_{4}\\) is internally tangent to both \\(C_{1}\\) and \\(C_{2}\\) and externaly tangent to \\(C_{3}\\). What is the radius of \\(C_{4}\\)?`,
-        image: 'amc10202318.png',
+        image: 'assets/question-diagrams/amc-10-2023-problem-18.png',
         type: 'mc',
         choices: ['\\(A) \\frac{1}{14}\\)', '\\(B) \\frac{1}{12}\\)', '\\(C) \\frac{1}{10}\\)', '\\(D) \\frac{3}{28}\\)', '\\(E) \\frac{1}{9}\\)'],
         solution: `<b>\\(\\frac{3}{8}\\)</b><p>We start by finding the radius of \\(C_{3}\\). We know that the two circles have radii of \\(1\\) and are \\(\\frac{1}{2}\\) apart. You can draw this out, if nesscessary, but logic tells us that each center is \\(\\frac{1}{2}\\) from the nearest edge of a circle. This 
@@ -4990,7 +4990,7 @@ star
 rating: 1600,
         text: `Six regular hexagonal blocks of side length \\(1\\) unit are arranged inside a regular hexagonal frame. Each block lies along an inside edge of the frame and is aligned with two other blocks, as shown in the figure below. The distance from any corner of the frame to the nearest vertex of a block is \\(\\frac{3}{7} unit). What is 
         the area of the region isde the frame not occupied by the blocks?`,
-        image: 'amc10202324.png',
+        image: 'assets/question-diagrams/amc-10-2023-problem-24.png',
         solution: `<b>\\(\\frac{9\\sqrt{3}}{2}\\)</b><p>We can extend the side of a block to make a triangle and a parallelogram.</p>
         <p>The triangle has a side length of \\(1-\\frac{3}{7}=\\frac{4}{7}\\). The longer side of the parallelogram is \\(1+\\frac{4}{7}\\). The shorter side is \\(\\frac{3}{7}\\). Thus,the total side length of the large hexagon is \\(1+1+\\frac{4}{7}+\\frac{3}{7}=3\\) for an area of \\(\\frac{27\\sqrt{3}}{2}\\).</p>
         <p>The areas of the blocks are each \\(\\frac{3\\sqrt{3}}{2}\\) for a total of \\(\\frac{18\\sqrt{3}}{2}\\) We subtract this to find that the remaining area is \\(\\frac{27\\sqrt{3}}{2}-\\frac{18\\sqrt{3}}{2}=\\frac{9\\sqrt{3}}{2}\\)`,
@@ -5049,7 +5049,7 @@ rating: 800,
         type: 'mc',
         choices: ['\\(A) 24^\\circ\\)', '\\(B) 35^\\circ\\)', '\\(C) 30^\\circ\\)', '\\(D) 32^\\circ\\)', '\\(E) 20^\\circ\\)'],
         answer: '\\(B) 35^\\circ\\)',
-        image: 'amc1020237.png',
+        image: 'assets/question-diagrams/amc-10-2023-problem-7.png',
         topic: 'power of a point',
         hint: "How can use the power of a point in this situation?",
         step: "Draw lines from \\(A\\) and \\(E\\) to the center \\(I\\)"
@@ -5107,7 +5107,7 @@ star
 rating: 1400,
         text: `Four coungruent semicircles are drawn on the surface of a sphere with radius \\(2\\), as shown, creating a close curve that divides the surface into two congruent regions. The
         length of the curve is \\(\\pi\\sqrt{n}\\). What is \\(n\\)?`,
-        image: 'amc10202320.png',
+        image: 'assets/question-diagrams/amc-10-2023-problem-20.png',
         type: 'mc',
         choices: ['\\(A) 32\\)', '\\(B) 12\\)', '\\(C) 48\\)', '\\(D) 36\\)', '\\(E) 27\\)'],
         solution: `<b>32</b><p>From the picture, we can pretty confidently see that the four points, which we can call \\(A, B, C,\\) and \\(D\\) are coplanar. This essentially means we can take a cross section  that "slices" the sphere and 
@@ -5188,7 +5188,7 @@ star
         difficulty: 4,
 rating: 1400,
         text: 'All of the rectangles in the figure below, which is drawn to scale, are similar to the enclosing rectangle. Each number represents the area of the rectangle. What is length \\(AB\\)?',
-        image: 'amc10202416.png',
+        image: 'assets/question-diagrams/amc-10-2024-problem-16.png',
         solution: `<b>\\(10\\sqrt[4]{2}\\)</b><p>We know by the answer choices that the side lengths are probably not integers. That sucks for us. We ARE however told that the rectangle is drawn to scale. This helps a whole lot.</p>
         <p>We start with the rectangle of area \\(1\\) and call the side lengths \\(a\\) and \\(b\\) for longest and shortest. We are also given taht all the sides rectangles are SIMILAR, meaning the side length ratios are the same and the side
         lenghts of a rectangle with area \\(z\\) with be \\(\\sqrt{z}x\\) and \\(\\sqrt{z}{y}\\). </p>
@@ -5264,7 +5264,7 @@ star
 rating: 1200,
         text: `In the figure below \\(WXYZ\\) is a rectangle with \\(WX=4\\) and \\(WZ=8\\). Point \\(M\\) lies \\(\\overline{XY}\\),
         point \\(A\\) lies on \\(\\overline{YZ}\\) and \\(\\angle WMA\\) is a right angle. The areas of \\(triangle WXM\\) and \\(\\triangle WAZ\\) are equal. What is the area of \\(\\triangle WMA?\\)`,
-        image: 'amc10202411.png',
+        image: 'assets/question-diagrams/amc-10-2024-problem-11.png',
         solution: `<b>15</b><p>We know by \\(AA\\) that \\(WXM\\) and \\(MAY\\) are similar. We know that \\(WX=4\\) so lets call \\(XM = x\\). \\(MY=8-x\\) so the ratio is \\(\\frac{8-x}{4}\\) meaning that \\(AY=\\frac{8-x}{4}\\cdot x\\) and \\(ZA=4-\\frac{8-x}{4}\\cdot x\\).</p>
         <p>Since we are given that the area of \\(\\triangle WXM=\\triangle WAZ\\), we can set up the following equation</p>
         $$
@@ -5305,7 +5305,7 @@ star
 rating: 1600,
         text: `Two straight pipes (circular cylinders) with radii \\(1\\) and \\(\\frac{1}{4}\\), lie parallel in contact on a flat floor. The 
         figure below shows a head-on view. What is the sum of the possible radii of a third parallel pipe lying on the same floor and in contact with both? `,
-        image: `amc10202421.png`,
+        image: `assets/question-diagrams/amc-10-2024-problem-21.png`,
         type: 'mc',
         choices: ['\\(A) \\frac{1}{9}\\)', '\\(B) 1\\)', '\\(C) \\frac{10}{9}\\)', '\\(D) \\frac{11}{9}\\)', '\\(E) \\frac{19}{9}\\)'],
         solution: `<b>\\(\\frac{10}{9}\\)</b>By the diagram, there are two places we can put a circle tangent to both: Between the two in the space enclosed by them or to the right of the smaller one so that it 'goes over' the smaller one's center.</p>
@@ -5865,7 +5865,7 @@ star
 rating: 1000,
         text: `Mr. Zhou places all the integers from \\(1\\) to \\(225\\) into a \\(15\\) by \\(15\\) grid. he places \\(1\\) in the middle square (eighth row and eighth column) and places other numbers one by one clockwise, as shown in part in the diagram below.
         What is the sum of the greatest number and the last number that appear in the second row from the top?`,
-        image: "amc1020218.png",
+        image: "assets/question-diagrams/amc-10-2021-problem-8.png",
         solution: `<b>367</b><p>We work backwards for this. We know that the entire top row has \\(15\\) terms being with \\(15\\) largest terms of the sequence. We also know by induction that the leftmost term in a row is the largest. Thus, the largest term in the second row is \\(225-15=210\\). The smallest we can find by working backwards. Starting from \\(225\\) again, we have 
         \\(15\\) for the top row, \\(14\\) for the left, \\(14\\) for the bottom, \\(13\\) for the right, and \\(12\\) for the second top row. We subtract all of this from \\(225\\) for \\(157\\) and add this to \\(210\\) for answer \\(367\\) `,
         answer: '367',
@@ -7913,7 +7913,7 @@ rating: 1400,
         text: `A farmer's rectangular field is partitioned into a \\(2\\) by \\(2\\) grid of \\(4\\) rectangular sections as shown in the figure. In
         each section the farmer will plant one crop: corn, wheat, soybeans, or potatoes. The farmder does not want to grow corn and wheat in any two sections that share a border, and the farmer does not want to grow soybeans and potatoes in any two sections that share a border. 
         Given these restrictions, in how many ways can the farmer choose crops to plant in each of the four sections of the field?`,
-        image: 'amc10202018.png',
+        image: 'assets/question-diagrams/amc-10-2020-problem-18.png',
         solution: `<b>84</b><p>Call corn, wheat, soybeans, and potatoes, \\(c,w,s,\\) and \\(p\\), respectively. The rules tell us, effectively, that \\(c\\) and \\(w\\) and then \\(s\\) and \\(p\\) have to be diagonal. Note also, that the question does not say that we have to use each crop once.</p>
         <p>If we have two crops, the process is a bit complicated. The way I saw it, you take one pair, let's use \\(c\\) and \\(w\\). You know they have to be diagonal. There are \\(4\\) ways for them to be diagonal (2 in each orientation and then flipping the values), and for each of those \\(4\\), the values of \\(p, s\\) can
         be reversed, so there are \\(8\\) total there.</p>
@@ -7999,7 +7999,7 @@ rating: 1000,
         Each region is to be painted a solid color - red, orange, yellow, blue, or green - so that regions that touch are painted different colors,
          and colors can be used more than once.
          How many different colorings are possible?`,
-        image: 'amc1020229.png',
+        image: 'assets/question-diagrams/amc-10-2022-problem-9.png',
         solution: `<b>540</b><p>We do casework based on the number of colors</p>
         <p>If we use \\(5\\) colors, we have \\(5! 120\\) ways to color it</p>
         <p>If we use \\(4\\) colors, we caneither have the top right and bottom left or the top left and bottom right, or bottom two corners. These are identical probabilities, so we'll just multiply by \\(3\\).</p>

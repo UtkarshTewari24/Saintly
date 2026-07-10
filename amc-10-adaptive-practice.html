@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script
+src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0">
+</script>
+      <meta property="og:title" content="Saintly | Accessible Competition Math Prep by Students for Students" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://saintlymath.com" />
+<meta property="og:image" content="https://adalynn-le.github.io/Saintly/assets/social/open-graph-lessons.png" />
+<meta name="twitter:card" content="summary_large_image">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N3X50VWZM2"></script>
+<script src="https://t.contentsquare.net/uxa/cb77e0fd80dbf.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N3X50VWZM2');
+</script>
+  <meta charset="UTF-8">
+  <title>AMC 10 - Adaptive Practice</title>
+  <link rel="stylesheet" href="site.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/branding/favicon-16.png">
+<link rel="manifest" href="assets/branding/site.webmanifest">   
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap&icon_names=account_circle,ads_click,bedtime,book,check,close_small,exclamation,function,handshake,lab_profile,leaderboard,lightbulb_2,local_fire_department,nest_clock_farsight_analog,playlist_add_check,question_mark,send,star,sunny,volunteer_activism,warning" />
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=close" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&display=swap&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<script>
+window.addEventListener("load", function () {
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  setTimeout(() => {
+    loader.style.display = "none";
+    document.body.style.overflow = ""; // restore scrolling
+  }, 300); // slightly shorter
+});
+</script>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+</head>
+
+<body>
+   <div id="loader" style="
+  position: fixed; inset: 0;
+  background: rgb(255, 255, 255);
+  display: flex; align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.4s ease;
+">
+  <p style="font-family: 'Instrument Serif', serif;
+     font-size: 48px; color: #88b0ff; font-style: italic;">
+    Saintly
+  </p>
+</div>
+<div id="sidebarPlaceholder"></div>
+<script type="module" src="site-sidebar.js"></script>
+<nav id = "top-bar">
+  <a class="aContainer" href="index.html">Home</a>
+  <p class="aContainer">•</p>
+  <a class="aContainer" href = "amc-10.html">AMC 10</a>
+  <p class="aContainer">•</p>
+  <a class="aContainer" href = "amc-10-adaptive-practice.html">Adaptive Practice</a>
+  <div class="center-align">
+  <button class='topBtn' onclick="window.location.href='index.html'">
+  <img class="fullLogo" src="assets/branding/saintly-full-logo.png">
+  </button>
+  </div>
+  <div class="right-align">
+
+  <span class="material-symbols-outlined airplane helpButton" id="helpButton">
+
+send
+</span>
+<span onclick="window.location.href='volunteer.html'"class="material-symbols-outlined volunteerButton" >
+volunteer_activism
+</span>
+<span class="material-symbols-outlined volunteerButton brightness" id="brightness">
+sunny
+</span>
+    <a href="https://discord.gg/SuAvtn7595" style="justify-self: flex-end;" class="start-practice hover" id="joindiscord">Join Our Discord!</a>
+<button id="accountBtn" style=" height: 34px; display: inline-flex; flex-direction: row; align-items: center; justify-content: center; gap: 6px; color: #88b0ff; font-family: 'National Park', sans-serif; padding: 0 12px; margin: 0 5px; cursor: pointer;  width: auto !important; max-width: fit-content !important;" class="start-practice hover">
+  <span class="material-symbols-outlined" style="margin: 0; font-size: 20px; display: inline-flex; align-items: center; justify-content: center; color: #88b0ff;">
+    account_circle
+  </span>
+  <span style="white-space: nowrap;" id="username-display">Log In</span>
+</button>
+    </div>
+</nav>
+<main>  
+<!-- Streak bar -->
+<div id="streak-wrapper" class="streak-wrapper">
+    <div id="streak-bar" class="streak-bar">
+        <div id="highlight" class="highlight">
+            <div class="highlight-edge">
+                <div class="highlight-edge-white"></div>
+            </div>
+        </div>    
+
+        <span id="streak-icon" class="material-symbols-outlined">local_fire_department</span>
+        <span id="streak-text">
+            Your Streak: <span id="streak-count">0</span>
+        </span>
+    </div>
+</div>
+<div id = "score-wrapper" class = "score-wrapper">
+  <p><b>ELO Ranking:   </b><p id = "score-count" class = "score-count"></p></p>
+</div>
+<div style="display: flex; gap: 20px; margin-bottom: 15px; font-family: sans-serif;">
+  <div class="timer-container">Average Time Per Question <span id="avg-timer">0:00</span></div>
+</div>
+<div class="container">
+
+  <h1 id = "adaptiveTitle">AMC 10 - Adaptive Practice</h1>
+  <p>Adaptive Practice works by using a model based on a chess ELO system that assigns you questions with similar difficulty to your level within a range. Problems that are of a much higher difficulty reward you with more points and take away less when incorrect, with the opposite true for easier problems. Your "ELO" is displayed in the top right corner. You can also advance your
+    practice through spaced repetition, where incorrect problems will appear to reinforce your learning. The Topics Glossary is there for your convenience so that you can best understand what and how to study as well as practice topics you are often weak on.</p>
+    <div id="diagnosticStuff">
+      <span class="problemsContainer">
+        <div class="problem problem-wrapper problem-adaptive" id="problems-card">
+          <div id="diagnosticTitle" class="amc10title small">Diagnositc</div>
+          <p class="par" id="diagnosticText">Complete this ten question diagnostic to assess your level and set your ELO to a personalized level. You may also skip this diagnostic to start at entry-level questions.</p>
+          
+    <img loading="lazy" decoding="async" id="diagnosticImage"></img>
+    <input type="text" id="diagnosticInput" placeholder="Your answer">
+<div id="diagnostic-mc-container" class="hidden">
+  <button class="diagnostic-choice problemBtn" id = "diagnostic-choice1"></button>
+  <button class="diagnostic-choice problemBtn" id = "diagnostic-choice2"></button>
+  <button class="diagnostic-choice problemBtn" id = "diagnostic-choice3"></button>
+  <button class="diagnostic-choice problemBtn" id = "diagnostic-choice4"></button>
+  <button class="diagnostic-choice problemBtn" id = "diagnostic-choice5"></button>
+</div>
+<button id="diagnosticCheck" class="problemBtn">Check Answer</button>
+     <div class="solution" id="diagnosticSolutionContainer" style="display:none;">
+      <h2>Solution</h2>
+      <p id="diagnosticSolutionText"></p>
+
+      </div>
+
+    <button id="diagnosticNext" class="problemBtn" style="display:none;">Next Question</button>
+
+          <button class="problemBtn topicBtn topic-btn" id="startDiagnostic">Start Diagnostic</button>
+          <button class="problemBtn topicBtn topic-btn" id="skip">Skip</button>
+          <button class="problemBtn topicBtn topic-btn" style="display: none" id="startadaptive">Start Practicing!</button>
+        </div>
+          </div>
+      </span>
+    </div>
+    <div id="actualStuff">
+  <h2 class="amc10subtitle">Practice Problems</h2>
+
+  <!-- Toggle -->
+
+  <!-- Problem Card -->
+   <span class="problemsContainer">
+       <div class="strikes" style="display:none;" id="strikesContainer">
+<span class="material-symbols-rounded strike" id="strikeOne">
+close
+</span>
+<span class="material-symbols-rounded strike" id="strikeTwo">
+close
+</span>
+<span class="material-symbols-rounded strike" id="strikeThree">
+close
+</span>
+   </div>
+  <div class="problem problem-wrapper problem-adaptive" id="problems-card">
+  <!--Switch Topic-->
+  <div class="btnsWrapper">
+    <p id = test></p>
+    <button class = "btn2  topicBtn" id = "algebraButton">Algebra</button>
+    <button class = "btn2  topicBtn" id = "geometryButton">Geometry</button>
+    <button class = "btn2  topicBtn" id = "numtheoryButton">Number Theory</button>
+    <button class = "btn2  topicBtn" id = "probabilityButton">Probability</button>
+    <button class = "btn2  topicBtn" id = "allButton">All</button>
+  </div>
+    <div class="miniTag error" id="prevError" style="display:none">
+        <span class="material-symbols-outlined warning">
+warning
+</span>
+<p id="prevErrorText" style="display: inline">Previous Mistake</p></div>
+    <div id="question-title" class="amc10title small">Question 1:</div>
+<div class="scratchpad-controls" style="margin-bottom: 10px; position: relative; z-index: 20;">
+  <button id="btn-toggle-scratchpad" class="start-practice" style="border: 1px solid #88b1ff; background-color: transparent;">Open Scratchpad</button>
+</div>
+
+      <div>
+        <div style="color: #FFB192">Elapsed Time: <span  id="current-timer">0:00</span></div>
+        </div>
+        <div id="hint">Hint</div>
+    <p id="question-text">Loading question...</p>
+    <img loading="lazy" decoding="async" id="question-image"></img>
+    <input type="text" id="answer-input" placeholder="Your answer">
+<div id="mc-container" class="hidden">
+  <button class="mc-choice problemBtn" id = "mc-choice1"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice2"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice3"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice4"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice5"></button>
+</div>
+
+    <button id="check-btn" class="problemBtn">Check Answer</button>
+    <button class="problemBtn" id = "hintBtn">Show Hint</button>
+        <button class="problemBtn" id = "seeStep">See the First Step</button>
+      <div class="solution" id="stepOne" style="display:none;">
+              <h2>Step 1:</h2>
+              <div id="stepOneText"></div>
+      </div>
+    <div class="solution" id="solution" style="display:none;">
+      <h2>Solution</h2>
+      <p id="solution-text"></p>
+      <div id="tagQuestion">
+      <h3>"Tag" This Question</h3>
+      <p class="par">Mark what made you get this wrong. This will influence how the spaced repetition and topic tracking delivers your questions.</p>
+      <span style="display: flex; flex-direction: row">
+      <button style="flex: 1" class="error-tag" id="unfamiliar"><span class="material-symbols-outlined">
+question_mark
+</span><span class="error-tag-text">Unfamiliar With Topic</span></button>
+      <button style="flex: 1" class="error-tag" id="stuck"><span class="material-symbols-outlined">
+lightbulb_2
+</span> <span class="error-tag-text">Had an idea but hit a dead end</span></button>
+<button style="flex: 1"class="error-tag" id="mistake"><span class="material-symbols-outlined">
+function
+</span> <span class="error-tag-text">Small Arithmetic Mistake</span></button>
+</span>
+</div>
+      <button id="submit-a-solution">Submit a Solution</button>
+      <div id="submit-a-solution-form" class="submit-a-solution-form">
+      
+  <form
+  action="https://formspree.io/f/xjgpnzvp"
+  method="POST"
+>
+  <label class="formsubmission">
+    Name (whatever you're comftorable with displaying on the website):
+    <input type="text" name="name" placeholder="First Last" required>
+  </label>
+  <label class="formsubmission">
+    Email (nescessary if you want to be contacted back):
+    <input name="email" type="text" placeholder="youremail@gmail.com"></input>
+  </label>
+  <label class="formsubmission">
+    Problem Title:f
+    <input name="title" type="text" placeholder="AMC 10[A or B] [year] Problem #" required></input>
+  </label>
+  <label class="formsubmission">
+    Solution: (can be an outline, if approved, I will ask for a formatted LaTex answer)
+    <textarea name="solution" type="text" required></textarea>
+  </label>
+  <label class="formsubmission">
+    Do you consent to your solution being published on Saintly's website WITH your name/display name?
+    <div style="display: flex; flex-wrap: wrap; gap: 8px 25px;">
+    <input name="consent" type="radio" class="radio-option">Yes</input>
+    <input name="consent (no name)" type="radio" class="radio-option" >Yes, but do not include my name or display name</input>
+    <input name="no consent" type="radio" class="radio-option">No</input>
+    </div>
+  </label>
+  <!-- your other form fields go here -->
+  <button class="problemBtn" type="submit">Submit Solution</button>
+</form>
+      </div>
+    </div>
+
+    <button id="next-btn" class="problemBtn" style="display:none;">Next Question</button>
+  </div>
+  </span>
+
+<span style="display: flex; flex-direction: row" id="graphs">
+  <span style="display: inline-block; flex: 1" class="howworkcard">
+      <h3 class="amc10subtitle">Your Most Common Mistakes</h3>
+    <canvas id="barChart" style="width:100%;max-width:700px">
+</canvas>
+  </span>
+    <span style="display: inline-block; flex: 1" class="howworkcard">
+      <h3 class="amc10subtitle">Your Most Missed Topics</h3>
+    <canvas id="pieChart" style="width:100%;max-width:700px">
+</canvas>
+  </span>
+</span>
+<span class="howworkcard">
+  <h3 class="amc10subtitle">Accuracy Per Subject</h3>
+  <div class="radar-container" style="max-width: 500px; margin: auto;">
+    <canvas id="radarChart"></canvas>
+</div>
+</span>
+<div id="scratchpad-popup" style="display: none; position: fixed; top: 150px; left: 50px; width: 420px; background: rgb(255, 255, 255); border: 2px solid var(--primary-color, #88b1ff); border-radius: 8px;  z-index: 1000; overflow: hidden; ">
+  
+  <div id="scratchpad-header" style="padding: 10px; background: rgb(255, 255, 255); cursor: move; display: flex; justify-content: space-between; align-items: center; user-select: none; border-bottom: 1px solid rgb(235, 234, 241);">
+    <span style=" color: #88B1ff; font-size: 14px; font-family: 'National Park' sans-serif;">Scratchpad</span>
+    <div style="display: flex; gap: 6px;">
+      <button id="btn-clear-scratchpad" style="padding: 4px 8px; cursor: pointer; background: rgb(255, 255, 255); border: none; border-radius: 4px; color: #88B1ff; font-size: 12px; font-family: 'National Park', sans-serif">Clear</button>
+      <button id="btn-close-scratchpad" style="padding: 4px 8px; cursor: pointer; background: #ff5c5c; border: none; border-radius: 4px; color: white; font-size: 12px; font-weight: bold;">X</button>
+    </div>
+  </div>
+
+  <div style="padding: 10px; background: rgb(255, 255, 255); display: flex; justify-content: center;">
+    <canvas id="scratchpad-canvas" width="400" height="300" style="display: block; background: rgba(255, 255, 255, 0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 4px; cursor: crosshair;"></canvas>
+  </div>
+</div>
+  <span style="display: inline-flex">
+<div id="leaderboardWrapper" style="display: inline-block">
+  <h2 class="amc10subtitle">Leaderboard<h2>
+    <p class="par">See the most challenging and failed questions on Saintly, ranked by real user performance and accuracy</p>
+  <div id="leaderboardOne" class="leaderboardCard problem problem-wrapper">
+    <div id="leaderboardOneCard">
+    <h3 style="display: inline; color: var(--text-variant); font-weight: 500;">1</h3>
+    <h3 class="leaderboardTitle amc10title ittyBitty" id="leaderboardTitleOne">Question 1</h3>
+    
+    
+        <svg class="dropdown-icon" id="leaderboard-one-dropdown" viewBox="0 0 24 24">
+      <path fill="var(--text-variant)" d="M7 10l5 5 5-5z"/>
+    </svg>
+    <h3 class="leaderboardTitle amc10title ittyBitty percent" id="percentOne">100%</h3>
+  </div>
+    <div class="hiddenToggle" id="oneProblem">
+    <p class="leaderboardPar par" id="leaderboardPar1">Bob billy bob bob bob</p>
+    <input type="text" id="leaderboard-input-one" placeholder="Your answer">
+  <div id="mc-container" class="hidden">
+  <button class="mc-choice-leaderboard-one problemBtn" id = "mc-choice1-1"></button>
+  <button class="mc-choice-leaderboard-one problemBtn" id = "mc-choice2-1"></button>
+  <button class="mc-choice-leaderboard-one problemBtn" id = "mc-choice3-1"></button>
+  <button class="mc-choice-leaderboard-one problemBtn" id = "mc-choice4-1"></button>
+  <button class="mc-choice-leaderboard-one problemBtn" id = "mc-choice5-1"></button>
+</div>
+    <button class="problemBtn leaderboardBtn" id="leaderboard-btn-one">Check Answer</button>
+   <div class="solution" id="solution-one" style="display:none;">
+      <h2>Solution</h2>
+      <p id="solution-text-one" class="par"></p>
+    </div>
+  </div>
+</div>
+  <div id="leaderboardTwo" class="leaderboardCard problem problem-wrapper">
+    <div id="leaderboardTwoCard">
+        <h3 style="display: inline; color: var(--text-variant); font-weight: 500;">2</h3>
+    <h3 class="leaderboardTitle amc10title ittyBitty" id="leaderboardTitleTwo">Question 2</h3>
+        <svg class="dropdown-icon" id="leaderboard-two-dropdown" viewBox="0 0 24 24">
+      <path fill="var(--text-variant)" d="M7 10l5 5 5-5z"/>
+    </svg>
+        <h3 class="leaderboardTitle amc10title ittyBitty percent" id="percentTwo">100%</h3>
+        </div>
+    <div class="hiddenToggle" id="twoProblem">
+    <p class="leaderboardPar par" id="leaderboardPar2">Alice alice alice alice alice</p>
+    <input type="text" id="leaderboard-input-two" placeholder="Your answer">
+  <div id="mc-container" class="hidden">
+  <button class="mc-choice problemBtn" id = "mc-choice1-2"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice2-2"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice3-2"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice4-2"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice5-2"></button>
+</div>
+    <button class="problemBtn leaderboardBtn" id="leaderboard-btn-two">Check Answer</button>
+   <div class="solution" id="solution-two" style="display:none;">
+      <h2>Solution</h2>
+      <p id="solution-text-two" class="par"></p>
+    </div>
+  </div>
+</div>
+  <div id="leaderboardThree" class="leaderboardCard problem problem-wrapper">
+        <div id="leaderboardThreeCard">
+        <h3 style="display: inline; color: var(--text-variant); font-weight: 500;">3</h3>
+    <h3 class="leaderboardTitle amc10title ittyBitty" id="leaderboardTitleThree">Question 3</h3>
+            <svg class="dropdown-icon" id="leaderboard-three-dropdown" viewBox="0 0 24 24">
+      <path fill="var(--text-variant)" d="M7 10l5 5 5-5z"/>
+    </svg>
+        <h3 class="leaderboardTitle amc10title ittyBitty percent" id="percentThree">100%</h3>
+        </div>
+    <div class="hiddenToggle" id="threeProblem">
+    <p class="leaderboardPar par" id="leaderboardPar3">Charlie charlie charlie charlie charlie</p>
+    <input type="text" id="leaderboard-input-three" placeholder="Your answer">
+  <div id="mc-container" class="hidden">
+  <button class="mc-choice problemBtn" id = "mc-choice1-3"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice2-3"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice3-3"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice4-3"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice5-3"></button>
+</div>
+    <button class="problemBtn leaderboardBtn" id="leaderboard-btn-three">Check Answer</button>
+   <div class="solution" id="solution-three" style="display:none;">
+      <h2>Solution</h2>
+      <p id="solution-text-three" class="par"></p>
+    </div>
+  </div>
+</div>
+  <div id="leaderboardFour" class="leaderboardCard problem problem-wrapper">
+    <div id="leaderboardFourCard">
+        <h3 style="display: inline; color: var(--text-variant); font-weight: 500;">4</h3>
+    <h3 class="leaderboardTitle amc10title ittyBitty" id="leaderboardTitleFour">Question 4</h3>
+     <svg class="dropdown-icon" id="leaderboard-four-dropdown" viewBox="0 0 24 24">
+      <path fill="var(--text-variant)" d="M7 10l5 5 5-5z"/>
+    </svg>
+        <h3 class="leaderboardTitle amc10title ittyBitty percent" id="percentFour">100%</h3>
+        </div>
+    <div class="hiddenToggle" id="fourProblem">
+    <p class="leaderboardPar par" id="leaderboardPar4">David david david david david</p>
+    <input type="text" id="leaderboard-input-four" placeholder="Your answer">
+  <div id="mc-container" class="hidden">
+  <button class="mc-choice problemBtn" id = "mc-choice1-4"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice2-4"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice3-4"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice4-4"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice5-4"></button>
+</div>
+    <button class="problemBtn leaderboardBtn" id="leaderboard-btn-four">Check Answer</button>
+   <div class="solution" id="solution-four" style="display:none;">
+      <h2>Solution</h2>
+      <p id="solution-text-four" class="par"></p>
+    </div>
+  </div>
+</div>
+  <div id="leaderboardFive" class="leaderboardCard problem problem-wrapper">
+    <div id="leaderboardFiveCard">
+        <h3 style="display: inline; color: var(--text-variant); font-weight: 500;">5</h3>
+    <h3 class="leaderboardTitle amc10title ittyBitty" id="leaderboardTitleFive">Question 5</h3>
+       <svg class="dropdown-icon" id="leaderboard-five-dropdown" viewBox="0 0 24 24">
+      <path fill="var(--text-variant)" d="M7 10l5 5 5-5z"/>
+    </svg>
+        <h3 class="leaderboardTitle amc10title ittyBitty percent" id="percentFive">100%</h3>
+        </div>
+    <div class="hiddenToggle" id="fiveProblem">
+    <p class="leaderboardPar par" id="leaderboardPar5">Eve eve eve eve eve</p>
+    <input type="text" id="leaderboard-input-five" placeholder="Your answer">
+  <div id="mc-container" class="hidden">
+  <button class="mc-choice problemBtn" id = "mc-choice1-5"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice2-5"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice3-5"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice4-5"></button>
+  <button class="mc-choice problemBtn" id = "mc-choice5-5"></button>
+</div>
+    <button class="problemBtn leaderboardBtn" id="leaderboard-btn-five">Check Answer</button>
+   <div class="solution" id="solution-five" style="display:none;">
+      <h2>Solution</h2>
+      <p id="solution-text-five" class="par"></p>
+    </div>
+  </div>
+</div>
+</div>
+<div id="topicsWrapper" style="display: inline">
+<h1 class="amc10subtitle">Topics Glossary</h1>
+<p>See in-depth metrics and tips for how to study on the topics you get wrong. This will update as you progress through the questions</p>
+<div id="topics-dropdown">You haven't gotten anything wrong yet, keep up the good work</div>
+</div>
+</span>
+
+</div>
+<div class="helpPannel"  id="accountPannel">
+  <div id="login">
+    <h2 class="amc10subtitle ittyBitty">Welcome Back!</h2>
+      <p class="par">Access your progress across all your devices</p>
+    <p id="login-error" style="color: red"></p>
+    <input type="email" id="login-email" placeholder="Email"/>
+    <input type="password" id="login-password" placeholder = "Password"/>
+  <span style="display: flex; flex-direction: row; justify-content: flex-start; gap: 16px">
+
+  </span>
+        <button id="btn-login" class="start-practice">Log In</button>
+          <button class="start-practice" id="btn-request-reset">Forgot Your Password? Send a Reset Email</button>
+
+
+  </div>
+  <div id="signup" style="display: none">
+    <p id="signup-error" style="color: red"></p>
+  <h2 class="amc10subtitle ittyBitty">Make an Account</h2>
+  <p class="par">Want to store your progress, see how you stand in comparison to other students, and climb the leaderboard? Create a free account today!</p>
+  <div id="auth-container">
+  <input type="email" id="auth-email" placeholder="Email" />
+  <input type="password" id="auth-password" placeholder="Password" />
+      <input type="password" id="auth-password-check" placeholder = "Confirm Password"/>
+  <input type="text" id="auth-username" placeholder="Display Name" />
+  </div>
+      <button id="btn-signup" class="start-practice">Sign Up</button>
+</div>
+<a class="amc10subtitle ittyBitty pset-link" href="dashboard.html" id="btn-dashboard">Username</a>
+        <button id="btn-logout" class="start-practice"style="display: none; cursor: pointer;">Log Out</button>
+  <button id="no-account" class="start-practice">Don't have an account? Sign Up!</button>
+  <button id="btn-delete-account" class="start-practice" style="display: none">
+  Delete Account & Wipe Progress
+</button>
+</div>
+<div id = "helpPannel" class = "helpPannel">
+  <h2 class="amc10subtitle ittyBitty">Need Some Help?</h2>
+  <p class="par">Contact us through our form</p>
+<div data-fs-success></div>
+<div data-fs-error></div>
+
+<form
+  action="https://formspree.io/f/mwvwgrwr"
+  method="POST"
+>
+<label class="formsubmission">
+  Name:
+  <input type="text" name="name" placeholder="First Last">
+</label>
+  <label class="formsubmission">
+    Email:
+    <input type="email" name="email" placeholder="youremail@gmail.com">
+  </label>
+  <label class="formsubmission">
+    Message:
+    <input type="text"name="message" required></input>
+  </label>
+  <!-- your other form fields go here -->
+<label class="formsubmission">
+  <p>What type of message is this?</p>
+  <div class="mcqwrapper" style="display: flex; flex-wrap: wrap; gap: 8px 16px;">
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Reporting an Error
+    </label>
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Suggesting an addition
+    </label>
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Feedback or Review
+    </label>
+    <label class="checkbox-option">
+      <input type="checkbox" name="messageType"> Other
+    </label>
+  </div>
+</label>
+
+<label class="formsubmission">
+  <p>Do you want to be contacted back?</p>
+  <div style="display: flex; gap: 16px;">
+    <label class="radio-option">
+      <input type="radio" name="contact"> Yes
+    </label>
+    <label class="radio-option">
+      <input type="radio" name="contact"> No
+    </label>
+  </div>
+</label>
+  <button type="submit" class="problemBtn">Send</button>
+</form>
+  <p>Or email us at <a href="mailto:saintly.math@gmail.com">saintly.math@gmail.com</a></p>
+</div>
+<div class="helpPannel" id="privacyPolicy" display="none">
+  <h4>Privacy Policy</h4>
+  <h5>Data Collection</h5>
+  <li>We use local storage to track and save your ELO on your device</li>
+  <li>We use Supabase backend to track overall acuracy on questions</li>
+  <li>We trackk individual user usage on our website, pages, etc. by tracking time spent and interaction</li>
+  <h5>How we use your data</h5>
+  <li>To personalize your learning experience</li>
+  <li>We never sell your data to third parties</li>
+  <h5>Children's Privacy</h5>
+  <li>Saintly is intended for students. We encourage parents to monitor their children's internet usage. We do not knowingly collect personal information from children under 13 without parental consent (per COPPA guidelines).</li>
+</div>
+<div class="helpPannel" id="termsAndConditions" display="none">
+  <h4>Terms and Conditions</h4>
+  <li>By using Saintly you agree to the terms and conditions</li>
+  <li>You may not scrape the site or re-distribute our unique interactive code without permission.</li>
+  <li>Be "Saintly." No harassment, no attempts to hack the site, and no using the platform to cheat on active competitions.</li>
+  <li>Math is hard! While we strive for 100% accuracy, Saintly is provided "as is." We aren't responsible if a specific formula explanation doesn't lead to a perfect AMC score (though we hope it does!).</li>
+  <li>Saintly and its volunteers are not liable for any damages arising from your use of the site.</li>
+</div>
+</main>
+</div>
+<footer class="saintly-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <img class="footer-logo" src="assets/branding/saintly-full-logo.png" height="35px"></img>
+            <p>Making competition math accessible for everyone.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="amc-10.html">AMC 10</a></li>
+                <li><a href="amc-10-adaptive-practice.html">Adaptive Practice</a></li>
+                <li><a href="amc-10-algebra.html">Algebra</a></li>
+                <li><a href="topics-dashboard.html">Topics Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>saintly.math@gmail.com</p>
+            <div class="social-icons">
+      <a>saintly.math@gmail.com</a>
+              <span style="display: flex; flex-direction: row">
+<a href="https://instagram.com/saintly.math" class="fa fa-instagram" style="display: inline-block"><p style='font-family: "National Park", sans-serif; display: inline-block; margin-left: 10px'>@saintly.math</p></a>
+</span>
+                            <span style="display: flex; flex-direction: row">
+<a href="https://pinterest.com/saintlymath" class="fa fa-pinterest" style="display: inline-block"><p style='font-family: "National Park", sans-serif; display: inline-block; margin-left: 10px'>Saintly</p></a>
+
+</span>
+                </div>
+        </div>
+        <div class="footer-section">
+          <h4>Privacy</h4>
+          <ul><li><a href="javascript:void(0)" onclick="myFunction()">Privacy Policy</a></li>
+            <li><a href="javascript:void(0)" onclick="myFunctionTwo()">Terms and Conditions</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Saintly Math. Built with drive.
+    </div>
+</footer>
+</body>
+<div id="level-toast" class="level-toast">
+  Level Up
+</div>
+<div id="overlay"></div>
+
+<!-- Confetti Canvas -->
+<canvas id="confetti-canvas"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script type = "module" src="adaptive-practice.js"></script>
+<script src="site-footer.js"></script>
+</html>

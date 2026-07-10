@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMC 10 Practice Competitions | Saintly</title>
+  <meta name="description" content="Take complete, official past AMC 10 competitions in a focused 75-minute practice environment.">
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="practice-portal.css?v=5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
+  <link rel="manifest" href="assets/branding/site.webmanifest">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="practice-portal">
+  <header class="portal-masthead">
+    <div class="portal-brand-row">
+      <a class="portal-brand" href="index.html">
+        <img src="assets/branding/saintly-icon.png" alt="" width="38" height="38">
+        <span><strong>MAA AMC Student Portal</strong><small>Saintly practice environment</small></span>
+      </a>
+      <span class="portal-user">Practice, Practice</span>
+    </div>
+    <nav class="portal-nav" aria-label="Student portal">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">My Info</a>
+      <a href="dashboard.html">My Profile/Scores</a>
+      <button type="button" id="portal-logout">Logout</button>
+    </nav>
+  </header>
+
+  <main class="portal-main">
+    <section class="portal-screen is-active" id="competition-picker" aria-labelledby="picker-title">
+      <div class="portal-hero">
+        <p class="portal-kicker">Authentic past competitions</p>
+        <h1 id="picker-title">Choose an AMC 10 practice competition</h1>
+        <p>Every option below is one complete, real previous competition—never a mixture of questions from different tests.</p>
+      </div>
+      <div class="picker-toolbar">
+        <label for="year-filter">Jump to year</label>
+        <select id="year-filter"><option value="all">All years</option></select>
+        <span id="completion-summary" aria-live="polite"></span>
+      </div>
+      <div class="competition-grid" id="competition-grid" aria-live="polite">
+        <div class="portal-loading">Loading past competitions…</div>
+      </div>
+    </section>
+
+    <section class="portal-screen" id="directions-screen" aria-labelledby="directions-title">
+      <div class="competition-bar competition-bar--directions">
+        <div><span id="directions-competition-label">AMC 10</span><small>Competition directions</small></div>
+        <button class="portal-text-button" type="button" id="change-competition">Change competition</button>
+      </div>
+
+      <article class="directions-paper">
+        <p class="directions-lead">Students will have 75 minutes to complete the competition <strong>at the time designated by their Competition Manager.</strong></p>
+        <p>We recommend taking the competition on an updated version of Chrome, Firefox, Safari, or Edge on a tablet, laptop, or desktop device—not a mobile phone.</p>
+        <p>Do not start or open the competition in more than one window, as your answers may be overwritten.</p>
+        <p>Double-check that your computer is plugged in and set to stay awake for the duration of the competition. Good luck!</p>
+
+        <hr>
+        <h2 id="directions-title">Competition Format and Allowed Aids</h2>
+        <p>The AMC 10 is a 25-question, 75-minute competition. For each question, only one answer choice is correct.</p>
+        <p><strong>Scoring:</strong> You will receive 6 points for each correct answer, 1.5 points for each problem left unanswered, and 0 points for each incorrect answer.</p>
+        <p>During the competition, students are <strong>only</strong> allowed to use:</p>
+        <ul>
+          <li>Writing utensils</li>
+          <li>Blank scratch paper</li>
+          <li>Rulers</li>
+          <li>Compasses</li>
+          <li>Erasers</li>
+          <li>One computer with one browser tab open, displaying the loaded AMC</li>
+        </ul>
+        <p>Prohibited materials include additional electronic devices, calculators, protractors, and graph paper. No problem requires a calculator.</p>
+        <aside class="directions-warning"><strong>Important:</strong> Do not open the competition in more than one window. Refreshing may reset unsaved submissions. If your timer freezes, write your answers on scratch paper before refreshing.</aside>
+        <p>Figures are not necessarily drawn to scale. Once you submit or time runs out, your entered answers will be scored and you will proceed to the post-competition review.</p>
+        <p>If there is an urgent need to use the bathroom, all materials should remain at your working space in view of the proctor. No other breaks are permitted.</p>
+
+        <hr>
+        <h2>Entering Your Answers</h2>
+        <p>All answers are multiple-choice selections A, B, C, D, or E. You may change your selected answer until final submission.</p>
+
+        <h2>Reporting Competition Issues</h2>
+        <p>If you run into an issue with the original competition platform, email <a href="mailto:amctech@maa.org">amctech@maa.org</a>. For this Saintly practice environment, return to the year selector and restart the practice.</p>
+
+        <hr>
+        <h2>Starting the Competition</h2>
+        <p>When you’re ready, click <strong>Start competition</strong>. The 75-minute clock begins immediately.</p>
+        <p class="good-luck">Congratulations on taking the <span id="directions-good-luck-label">AMC 10</span>! Good luck!</p>
+        <button class="portal-primary-button" type="button" id="start-competition">Start competition</button>
+      </article>
+    </section>
+
+    <section class="portal-screen" id="competition-screen" aria-labelledby="question-heading">
+      <header class="competition-shell-header">
+        <div class="competition-title-row">
+          <strong id="active-competition-label">AMC 10</strong>
+          <div class="competition-actions">
+            <button type="button" id="show-directions">Directions</button>
+            <span aria-hidden="true">|</span>
+            <button type="button" id="exit-competition">Sign Out</button>
+          </div>
+        </div>
+        <div class="question-nav-row">
+          <button class="review-button" type="button" id="open-review">Review <span id="answered-count">0/25</span></button>
+          <h1 id="question-heading">Question 1</h1>
+          <div class="question-nav-buttons">
+            <button type="button" id="previous-question" aria-label="Previous question">‹</button>
+            <button type="button" id="next-question" aria-label="Next question">›</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="competition-workspace">
+        <article class="question-paper" id="question-paper">
+          <div class="question-meta"><span id="question-number">Question 1 of 25</span><time id="competition-timer">75:00</time></div>
+          <div class="question-copy" id="question-copy"></div>
+          <img class="question-diagram" id="question-diagram" alt="Problem diagram" hidden>
+          <div class="answer-options" id="answer-options" role="radiogroup" aria-label="Answer choices"></div>
+          <section class="answer-review" id="answer-review" hidden>
+            <h2>Solution</h2>
+            <div id="solution-copy"></div>
+          </section>
+        </article>
+
+        <aside class="review-panel" id="review-panel" aria-label="Question review" hidden>
+          <div class="review-panel-heading">
+            <div><h2>Review</h2><p>Select any question to return to it.</p></div>
+            <button type="button" id="close-review" aria-label="Close review">×</button>
+          </div>
+          <div class="review-key"><span><i class="answered-dot"></i> Answered</span><span><i class="blank-dot"></i> Blank</span></div>
+          <div class="review-grid" id="review-grid"></div>
+          <button class="portal-primary-button" type="button" id="submit-competition">Submit competition</button>
+        </aside>
+      </div>
+
+      <div class="practice-tools" id="practice-tools">
+        <button type="button" id="highlighter-tool" aria-pressed="false"><span aria-hidden="true">▰</span> Highlighter</button>
+        <button type="button" id="line-reader-tool" aria-pressed="false"><span aria-hidden="true">▤</span> Line reader</button>
+      </div>
+      <div class="line-reader" id="line-reader" hidden aria-hidden="true"></div>
+    </section>
+
+    <section class="portal-screen" id="results-screen" aria-labelledby="results-title">
+      <article class="results-card">
+        <p class="portal-kicker">Competition complete</p>
+        <h1 id="results-title">Your AMC 10 score</h1>
+        <div class="score-ring"><strong id="final-score">0</strong><span>/ 150</span></div>
+        <div class="result-stats">
+          <div><strong id="correct-count">0</strong><span>Correct</span></div>
+          <div><strong id="incorrect-count">0</strong><span>Incorrect</span></div>
+          <div><strong id="blank-count">25</strong><span>Blank</span></div>
+        </div>
+        <p id="completion-message"></p>
+        <div class="results-actions">
+          <button class="portal-secondary-button" type="button" id="review-results">Review answers</button>
+          <button class="portal-primary-button" type="button" id="choose-another">Choose another competition</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <dialog class="confirm-dialog" id="submit-dialog">
+    <form method="dialog">
+      <h2>Submit competition?</h2>
+      <p id="submit-dialog-copy">You still have unanswered questions.</p>
+      <div><button value="cancel" class="portal-secondary-button">Keep working</button><button value="confirm" class="portal-primary-button">Submit now</button></div>
+    </form>
+  </dialog>
+
+  <script type="module" src="practice-test.js?v=5"></script>
+</body>
+</html>

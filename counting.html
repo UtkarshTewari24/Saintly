@@ -5,7 +5,7 @@
       <meta property="og:title" content="Saintly | Accessible Competition Math Prep by Students for Students" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://saintlymath.com" />
-<meta property="og:image" content="https://adalynn-le.github.io/Saintly/opengraph6.png" />
+<meta property="og:image" content="https://adalynn-le.github.io/Saintly/assets/social/open-graph-lessons.png" />
 <meta name="twitter:card" content="summary_large_image">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N3X50VWZM2"></script>
@@ -19,13 +19,13 @@
 </script>
   <meta charset="UTF-8">
   <title>Saintly | Counting</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="site.css">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="manifest" href="site.webmanifest">   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma<link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/branding/favicon-16.png">
+<link rel="manifest" href="assets/branding/site.webmanifest">   
  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap&icon_names=account_circle,ads_click,bedtime,book,check,close_small,exclamation,handshake,lab_profile,leaderboard,local_fire_department,playlist_add_check,select_check_box,send,star,sunny,volunteer_activism,warning" />
  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap&icon_names=close" />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&display=swap&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -40,6 +40,9 @@ window.addEventListener("load", function () {
 });
 </script>
  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 </head>
 
 <body>
@@ -57,16 +60,16 @@ window.addEventListener("load", function () {
   </p>
 </div>
 <div id="sidebarPlaceholder"></div>
-<script type="module" src="sidebar.js"></script>
+<script type="module" src="site-sidebar.js"></script>
 <nav id = "top-bar">
   <a class="aContainer" href="index.html">Home</a>
   <p class="aContainer">•</p>
-  <a class="aContainer" href = "topics dash.html">Topics Dashboard</a>
+  <a class="aContainer" href = "topics-dashboard.html">Topics Dashboard</a>
   <p class="aContainer">•</p>
   <a class="aContainer" href = "counting.html">Counting</a>
   <div class="center-align">
   <button class='topBtn' onclick="window.location.href='index.html'">
-  <img class="fullLogo" src="fullLogo.png">
+  <img class="fullLogo" src="assets/branding/saintly-full-logo.png">
   </button>
   </div>
   <div class="right-align">
@@ -314,7 +317,7 @@ star
   </div>
       <button id="btn-signup" class="start-practice">Sign Up</button>
 </div>
-<a class="amc10subtitle ittyBitty pset-link" href="your dashboard.html" id="btn-dashboard">Username</a>
+<a class="amc10subtitle ittyBitty pset-link" href="dashboard.html" id="btn-dashboard">Username</a>
         <button id="btn-logout" class="start-practice"style="display: none; cursor: pointer;">Log Out</button>
   <button id="no-account" class="start-practice">Don't have an account? Sign Up!</button>
   <button id="btn-delete-account" class="start-practice" style="display: none">
@@ -367,7 +370,7 @@ star
 <footer class="saintly-footer">
     <div class="footer-content">
         <div class="footer-section">
-            <img class="footer-logo" src="fullLogo.png" height="35px"></img>
+            <img class="footer-logo" src="assets/branding/saintly-full-logo.png" height="35px"></img>
             <p>Making competition math accessible for everyone.</p>
         </div>
         <div class="footer-section">
@@ -375,10 +378,10 @@ star
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="volunteer.html">Volunteer</a></li>
-                <li><a href="am10.html">AMC 10</a></li>
-                <li><a href="amc10adaptivepractice.html">Adaptive Practice</a></li>
-                <li><a href="amc10algebra.html">Algebra</a></li>
-                <li><a href="algebra.html">Topics Dashboard</a></li>
+                <li><a href="amc-10.html">AMC 10</a></li>
+                <li><a href="amc-10-adaptive-practice.html">Adaptive Practice</a></li>
+                <li><a href="amc-10-algebra.html">Algebra</a></li>
+                <li><a href="topics-dashboard.html">Topics Dashboard</a></li>
             </ul>
         </div>
         <div class="footer-section">
@@ -416,12 +419,11 @@ star
 <canvas id="confetti-canvas"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script src="countingjs.js"></script>
-<script src="footer.js"></script>
+<script src="question-bank.js"></script>
+<script src="counting.js"></script>
+<script src="site-footer.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
 <script type="module">
   const helpPannel = document.getElementById("helpPannel")
 const { createClient } = window.supabase;

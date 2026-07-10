@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Geometry Visualizer</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --panel-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            
+            /* Line Colors */
+            --color-median: #007bff;
+            --color-altitude: #dc3545;
+            --color-p-bisector: #28a745;
+            --color-a-bisector: #6f42c1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Control Panel */
+        #control-panel {
+            width: 320px;
+            background-color: var(--panel-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        p.description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            line-height: 1.4;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .checkbox-label:hover {
+            background-color: #f1f3f5;
+        }
+
+        .checkbox-label input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        /* Custom indicator tags */
+        .color-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        #ind-median { background-color: var(--color-median); }
+        #ind-altitude { background-color: var(--color-altitude); }
+        #ind-p-bisector { background-color: var(--color-p-bisector); }
+        #ind-a-bisector { background-color: var(--color-a-bisector); }
+
+        /* Canvas Area */
+        #canvas-container {
+            flex-grow: 1;
+            position: relative;
+            background-color: #f1f3f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        canvas {
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            cursor: default;
+        }
+    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+</head>
+<body>
+
+    <div id="control-panel">
+        <div>
+            <h1>Triangle Visualizer</h1>
+            <p class="description">Drag the vertices <strong>A</strong>, <strong>B</strong>, and <strong>C</strong> to manipulate the triangle dynamically.</p>
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid var(--border-color);">
+
+        <div class="control-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="toggle-medians" checked>
+                <span class="color-indicator" id="ind-median"></span>
+                Medians (Centroid)
+            </label>
+
+            <label class="checkbox-label">
+                <input type="checkbox" id="toggle-altitudes" checked>
+                <span class="color-indicator" id="ind-altitude"></span>
+                Altitudes (Orthocenter)
+            </label>
+
+            <label class="checkbox-label">
+                <input type="checkbox" id="toggle-p-bisectors" checked>
+                <span class="color-indicator" id="ind-p-bisector"></span>
+                Perpendicular Bisectors
+            </label>
+
+            <label class="checkbox-label">
+                <input type="checkbox" id="toggle-a-bisectors" checked>
+                <span class="color-indicator" id="ind-a-bisector"></span>
+                Angle Bisectors
+            </label>
+        </div>
+    </div>
+
+    <div id="canvas-container">
+        <canvas id="geometryCanvas" width="800" height="600"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('geometryCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // State UI toggles
+        const toggles = {
+            medians: document.getElementById('toggle-medians'),
+            altitudes: document.getElementById('toggle-altitudes'),
+            pBisectors: document.getElementById('toggle-p-bisectors'),
+            aBisectors: document.getElementById('toggle-a-bisectors')
+        };
+
+        // Initial positions of the triangle vertices
+        let vertices = [
+            { x: 400, y: 150, label: 'A' },
+            { x: 200, y: 450, label: 'B' },
+            { x: 600, y: 450, label: 'C' }
+        ];
+
+        let draggedVertexIndex = null;
+        const interactionRadius = 15; // Hitbox radius for grabbing points
+
+        // Event listeners for UI interaction forcing redraw
+        Object.values(toggles).forEach(toggle => toggle.addEventListener('change', draw));
+
+        // Mouse & Touch Event Listeners for dragging
+        canvas.addEventListener('mousedown', handleStart);
+        canvas.addEventListener('mousemove', handleMove);
+        canvas.addEventListener('mouseup', handleEnd);
+        canvas.addEventListener('mouseleave', handleEnd);
+
+        canvas.addEventListener('touchstart', (e) => { handleStart(e.touches[0]); e.preventDefault(); }, {passive: false});
+        canvas.addEventListener('touchmove', (e) => { handleMove(e.touches[0]); e.preventDefault(); }, {passive: false});
+        canvas.addEventListener('touchend', handleEnd);
+
+        function getMousePos(e) {
+            const rect = canvas.getBoundingClientRect();
+            return {
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top
+            };
+        }
+
+        function handleStart(e) {
+            const pos = getMousePos(e);
+            for (let i = 0; i < vertices.length; i++) {
+                const dist = Math.hypot(vertices[i].x - pos.x, vertices[i].y - pos.y);
+                if (dist < interactionRadius) {
+                    draggedVertexIndex = i;
+                    canvas.style.cursor = 'grabbing';
+                    break;
+                }
+            }
+        }
+
+        function handleMove(e) {
+            const pos = getMousePos(e);
+            
+            // Change cursor type on hover
+            if (draggedVertexIndex === null) {
+                let hovering = false;
+                for (let i = 0; i < vertices.length; i++) {
+                    if (Math.hypot(vertices[i].x - pos.x, vertices[i].y - pos.y) < interactionRadius) {
+                        hovering = true;
+                    }
+                }
+                canvas.style.cursor = hovering ? 'grab' : 'default';
+            }
+
+            // Execute drag updates
+            if (draggedVertexIndex !== null) {
+                // Keep vertices inside canvas boundaries
+                vertices[draggedVertexIndex].x = Math.max(10, Math.min(canvas.width - 10, pos.x));
+                vertices[draggedVertexIndex].y = Math.max(10, Math.min(canvas.height - 10, pos.y));
+                draw();
+            }
+        }
+
+        function handleEnd() {
+            draggedVertexIndex = null;
+            canvas.style.cursor = 'default';
+        }
+
+        // --- Geometric Helper Functions ---
+
+        // Draws an infinitely extended line passing through p1 and p2
+        function drawExtendedLine(p1, p2, color, dash = []) {
+            let dx = p2.x - p1.x;
+            let dy = p2.y - p1.y;
+            let len = Math.hypot(dx, dy);
+            if (len === 0) return;
+
+            // Normalize direction
+            dx /= len;
+            dy /= len;
+
+            // Project far outside canvas boundaries
+            const extension = 2000; 
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash(dash);
+            ctx.moveTo(p1.x - dx * extension, p1.y - dy * extension);
+            ctx.lineTo(p1.x + dx * extension, p1.y + dy * extension);
+            ctx.stroke();
+            ctx.setLineDash([]); // Reset
+        }
+
+        function getMidpoint(p1, p2) {
+            return { x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 };
+        }
+
+        // Calculates line calculations based on options
+        function drawMedians(A, B, C) {
+            const mBC = getMidpoint(B, C);
+            const mAC = getMidpoint(A, C);
+            const mAB = getMidpoint(A, B);
+
+            drawExtendedLine(A, mBC, '#007bff', [4, 4]);
+            drawExtendedLine(B, mAC, '#007bff', [4, 4]);
+            drawExtendedLine(C, mAB, '#007bff', [4, 4]);
+        }
+
+        function drawAltitudes(A, B, C) {
+            // Altitude from A to BC
+            // Slope vector of BC is (C.x - B.x, C.y - B.y). Perpendicular is (-(C.y - B.y), C.x - B.x)
+            const targetA = { x: A.x - (C.y - B.y), y: A.y + (C.x - B.x) };
+            drawExtendedLine(A, targetA, '#dc3545', [6, 3]);
+
+            const targetB = { x: B.x - (A.y - C.y), y: B.y + (A.x - C.x) };
+            drawExtendedLine(B, targetB, '#dc3545', [6, 3]);
+
+            const targetC = { x: C.x - (B.y - A.y), y: C.y + (B.x - A.x) };
+            drawExtendedLine(C, targetC, '#dc3545', [6, 3]);
+        }
+
+        function drawPerpendicularBisectors(A, B, C) {
+            const mBC = getMidpoint(B, C);
+            const targetA = { x: mBC.x - (C.y - B.y), y: mBC.y + (C.x - B.x) };
+            drawExtendedLine(mBC, targetA, '#28a745', [2, 2]);
+
+            const mAC = getMidpoint(A, C);
+            const targetB = { x: mAC.x - (A.y - C.y), y: mAC.y + (A.x - C.x) };
+            drawExtendedLine(mAC, targetB, '#28a745', [2, 2]);
+
+            const mAB = getMidpoint(A, B);
+            const targetC = { x: mAB.x - (B.y - A.y), y: mAB.y + (B.x - A.x) };
+            drawExtendedLine(mAB, targetC, '#28a745', [2, 2]);
+        }
+
+        function drawAngleBisectors(A, B, C) {
+            function getBisectorTarget(vOrigin, vLeft, vRight) {
+                let dLeft = Math.hypot(vLeft.x - vOrigin.x, vLeft.y - vOrigin.y);
+                let dRight = Math.hypot(vRight.x - vOrigin.x, vRight.y - vOrigin.y);
+                if(dLeft === 0 || dRight === 0) return vOrigin;
+
+                // Sum normalized vectors to find the interior bisector direction
+                let ux1 = (vLeft.x - vOrigin.x) / dLeft;
+                let uy1 = (vLeft.y - vOrigin.y) / dLeft;
+                let ux2 = (vRight.x - vOrigin.x) / dRight;
+                let uy2 = (vRight.y - vOrigin.y) / dRight;
+
+                let bx = ux1 + ux2;
+                let by = uy1 + uy2;
+                return { x: vOrigin.x + bx, y: vOrigin.y + by };
+            }
+
+            drawExtendedLine(A, getBisectorTarget(A, B, C), '#6f42c1', [8, 4, 2, 4]);
+            drawExtendedLine(B, getBisectorTarget(B, A, C), '#6f42c1', [8, 4, 2, 4]);
+            drawExtendedLine(C, getBisectorTarget(C, A, B), '#6f42c1', [8, 4, 2, 4]);
+        }
+
+        // Main Draw Loop
+        function draw() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const [A, B, C] = vertices;
+
+            // 1. Draw Active Geometric Visualizations (Background layer)
+            if (toggles.medians.checked) drawMedians(A, B, C);
+            if (toggles.altitudes.checked) drawAltitudes(A, B, C);
+            if (toggles.pBisectors.checked) drawPerpendicularBisectors(A, B, C);
+            if (toggles.aBisectors.checked) drawAngleBisectors(A, B, C);
+
+            // 2. Draw Main Triangle Perimeter Outer Shell
+            ctx.beginPath();
+            ctx.moveTo(A.x, A.y);
+            ctx.lineTo(B.x, B.y);
+            ctx.lineTo(C.x, C.y);
+            ctx.closePath();
+            ctx.strokeStyle = '#343a40';
+            ctx.lineWidth = 3;
+            ctx.fillStyle = 'rgba(52, 58, 64, 0.02)'; // extremely subtle fill
+            ctx.fill();
+            ctx.stroke();
+
+            // 3. Draw Interacting Vertices Handles
+            vertices.forEach(vertex => {
+                ctx.beginPath();
+                ctx.arc(vertex.x, vertex.y, 8, 0, 2 * Math.PI);
+                ctx.fillStyle = '#ffffff';
+                ctx.fill();
+                ctx.strokeStyle = '#495057';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+
+                // Add text labels offsets
+                ctx.fillStyle = '#212529';
+                ctx.font = 'bold 16px sans-serif';
+                ctx.textAlign = 'center';
+                
+                // Smart label placement offsetting slightly away from center
+                let offsetDirX = 0;
+                let offsetDirY = vertex.y < 300 ? -20 : 25;
+                ctx.fillText(vertex.label, vertex.x + offsetDirX, vertex.y + offsetDirY);
+            });
+        }
+
+        // Run setup on initialization
+        draw();
+    </script>
+</body>
+</html>
