@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "spriteVersionNumber": 2,
+  "run_dir": "/Users/utkarshtewari/Downloads/Saintly/.hatch-pet/kavi",
+  "spritesheet": "/Users/utkarshtewari/Downloads/Saintly/.hatch-pet/kavi/final/spritesheet-extended.webp",
+  "validation": "/Users/utkarshtewari/Downloads/Saintly/.hatch-pet/kavi/final/validation-extended.json",
+  "chroma_despill": "/Users/utkarshtewari/Downloads/Saintly/.hatch-pet/kavi/qa/chroma-despill-extended.json",
+  "contact_sheet": "/Users/utkarshtewari/Downloads/Saintly/.hatch-pet/kavi/qa/contact-sheet-extended.png",
+  "direction_sheet": "/Users/utkarshtewari/Downloads/Saintly/.hatch-pet/kavi/qa/look-directions.png",
+  "direction_semantics": "/Users/utkarshtewari/Downloads/Saintly/.hatch-pet/kavi/qa/direction-semantics.json",
+  "blind_direction_validation": "/Users/utkarshtewari/Downloads/Saintly/.hatch-pet/kavi/qa/direction-blind-validation.json",
+  "continuity": "/Users/utkarshtewari/Downloads/Saintly/.hatch-pet/kavi/qa/look-continuity.json",
+  "review": "/Users/utkarshtewari/Downloads/Saintly/.hatch-pet/kavi/qa/review.json",
+  "package": "/Users/utkarshtewari/.codex/pets/kavi"
+}

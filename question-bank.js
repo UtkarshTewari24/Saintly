@@ -1,3 +1,8 @@
+// Saintly shared question bank.
+// Single source of truth for lesson/practice question data.
+// Exposes:
+//   window.SaintlyQuestionBank = { algebra, geometry, numberTheory, probability }
+//   window.SaintlyAllQuestions = flat array of all of the above
 (function () {
 const questions = [
     {
@@ -66,7 +71,7 @@ rating: 1000,
         hint: `Try writing out what these statements actually mean, and then relating them to quadratic and factored equations.`,
         step: "Solve for \\(a+b+c\\) and square it"
     },
-{ 
+    { 
     title: `AMC 10A 2025 Problem 7 <span class="material-symbols-outlined">
 star
 </span><span class="material-symbols-outlined">
@@ -75,12 +80,12 @@ star
     used: false, 
     difficulty: 2,
 rating: 1000, 
+type: 'mc',
     text: `Suppose \\(a\\) and \\(b\\) are real numbers. When the polynomial \\(x^3+x^2+ax+b\\) is divided by \\(x-1\\), the remainder is \\(4\\). When the polynomial is divided by \\(x-2\\), the remainder is \\(6\\). What is \\(b-a\\)?`, 
     solution: `<b>18</b><p>We do synthetic division, effectively treating \\(a\\) and \\(b\\) like numbers. We end up with \\(a+b+2=4\\) and \\(2a+b+12=6\\). We solve for \\(a=-8\\), \\(b=10\\), so \\(10-(-8)=18\\)`, 
     choices: ['\\(A) 14\\)','\\(B) 15\\)', '\\(C) 16\\)', '\\(D) 17\\)', '\\(E) 18\\)'], 
     answer: '\\(E) 18\\)', 
     topic: 'division',
-    type: "mc",
     hint: `Try using synthetic division`,
     step: "Do synthetic division and treat \\(a\\) and \\(b\\) as constants to get algebraic equations that you can solve to find the variables"
 },
@@ -242,9 +247,11 @@ Andy and Betsy both live in Mathville. Andy leaves Mathville on his bicycle at \
         h=2
         $$
         <p> Two hours after Betsy's starting time is <b> 4:30 <b> </p>
-
+        <p><b>Solution by Fluffy1234</b><p>
+        <p>First, use \\(d=rt\\) to find the time it took to reach another. With the distance as \\(45\\) miles and the rate as \\(30\\), (The math: \\(18+12=30\\)) we get time as \\(1 \\frac{1}{2}\\) hours. At this point Beth has traveled \\(18\\) miles (\\(12 \\cdot 1.5 = 18\\)) and Alicia has biked \\(27\\) (\\(18 \\cdot 1.5)\\). Checking we get \\(27+18=45\\). Ergo, our answer is twenty-seven.</p>
+        <b>Solution by Toulouse 100</b>
+        <p>Andy travels \\(8\\) miles before Betsy starts, subtracting his distance from hers, she travels \\(4\\)mph faster, therefore it would take \\(2\\) hours
         `,
-        video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         topic: "systems of equations",
         hint: "Set up an algebraic equation relating the two",
         step: "Use the expressions \\(8(h+1)\\) and \\(12h\\) to model the distance that each person travels"
@@ -305,34 +312,14 @@ star
         text: "What is \\(10! - 7! \\cdot 6!\\)",
         type: "mc",
         choices: ["\\(A) -120\\)", "\\(B) 0\\)", "\\(C) 120\\)", "\\(D) 600\\)", "\\(E) 720\\)"],
-        answer: "\\(A) -120\\)",
-        solution: `<b> -120 </b> <p>Pure intuition tells is that \\(10!\\) is going to be less than \\(7! \\cdot 6!\\), but let's expand that further.</p>
-        <p> First let's consider the definition of a factorial, and expand it all out: </p>
-        $$
-        10 \\cdot 9 \\cdot 8 \\cdot 7 \\cdot 6 \\cdot 5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1
-        $$
-        $$
-        7 \\cdot 6 \\cdot 5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1
-        $$
-        $$
-        6 \\cdot 5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1
-        $$
-        <p>Note that the majority of \\(10!\\) overlaps with \\(7!\\). If we can account for the other numbers, \\(10\\), \\(9\\), and \\(8\\), we can prove that the second term is larger.</p> 
-        <p>\\(10\\) is \\(5 \\cdot 2 \\), which we can find in \\(6!\\) </p>
-        <p> With the numbers we have left, we can't get \\(9\\) or \\(8\\), but we can we can confidently say that the remaining product is greater than \\(6!\\). This means that \\(10!\\) is less than \\(7! \\cdot 6!\\), meaning that the answer would be negative. Since there is only one negative answer, the answer must be -120. </p>
-        <p> On the AMC 10, it is not always the best option to compute everything. Due to the time constraint, if you see an answer that is different, or if you have a strong intuition, it could be strategic to go with that. </p> 
-        
-        <h3>Common Mistake<span class="material-symbols-outlined">
-exclamation
-</span><span class="material-symbols-outlined">
-exclamation
-</span><span class="material-symbols-outlined">
-exclamation
-</span></h3>
-        <p>Don't overcomplicate! Be sure to read the whole question, with all answers first. If one sticks out, ask yourself why. No need to solve a whole factorial when you can ues logic.</p>`,
+        answer: "\\(B) 0\\)",
+        solution: `<b>0</b>
+        <p><b>Solution by Mason</b></p>
+        <p>We can factor out \\(7!\\) and get \\(7!(8 \\cdot 9 - 6!)\\). Expand this to find \\(7!(720-720)=0\\)
+        `,
         topic: "logic",
-        hint:"Which answer sticks out?",
-        step: "Expand the factorial",
+        hint:"What can you factor out?",
+        step: "Factor out \\(7!\\)",
     },
     {
         used: false,
@@ -343,8 +330,8 @@ star
 </span>`,
         text: "For how many integer values \\(x\\) is \\(|2x| \\le 7\\pi \\)",
         type: "fr",
-        answer: "19",
-        solution: `<b> 19 </b> <p> First, let's get an approximation for \\(7\\pi\\). Assuming \\(\\pi = 3.14\\) we can just multiply them and find the nearest integer that is less than or equal to the product. Since 0.14 is a relatively small decimal, it's pretty intuitive that this integer is \\(21\\). Knowing this, we can rewrite our question to </p>
+        answer: "21",
+        solution: `<b>21</b> <p> First, let's get an approximation for \\(7\\pi\\). Assuming \\(\\pi = 3.14\\) we can just multiply them and find the nearest integer that is less than or equal to the product. Since 0.14 is a relatively small decimal, it's pretty intuitive that this integer is \\(21\\). Knowing this, we can rewrite our question to </p>
         $$
         |2x| \\le 21
         $$
@@ -358,7 +345,7 @@ star
         $$
         2x \\ge -21
         $$
-        <p>From here, we know that the bounds are \\(x = 10\\) and \\(x = -10\\). Counting all integers between these two numbers yields 19, because 0 can only be counted once. </p>
+        <p>From here, we know that the bounds are \\(x = 10\\) and \\(x = -10\\). Counting all integers between these two numbers yields 21, because 0 can only be counted once. </p>
         <h3>Common Mistake<span class="material-symbols-outlined">
 exclamation
 </span><span class="material-symbols-outlined">
@@ -366,7 +353,7 @@ exclamation
 </span><span class="material-symbols-outlined">
 exclamation
 </span></h3>
-        <p>Don't double-count 0. An easy mistake to make is thinking the answer is 10+10, but remember that 0 can only be counted once. You can also just check that the answer is 19 by counting on your fingers(yes you'd have to reset, but it is a decent way to assure youreslf of your answer.)</p>
+        <p>Don't double-count 0. An easy mistake to make is thinking the answer is 10+10, but remember that 0 can only be counted once. You can also just check that the answer is 21 by counting on your fingers(yes you'd have to reset, but it is a decent way to assure youreslf of your answer.)</p>
         `,
         topic: "inequalities",
         hint: "What is \\(7\\pi\\) equal to? Can we do casework in this situation?",
@@ -1205,7 +1192,7 @@ rating: 800,
         step: "Substitute everything in and solve the equation \\(|1-|2-3||-||1-2|-3|\\)"
     },
     {
-        title: `<span class="material-symbols-outlined">
+        title: `AMC 10B 2022 Problem 5 <span class="material-symbols-outlined">
 star
 </span>`,
         difficulty: 1,
@@ -1303,7 +1290,7 @@ exclamation
         topic: "induction",
         hint: "Is there any pattern to the sums of \\(\\frac{n-1}{n!}\\)",
         step: "List the sums of the first \\(1, 2, 3\\) etc. values"
-    }, 
+    },
     {
         title: `AMC 10B 2022 Problem 15 <span class="material-symbols-outlined">
 star
@@ -1487,7 +1474,7 @@ rating: 1600,
         topic: "functions and graphing", 
         hint: "How can you relate this to the slope formula to predict the value of \\(f(x)\\)?",
         step: "Input \\(f(800)\\) and \\(f(400\\) as the inputs for \\(x\\) and \\(y\\), then find the maximum value of \\(f(800)-f(400)\\)"
-    }, 
+    },
     {
         title: `AMC 10A 2022 Problem 1 <span class="material-symbols-outlined">
 star
@@ -1552,7 +1539,7 @@ rating: 800,
     topic: "speed-distance-time",
     hint: "Start by finding his speed",
     step: "Find Mike's speed (distance divided by time)"
-    }, 
+    },
     {
         title: `AMC 10A 2022 Problem 3 <span class="material-symbols-outlined">
 star
@@ -1779,6 +1766,8 @@ star
 rating: 800,
         text: "What is the value of \\(1234+2341+3412+4123\\)?",
         solution: `<b>11110</b><p>With something like this, it's simply easier to just brute force your way through. Add the values and find that it is \\(11110\\).</p>
+        <p><b>Solution by Fluffy1234</b><p>
+        <p>If you add all the ones digits you will get \\(10\\). (The math: \\(1+2+3+4=10\\)) Notice that the tens digit, the hundreds digit and thousands digit all have the same value, ten. So the ones digit is \\(0\\) and since they are tens there is a one for each digit after that and with a total of \\(4\\) numbers get \\(11110\\) as our answer.
         <h3>Common Mistake <span class="material-symbols-outlined">
 exclamation
 </span><span class="material-symbols-outlined">
@@ -2646,7 +2635,11 @@ rating: 1400,
         <p>By Vieta's rules, we know that the the factors of the equation, when factoring, must multiply to \\(-20100\\) and sum to \\(1\\). We're looking for something 
         close to the square root. We don't have the luxury of a calculator, but what we can do is use the answer choices to approximate.</p>
         <p>Right off the bat, we know that \\(100.5\\) would be too low because \\(100^2=10000\\). \\(134^2=17956\\), still too low, \\(142^2=20164\\), which is as close as we can get.</p>
-        <p>It's not exact because we know that there are multiple items valued at \\(142\\), but we can still count that as our answer.</p>`,
+        <p>It's not exact because we know that there are multiple items valued at \\(142\\), but we can still count that as our answer.</p>
+        <p><b>Solution by Khang Pham</b></p>
+        <p>We can see \\(n\\) repeat \\(n\\) times from \\(1\\) to \\(200\\), which means the number of numbers is the sum of the integers from \\(1\\) to \\(200\\). We use \\(S_{200}=200 \\frac{1+200}{2}=100 \\cdot 201 = 20100\\).</p>
+        <p>With this knowledge, we can find that the median is going to be the average of the \\(10500\\)th and \\(10501\\)th numbers. Now, we look for a number such that \\(S_{n}\\) is close to \\(10500\\). We solve for \\(10500 = n \\frac{n+1}{2}\\). Solving gives \\(n=141.27\\). We round up though, because the sum needs to be at least \\(10500\\). Thus we have 
+        \\(142\\) in position \\(10500\\). We realize that the next value also cannot be \\(143\\) because it's not close enough, so both values are \\(142\\) for a median of \\(142\\)`,
         answer: "\\(C) 142\\)",
         solution: "word problems",
         topic: `series`,
@@ -2835,7 +2828,7 @@ star
 rating: 800,
         used: false,
         type: 'fr',
-        text: `<p>What is the value of \\(1-(-2)-3-(-4)-5(-(-6)\\)?</p>`,
+        text: `<p>What is the value of \\(1-(-2)-3-(-4)-5-(-6)\\)?</p>`,
         solution: `<b>5</b><p>Solve</p>
         $$
         1+2-3+4-5+6
@@ -2880,7 +2873,7 @@ rating: 1000,
         type: 'fr',
         solution: `<b>4</b>Rearrange all the terms onto one side</p>
         $$
-        x^2020+y^2-2y=0
+        x^{2020}+y^2-2y=0
         $$
         $$
         x^2020+(y-1)^2-1=0
@@ -3093,7 +3086,8 @@ rating: 1200,
         that some of these are duplicates. We are looking for the \\(2020\\)th and \\(2021\\)th numbers, since the median would be between those two numbers. </p>
         <p>\\(44^2=1936\\) which is \\(2064-1936=84\\) less than \\(2020\\). We're trying to find the term\\(44\\) and \\(43\\) terms less than that, so we don't have to worry about duplicate squares.</p>
         <p>We subtract 44 and 43 from \\(2020\\) and find the average to be \\(1976.5\\)</p>`,
-        answer: "1976.5",
+        answer: "\\(B) 1976.5\\)",
+        choices: ['\\(A) 1976\\)', '\\(B) 1976.5\\)', '\\(C) 1977\\)', '\\(D) 1977.5\\)', '\\(E) 1978\\)'],
         topic: 'medians',
         hint: "Don't forget that some numbers might be duplicates, and calculate the total number of values",
         step: "Find the number of squares below and above \\(2020\\)"
@@ -3207,7 +3201,7 @@ rating: 1600,
         topic: 'sequences',
         hint: "How does this relate to the sum of powers?",
         step: "Rewrite \\(2^289\\) as \\((2^17)^2\\) and \\(2^17\\) as \\(x\\)"
-    },
+    }
 ];
 const geometryQ = [
     {
@@ -3869,7 +3863,7 @@ rating: 1600,
         step: "Use the formula for the area of a equilateral triangle to find the side length"
     },
     {
-        title: `AMC 10B 2021 Spring  Problem 7 <span class="material-symbols-outlined">
+        title: `AMC 10B 2021 Spring Problem 7 <span class="material-symbols-outlined">
 star
 </span><span class="material-symbols-outlined">
 star
@@ -4254,7 +4248,10 @@ rating: 800,
         type: 'fr',
         solution: `<b>6</b><p>Find the area of the whole rectangle that encloses everything, than subtract some parts out:</p>
         $$
-        4 \\cdot 5 - (\\frac{1}{2}(4 \\cdot 2) + 2(\\frac{1}{2}(2 \\cdot 5))) = 20-4-10=6`,
+        4 \\cdot 5 - (\\frac{1}{2}(4 \\cdot 2) + 2(\\frac{1}{2}(2 \\cdot 5))) = 20-4-10=6</p>
+        <p>Solution by Toulouse 100</p>
+        <p>The shaded area at the bottom has a triangle taken out of it. The triangle's area is \\(4\\) (the formula for the area of triangles \\(\\frac{1}{2} \\textup{base} \\times \\textup{height}\\) so we find \\(\\frac{1}{2} \\times 4 \\times 2 = 2\\)). If you get
+        rid of the small triangle the shaded area becaomse a triangle with \\(4\\) by \\(5\\) for an area of \\(10\\) and \\(10-4=6\\)`,
         answer: '6',
         topic: 'area',
         hint : "Find the whole thing, then remove",
@@ -4388,6 +4385,7 @@ rating: 1400,
     square, the ones that we created by creating the square, are \\(30-60-90\\), because we rotated each sheet by \\(30^\\circ\\). Thus, to find the top edge of the right triangle, we just find \\(3\\cdot \\tan(30)=\\sqrt{3}\\). That means that the edge of the original triangles we had, those opposite the center, have a dimension of \\(3-\\sqrt{3}\\) and the altitude is just \\(3\\), so the total
     area is \\(\\frac{9-3\\sqrt{3}}{2}\\). There are \\(24\\) of these for a total of \\(108-36\\sqrt{3}\\) and \\(108+36+3=147\\)`,
     answer: '147',
+    type: 'fr',
     topic: 'trigonometry',
     hint: "You need to use trigonometry for this problem",
     step: "Divide one of th esquares into 4 smaller squares of equal size (so like corners), and inside each of those, two congruent triangles that make a kite (modeling the corner)"
@@ -4884,6 +4882,7 @@ rating: 1400,
         <p>Back to our second side, the remaining part is \\(30-21=9\\) so we know the side length is \\(15\\) and thus the perimeer is \\(34+35+15=84\\)`,
         type: 'mc',
         choices: ['\\(A) 84\\)', '\\(B) 86\\)', '\\(C) 88\\)', '\\(D) 90\\)', '\\(E) 92\\)'],
+        answer: '\\(A) 84\\)',
         topic: 'pythagorean theorem',
         hint: "Do you recognize any pythagorean triples",
         step: "Test out values to find pythagorean triples. Identify the pythagorean triples that you know "
@@ -5204,7 +5203,8 @@ type: 'mc',
 choices: ['\\(A) 4+4\\sqrt{5}\\)', '\\(B) 10\\sqrt{2}\\)', '\\(C) 5+5\\sqrt{5}\\)', '\\(D) 10 \\sqrt[4]{8}\\)', '\\(E) 20\\)'],
 topic: 'similarity',
 hint: "Label as many values as possible",
-step: "Draw the diagram and label everything you can with variables"
+step: "Draw the diagram and label everything you can with variables",
+answer: '\\(D) 10 \\sqrt[4]{8}\\)'
     },
     {
         title: `AMC 10B 2024 Problem 6 <span class="material-symbols-outlined">
@@ -5425,7 +5425,6 @@ rating: 1000,
         hint: "Draw it out! What kinds of triangles do you see?",
         step: "Just draw and keep labeling everything you know =P"
     }
-
 ];
 const numTheoryQ = [
     {
@@ -5747,7 +5746,7 @@ rating: 1600,
         topic: 'factoring',
         hint: "What value in exponential form can you substitute into the expressions to simplify?",
         step: "Substitute \\(x=2^50\\) in and factor the denominator out of the numerator"
-    }, 
+    },
     {
         title: `AMC 10A 2021 Spring Problem 7 <span class="material-symbols-outlined">
 star
@@ -5849,7 +5848,7 @@ rating: 1000,
         hint: "What are the remainders of each number divided by \\(3\\)?",
         step: "Find the remainders of each divided by \\(3\\). Which one is different?"
 
-    }, 
+    },
     {
         title: `AMC 10B 2021 Spring Problem 8 <span class="material-symbols-outlined">
 star
@@ -7118,7 +7117,7 @@ exclamation
         topic: 'logic',
         type: 'mc',
         choices: ['\\(A) 2021\\)', '\\(B) 2022\\)', '\\(C) 2023\\)', '\\(D) 2024\\)', '\\(E) 2025\\)'],
-        answer: '\\(D) 2024\\)',
+        answer: '\\(B) 2022\\)',
         hint: "What is overcounted?",
         step: "Add and then account for overcounting"
     },
@@ -7196,6 +7195,7 @@ star
 </span>`,
         used: false,
         difficulty: 3,
+        answer: "\\(A) 9\\)",
 rating: 1200,
         text: `A group of \\(100\\) students from different countries meet at a mathematics competition. Each student speaks the same number of languages, and, for every pair of students \\(A\\) and \\(B\\), student \\(A\\)
         and \\(B\\), student \\(A\\) speaks some language that student \\(B\\) does not speak, and student \\(B\\) speaks some language that student \\(A\\) does not speak. What is the least possible total 
@@ -7421,7 +7421,7 @@ rating: 800,
         hint: "This is a diophantine equation, all values must be integers. What do we know then about the factors of \\(24\\)?",
         step: "Find the possible factors of \\(24\\)"
     }
-]
+];
 const probabilityQ = [
     {
 title: `AMC 10B 2021 Fall Problem 16 <span class="material-symbols-outlined">
@@ -7583,6 +7583,7 @@ rating: 1600,
         his chances of winning. What is the probability that he chooses to reroll exactly two of the dice? ,       `,
         type: 'mc',
         choices:['\\(A) \\frac{7}{36}\\)', '\\(B) \\frac{5}{24}\\)', '\\(C) \\frac{2}{9}\\)', '\\(D) \\frac{17}{72}\\)', '\\(E) \\frac{1}{4}\\)'],
+        answer: '\\(A) \\frac{7}{36}\\)',
         solution: `<b>\\(\\frac{7}{36}\\)</b><p>Jason rerolls \\(0\\) dice when he already has a \\(7\\) and rerolls \\(3\\) dice when he has a \\(6\\) or \\(5\\), assuming he hasn't already won. This is sort of just intuitive</p>
         <p>For Jason to roll \\(2\\) die, the probability of winning MUST be above that of completely rerolling and that of rerolling one.</p>>
         <p>Jason can win by rerolling \\(3\\) dice (or rolling \\(3\\) dice off the bat) in \\(15\\) ways:</p>
@@ -7964,7 +7965,7 @@ star
         difficulty: 3,
 rating: 1200,
         text: `Una rolls \\(6\\) standard \\(6\\)-sided dice simultaneously and calculates the product of the \\(6\\) numbers obtained. What is the probability that the product is divisible by \\(4\\)?`,
-        solution: `<b>'\\(\\frac{59}{64}\\)'</b><p>The product is divisible by \\(4\\) if you either roll at least one \\(4\\) or two \\(2\\)s, or a \\(2\\) and a \\(6\\), or a \\(6\\) and a \\(6\\). That's quite a handful. Instead, we find the chance that none of these happen. This happens when either the answer is odd or divisible by \\(2\\) and not \\(4\\)</p>
+        solution: `<b>\\(\\frac{59}{64}\\)</b><p>The product is divisible by \\(4\\) if you either roll at least one \\(4\\) or two \\(2\\)s, or a \\(2\\) and a \\(6\\), or a \\(6\\) and a \\(6\\). That's quite a handful. Instead, we find the chance that none of these happen. This happens when either the answer is odd or divisible by \\(2\\) and not \\(4\\)</p>
         <p>For it to be odd, we need all the factors to be odd. There's a \\(\\frac{1}{2}^6=\\frac{1}{64}\\) chance of this</p>
         <p>If it's divisble by \\(2\\) but not \\(4\\), we need \\(5\\) odds and then either a \\(2\\) or a \\(6\\). That's \\(\\frac{1}{2}^5 \\cdot \\frac{1}{3}=\\frac{1}{192}\\). However, since there are \\(6\\) positions that the \\(2\\) or \\(6\\) can be in, we multiply by \\(6\\) for \\(\\frac{1}{16}\\). We add these and subtract from \\(1\\) for \\(\\frac{59}{64}\\)</p>
         <h3> Common Mistake <span class="material-symbols-outlined">
@@ -8188,7 +8189,7 @@ rating: 1600,
         topic: 'combinations',
         hint: "First find how to do it such that the numbers are always odd. You can do this by distributing in groups of \\(2\\)",
         step: "Find the number of ways to distribute as groups of \\(2\\) and divide that by the total number of ways to distribute (in stars and bars)"
-    }, 
+    },
     {
         title: `AMC 10A 2024 Problem 6 <span class="material-symbols-outlined">
 star
@@ -8417,14 +8418,14 @@ rating: 1600,
         topic: 'composite shapes',
         hint: "How can you divide the square geometrically to account for the side lengths",
         step: "Divide vertically in half (with \\(AB\\) at the top) where to the left \\(AP<AB\\) and to the right \\(AP>AB\\). Next, draw a circle of radius equal to the side lentgh around \\(A\\). The area inside that ensures \\(AP<AB\\)"
-    },
-    
+    }
+];
 
-]
-const allQ = []
-allQ.push(...questions)
-allQ.push(...geometryQ)
-allQ.push(...numTheoryQ)
-allQ.push(...probabilityQ)
-window.SaintlyAllQuestions = allQ;
+window.SaintlyQuestionBank = {
+    algebra: questions,
+    geometry: geometryQ,
+    numberTheory: numTheoryQ,
+    probability: probabilityQ
+};
+window.SaintlyAllQuestions = [...questions, ...geometryQ, ...numTheoryQ, ...probabilityQ];
 })();

@@ -3,11 +3,11 @@ Saintly is a free program built to make Olympiads, competitions, and learning **
 ## Project structure
 
 - `*.html` — public pages, named in kebab-case.
-- `site.css` — shared site styling.
+- `site.css` — shared site styling (light/dark via CSS `light-dark()` variables).
 - `site-sidebar.js`, `site-footer.js`, `site-navigation.js` — shared UI behavior.
-- `question-bank.js` — shared question data used by lesson pages.
-- `data/amc-10-problems.json` — complete past AMC 10 competitions used by the practice portal.
-- `practice-portal.css` and `practice-test.js` — year selection, directions, timer, scoring, review, and reading tools.
+- `question-bank.js` — the single source of truth for lesson question data. Exposes `window.SaintlyQuestionBank` (`algebra` / `geometry` / `numberTheory` / `probability`) and `window.SaintlyAllQuestions`. Every page that needs questions loads this file; per-page scripts no longer embed their own copies.
+- `data/amc-10-problems.json` — all 1,250 past AMC 10 problems (2000–2024, 8 topic tags) used by the Practice Arena.
+- `practice-portal.css` and `practice-test.js` — the Practice Arena: full timed competitions, the adaptive topic trainer, the mistake log (free-response retry, solutions unlock after 3 attempts), and the AI coach (user-supplied Anthropic API key, stored in localStorage only).
 - `*-practice.js`, `amc-10-*.js`, and lesson-named scripts — page-specific behavior.
 - `assets/branding` — logos, favicons, and web app icons.
 - `assets/icons` — interface icons.

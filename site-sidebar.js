@@ -66,7 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
             </button>
             <ul class="sub-menu">
               <li><a href="amc-10-adaptive-practice.html">Adaptive Practice</a></li>
-              <li><a href="amc-10-practice-test.html">Practice Test</a></li>
+              <li><a href="amc-10-practice-test.html">Practice Arena</a></li>
+              <li><a href="amc-10-practice-test.html#trainer">Topic Trainer</a></li>
+              <li><a href="amc-10-practice-test.html#mistakes">Mistake Log</a></li>
             </ul>
             <a href="topics-dashboard.html">
               <span class="material-symbols-outlined iconsvg">book</span>

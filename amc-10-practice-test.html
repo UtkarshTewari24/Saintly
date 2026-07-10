@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMC 10 Practice Competitions | Saintly</title>
-  <meta name="description" content="Take complete, official past AMC 10 competitions in a focused 75-minute practice environment.">
+  <title>AMC 10 Practice Arena | Saintly</title>
+  <meta name="description" content="Take real past AMC 10 competitions, train topic by topic with adaptive difficulty, review your mistake log, and get hints from an AI coach.">
   <link rel="stylesheet" href="site.css">
-  <link rel="stylesheet" href="practice-portal.css?v=5">
+  <link rel="stylesheet" href="practice-portal.css?v=9">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
   <link rel="manifest" href="assets/branding/site.webmanifest">
@@ -22,84 +24,113 @@
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="practice-portal">
-  <header class="portal-masthead">
-    <div class="portal-brand-row">
-      <a class="portal-brand" href="index.html">
-        <img src="assets/branding/saintly-icon.png" alt="" width="38" height="38">
-        <span><strong>MAA AMC Student Portal</strong><small>Saintly practice environment</small></span>
-      </a>
-      <span class="portal-user">Practice, Practice</span>
-    </div>
-    <nav class="portal-nav" aria-label="Student portal">
-      <a href="index.html">Home</a>
-      <a href="dashboard.html">My Info</a>
-      <a href="dashboard.html">My Profile/Scores</a>
-      <button type="button" id="portal-logout">Logout</button>
-    </nav>
-  </header>
+  <nav id="sidebarPlaceholder"></nav>
+  <script type="module" src="site-sidebar.js"></script>
 
-  <main class="portal-main">
-    <section class="portal-screen is-active" id="competition-picker" aria-labelledby="picker-title">
+  <div id="top-bar">
+    <div class="aContainer">
+      <a href="index.html" class="top-text">Home</a>
+    </div>
+    <div class="center-align">
+      <button class="topBtn" onclick="window.location.href='index.html'">
+        <img alt="full Saintly Logo" class="fullLogo" src="assets/branding/saintly-full-logo.png">
+      </button>
+    </div>
+    <div class="right-align">
+      <span onclick="window.location.href='volunteer.html'" class="material-symbols-outlined volunteerButton">volunteer_activism</span>
+      <span class="material-symbols-outlined volunteerButton brightness" id="brightness">sunny</span>
+      <a href="https://discord.gg/SuAvtn7595" class="start-practice hover" id="joindiscord">Join Our Discord!</a>
+    </div>
+  </div>
+
+  <main id="main" class="portal-main">
+
+    <!-- ======================= HOME (tabs) ======================= -->
+    <section class="portal-screen is-active" id="home-screen">
       <div class="portal-hero">
-        <p class="portal-kicker">Authentic past competitions</p>
-        <h1 id="picker-title">Choose an AMC 10 practice competition</h1>
-        <p>Every option below is one complete, real previous competition—never a mixture of questions from different tests.</p>
+        <h2 class="tinytitle">THE PRACTICE ARENA</h2>
+        <h1 class="subtitle portal-title">Real problems. <span class="portal-title-accent">Really</span> yours to master.</h1>
+        <div class="portal-tags">
+          <span class="tag"><span class="material-symbols-rounded">stars</span>Every past AMC 10</span>
+          <span class="tag"><span class="material-symbols-rounded">stars</span>Adaptive topic training</span>
+          <span class="tag"><span class="material-symbols-rounded">stars</span>Mistake log</span>
+          <span class="tag"><span class="material-symbols-rounded">stars</span>AI coach</span>
+        </div>
       </div>
-      <div class="picker-toolbar">
-        <label for="year-filter">Jump to year</label>
-        <select id="year-filter"><option value="all">All years</option></select>
-        <span id="completion-summary" aria-live="polite"></span>
+
+      <nav class="mode-tabs" aria-label="Practice modes">
+        <button type="button" class="mode-tab is-active" data-mode="tests"><span class="material-symbols-outlined">lab_profile</span>Full Competitions</button>
+        <button type="button" class="mode-tab" data-mode="trainer"><span class="material-symbols-outlined">ads_click</span>Topic Trainer</button>
+        <button type="button" class="mode-tab" data-mode="mistakes"><span class="material-symbols-outlined">playlist_add_check</span>Mistake Log <span class="mistake-count-pill" id="mistake-count-pill" hidden>0</span></button>
+      </nav>
+
+      <!-- Tab: full competitions -->
+      <div class="mode-panel is-active" id="panel-tests">
+        <p class="par portal-lead">Every option below is one complete, real past competition — never a mix of questions from different tests. 25 questions, 75 minutes, official scoring.</p>
+        <div class="picker-toolbar">
+          <label for="year-filter">Jump to year</label>
+          <select id="year-filter"><option value="all">All years</option></select>
+          <span id="completion-summary" aria-live="polite"></span>
+        </div>
+        <div class="competition-grid" id="competition-grid" aria-live="polite">
+          <div class="portal-loading">Loading past competitions…</div>
+        </div>
       </div>
-      <div class="competition-grid" id="competition-grid" aria-live="polite">
-        <div class="portal-loading">Loading past competitions…</div>
+
+      <!-- Tab: topic trainer -->
+      <div class="mode-panel" id="panel-trainer">
+        <p class="par portal-lead">Pick a section to train. Saintly adapts the difficulty to your level as you answer — get one wrong and it goes to your <mark class="blue">mistake log</mark> instead of showing you the answer, so you actually learn it.</p>
+        <div class="topic-grid" id="topic-grid">
+          <div class="portal-loading">Loading topics…</div>
+        </div>
+      </div>
+
+      <!-- Tab: mistake log -->
+      <div class="mode-panel" id="panel-mistakes">
+        <p class="par portal-lead">Problems you missed live here. Re-solve each one <mark class="orange">free-response — no answer choices</mark>. The solution only unlocks after three honest attempts. Conquer them and they leave the log for good.</p>
+        <section class="weekly-report" aria-labelledby="weekly-report-title">
+          <div class="weekly-report-intro">
+            <span class="weekly-report-icon material-symbols-outlined" aria-hidden="true">auto_awesome</span>
+            <div>
+              <h2 id="weekly-report-title">Weekly Coach Report</h2>
+              <p>Turn your mastery ratings and mistake history into a focused five-problem study plan.</p>
+            </div>
+            <button class="start-practice portal-primary" type="button" id="generate-weekly-report">Generate my plan</button>
+          </div>
+          <div class="weekly-report-body" id="weekly-report-body" hidden aria-live="polite"></div>
+        </section>
+        <div class="mistake-list" id="mistake-list"></div>
+        <div class="mistake-empty" id="mistake-empty" hidden>
+          <span class="material-symbols-outlined">task_alt</span>
+          <p>No mistakes logged. Go make some — that's how you get better.</p>
+        </div>
       </div>
     </section>
 
+    <!-- ======================= DIRECTIONS ======================= -->
     <section class="portal-screen" id="directions-screen" aria-labelledby="directions-title">
       <div class="competition-bar competition-bar--directions">
         <div><span id="directions-competition-label">AMC 10</span><small>Competition directions</small></div>
         <button class="portal-text-button" type="button" id="change-competition">Change competition</button>
       </div>
-
       <article class="directions-paper">
-        <p class="directions-lead">Students will have 75 minutes to complete the competition <strong>at the time designated by their Competition Manager.</strong></p>
-        <p>We recommend taking the competition on an updated version of Chrome, Firefox, Safari, or Edge on a tablet, laptop, or desktop device—not a mobile phone.</p>
-        <p>Do not start or open the competition in more than one window, as your answers may be overwritten.</p>
-        <p>Double-check that your computer is plugged in and set to stay awake for the duration of the competition. Good luck!</p>
-
+        <p class="directions-lead">You will have <strong>75 minutes</strong> to complete the competition once you press start.</p>
+        <p>We recommend a tablet, laptop, or desktop — not a phone. Do not open the competition in more than one window, and keep your device awake for the full duration.</p>
         <hr>
-        <h2 id="directions-title">Competition Format and Allowed Aids</h2>
-        <p>The AMC 10 is a 25-question, 75-minute competition. For each question, only one answer choice is correct.</p>
-        <p><strong>Scoring:</strong> You will receive 6 points for each correct answer, 1.5 points for each problem left unanswered, and 0 points for each incorrect answer.</p>
-        <p>During the competition, students are <strong>only</strong> allowed to use:</p>
-        <ul>
-          <li>Writing utensils</li>
-          <li>Blank scratch paper</li>
-          <li>Rulers</li>
-          <li>Compasses</li>
-          <li>Erasers</li>
-          <li>One computer with one browser tab open, displaying the loaded AMC</li>
-        </ul>
-        <p>Prohibited materials include additional electronic devices, calculators, protractors, and graph paper. No problem requires a calculator.</p>
-        <aside class="directions-warning"><strong>Important:</strong> Do not open the competition in more than one window. Refreshing may reset unsaved submissions. If your timer freezes, write your answers on scratch paper before refreshing.</aside>
-        <p>Figures are not necessarily drawn to scale. Once you submit or time runs out, your entered answers will be scored and you will proceed to the post-competition review.</p>
-        <p>If there is an urgent need to use the bathroom, all materials should remain at your working space in view of the proctor. No other breaks are permitted.</p>
-
-        <hr>
-        <h2>Entering Your Answers</h2>
-        <p>All answers are multiple-choice selections A, B, C, D, or E. You may change your selected answer until final submission.</p>
-
-        <h2>Reporting Competition Issues</h2>
-        <p>If you run into an issue with the original competition platform, email <a href="mailto:amctech@maa.org">amctech@maa.org</a>. For this Saintly practice environment, return to the year selector and restart the practice.</p>
-
+        <h2 id="directions-title">Format and Scoring</h2>
+        <p>The AMC 10 is a 25-question, 75-minute multiple-choice competition.</p>
+        <p><strong>Scoring:</strong> 6 points per correct answer, 1.5 points per question left blank, 0 points per wrong answer.</p>
+        <p>Allowed: writing utensils, blank scratch paper, rulers, compasses, erasers. No calculators — no problem requires one.</p>
+        <aside class="directions-warning"><strong>Heads up:</strong> refreshing may reset your answers. If the timer freezes, jot your answers on scratch paper before refreshing. The AI coach is locked during timed competitions — it comes back for the review.</aside>
+        <p>Figures are not necessarily drawn to scale. When you submit (or time expires), you'll be scored and any misses go straight to your mistake log.</p>
         <hr>
         <h2>Starting the Competition</h2>
-        <p>When you’re ready, click <strong>Start competition</strong>. The 75-minute clock begins immediately.</p>
-        <p class="good-luck">Congratulations on taking the <span id="directions-good-luck-label">AMC 10</span>! Good luck!</p>
-        <button class="portal-primary-button" type="button" id="start-competition">Start competition</button>
+        <p>When you're ready, click <strong>Start competition</strong>. The 75-minute clock begins immediately. Good luck on the <span id="directions-good-luck-label">AMC 10</span>!</p>
+        <button class="start-practice portal-primary" type="button" id="start-competition">Start competition</button>
       </article>
     </section>
 
+    <!-- ======================= COMPETITION ======================= -->
     <section class="portal-screen" id="competition-screen" aria-labelledby="question-heading">
       <header class="competition-shell-header">
         <div class="competition-title-row">
@@ -107,7 +138,7 @@
           <div class="competition-actions">
             <button type="button" id="show-directions">Directions</button>
             <span aria-hidden="true">|</span>
-            <button type="button" id="exit-competition">Sign Out</button>
+            <button type="button" id="exit-competition">Exit</button>
           </div>
         </div>
         <div class="question-nav-row">
@@ -130,6 +161,14 @@
             <h2>Solution</h2>
             <div id="solution-copy"></div>
           </section>
+          <aside class="solution-gate" id="solution-gate" hidden>
+            <span class="material-symbols-outlined">lock</span>
+            <div>
+              <strong>Solution locked.</strong>
+              <p>You missed this one, so it went to your mistake log. Re-solve it there (free response, three real attempts) to unlock the full solution.</p>
+              <button class="start-practice" type="button" id="gate-go-mistakes">Open in Mistake Log</button>
+            </div>
+          </aside>
         </article>
 
         <aside class="review-panel" id="review-panel" aria-label="Question review" hidden>
@@ -139,7 +178,7 @@
           </div>
           <div class="review-key"><span><i class="answered-dot"></i> Answered</span><span><i class="blank-dot"></i> Blank</span></div>
           <div class="review-grid" id="review-grid"></div>
-          <button class="portal-primary-button" type="button" id="submit-competition">Submit competition</button>
+          <button class="start-practice portal-primary" type="button" id="submit-competition">Submit competition</button>
         </aside>
       </div>
 
@@ -150,33 +189,177 @@
       <div class="line-reader" id="line-reader" hidden aria-hidden="true"></div>
     </section>
 
+    <!-- ======================= RESULTS ======================= -->
     <section class="portal-screen" id="results-screen" aria-labelledby="results-title">
       <article class="results-card">
-        <p class="portal-kicker">Competition complete</p>
-        <h1 id="results-title">Your AMC 10 score</h1>
+        <h2 class="tinytitle">COMPETITION COMPLETE</h2>
+        <h1 class="subtitle" id="results-title">Your AMC 10 score</h1>
         <div class="score-ring"><strong id="final-score">0</strong><span>/ 150</span></div>
         <div class="result-stats">
           <div><strong id="correct-count">0</strong><span>Correct</span></div>
           <div><strong id="incorrect-count">0</strong><span>Incorrect</span></div>
           <div><strong id="blank-count">25</strong><span>Blank</span></div>
         </div>
-        <p id="completion-message"></p>
+        <p class="par" id="completion-message"></p>
         <div class="results-actions">
-          <button class="portal-secondary-button" type="button" id="review-results">Review answers</button>
-          <button class="portal-primary-button" type="button" id="choose-another">Choose another competition</button>
+          <button class="start-practice" type="button" id="review-results">Review answers</button>
+          <button class="start-practice" type="button" id="results-to-mistakes">Work mistake log</button>
+          <button class="start-practice portal-primary" type="button" id="choose-another">Choose another competition</button>
         </div>
       </article>
     </section>
+
+    <!-- ======================= TRAINER SESSION ======================= -->
+    <section class="portal-screen" id="trainer-screen" aria-labelledby="trainer-topic-label">
+      <div class="trainer-bar">
+        <div>
+          <strong id="trainer-topic-label">Algebra</strong>
+          <small>Adaptive training</small>
+        </div>
+        <div class="trainer-stats">
+          <span class="trainer-stat"><span class="material-symbols-outlined">local_fire_department</span><span id="trainer-streak">0</span></span>
+          <span class="trainer-stat"><span class="material-symbols-outlined">trending_up</span><span id="trainer-rating">1200</span></span>
+          <button class="portal-text-button" type="button" id="trainer-end">End session</button>
+        </div>
+      </div>
+
+      <div class="competition-workspace">
+        <article class="question-paper" id="trainer-paper">
+          <div class="question-meta"><span id="trainer-source"></span><span class="trainer-diff" id="trainer-diff"></span></div>
+          <div class="question-copy" id="trainer-question-copy"></div>
+          <img class="question-diagram" id="trainer-diagram" alt="Problem diagram" hidden>
+          <div class="answer-options" id="trainer-options" role="radiogroup" aria-label="Answer choices"></div>
+
+          <div class="trainer-feedback" id="trainer-feedback" hidden></div>
+          <section class="answer-review" id="trainer-solution" hidden>
+            <h2>Solution</h2>
+            <div id="trainer-solution-copy"></div>
+          </section>
+          <div class="trainer-actions">
+            <button class="start-practice" type="button" id="trainer-skip">Skip</button>
+            <button class="start-practice" type="button" id="trainer-show-solution" hidden>Show solution</button>
+            <button class="start-practice portal-primary" type="button" id="trainer-next" hidden>Next problem</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================= MISTAKE REVIEW ======================= -->
+    <section class="portal-screen" id="mistake-review-screen" aria-labelledby="mr-meta">
+      <div class="trainer-bar">
+        <div>
+          <strong id="mr-meta">Mistake review</strong>
+          <small id="mr-sub">Free response — no choices</small>
+        </div>
+        <div class="trainer-stats">
+          <button class="portal-text-button" type="button" id="mr-back">Back to log</button>
+        </div>
+      </div>
+
+      <div class="competition-workspace">
+        <article class="question-paper" id="mr-paper">
+          <div class="question-meta"><span id="mr-source"></span><span id="mr-attempt-label"></span></div>
+          <div class="question-copy" id="mr-question-copy"></div>
+          <img class="question-diagram" id="mr-diagram" alt="Problem diagram" hidden>
+
+          <div class="frq-zone" id="frq-zone">
+            <label for="mr-input">Your answer <small>(free response — write the value, e.g. <code>25</code> or <code>7/36</code>)</small></label>
+            <div class="frq-row">
+              <input type="text" id="mr-input" autocomplete="off" spellcheck="false" placeholder="Type your answer">
+              <button class="start-practice portal-primary" type="button" id="mr-submit">Check</button>
+            </div>
+            <p class="frq-feedback" id="mr-feedback" aria-live="polite"></p>
+          </div>
+
+          <div class="trainer-actions">
+            <button class="start-practice" type="button" id="mr-reveal" hidden>Reveal answer &amp; solution</button>
+            <button class="start-practice portal-primary" type="button" id="mr-next" hidden>Next mistake</button>
+          </div>
+          <section class="answer-review" id="mr-solution" hidden>
+            <h2>Solution</h2>
+            <p class="mr-answer-line" id="mr-answer-line"></p>
+            <div id="mr-solution-copy"></div>
+          </section>
+        </article>
+      </div>
+    </section>
   </main>
+
+  <!-- ======================= AI COACH ======================= -->
+  <button class="coach-fab" id="coach-fab" type="button" aria-label="Open AI coach">
+    <span class="material-symbols-outlined">school</span>
+  </button>
+
+  <aside class="coach-drawer" id="coach-drawer" hidden aria-label="AI coach">
+    <header class="coach-header">
+      <div>
+        <strong>Coach Halo</strong>
+        <small id="coach-context-label">General help</small>
+      </div>
+      <div class="coach-header-buttons">
+        <button type="button" id="coach-settings-btn" aria-label="Coach settings"><span class="material-symbols-outlined">settings</span></button>
+        <button type="button" id="coach-close" aria-label="Close coach"><span class="material-symbols-outlined">close</span></button>
+      </div>
+    </header>
+    <div class="coach-messages" id="coach-messages">
+      <div class="coach-msg coach-msg--assistant">Hey! I'm your AMC coach. I won't hand you answers — but I'll nudge you toward them. Ask me anything about the problem you're on.</div>
+    </div>
+    <div class="coach-keywall" id="coach-keywall" hidden>
+      <span class="material-symbols-outlined">key</span>
+      <p>The AI coach runs on <strong>your own Anthropic API key</strong>. It's stored only in this browser and calls Anthropic directly — Saintly never sees it.</p>
+      <button class="start-practice portal-primary" type="button" id="coach-keywall-btn">Add API key</button>
+    </div>
+    <form class="coach-composer" id="coach-composer">
+      <textarea id="coach-input" rows="2" placeholder="Ask for a hint, a concept refresher, or where you went wrong…"></textarea>
+      <button type="submit" id="coach-send" aria-label="Send"><span class="material-symbols-outlined">send</span></button>
+    </form>
+  </aside>
+
+  <dialog class="confirm-dialog" id="coach-key-dialog">
+    <form method="dialog">
+      <h2>Anthropic API key</h2>
+      <p class="par">Paste your key from <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>. It's saved in this browser's local storage only, and every coach message goes straight from your browser to Anthropic — usage is billed to your account.</p>
+      <input type="password" id="coach-key-input" placeholder="sk-ant-…" autocomplete="off">
+      <div>
+        <button value="clear" class="start-practice" id="coach-key-clear" type="submit">Remove key</button>
+        <button value="cancel" class="start-practice" type="submit">Cancel</button>
+        <button value="save" class="start-practice portal-primary" id="coach-key-save" type="submit">Save key</button>
+      </div>
+    </form>
+  </dialog>
 
   <dialog class="confirm-dialog" id="submit-dialog">
     <form method="dialog">
       <h2>Submit competition?</h2>
       <p id="submit-dialog-copy">You still have unanswered questions.</p>
-      <div><button value="cancel" class="portal-secondary-button">Keep working</button><button value="confirm" class="portal-primary-button">Submit now</button></div>
+      <div><button value="cancel" class="start-practice">Keep working</button><button value="confirm" class="start-practice portal-primary">Submit now</button></div>
     </form>
   </dialog>
 
-  <script type="module" src="practice-test.js?v=5"></script>
+  <footer class="saintly-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <img class="footer-logo" src="assets/branding/saintly-full-logo.png" height="35px">
+        <p>Making competition math accessible for everyone.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="amc-10.html">AMC 10</a></li>
+          <li><a href="amc-10-adaptive-practice.html">Adaptive Practice</a></li>
+          <li><a href="topics-dashboard.html">Topics Dashboard</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <div class="social-icons"><a>saintly.math@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Saintly Math. Built with drive.</div>
+  </footer>
+
+  <script type="module" src="practice-test.js?v=9"></script>
 </body>
 </html>
