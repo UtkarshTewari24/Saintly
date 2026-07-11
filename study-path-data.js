@@ -4,7 +4,7 @@ export const STUDY_PATH = [
   { title: 'Complex Numbers', icon: 'i', color: 'orange', lessons: ['The Square Root of -1', 'Complex Arithmetic', 'Conjugates, Re, and Im'] },
   { title: 'Linear Equations', icon: '↗', color: 'blue', lessons: ['What Linear Means', 'Two Equations, Two Variables', 'Word Problems I: Translation', 'Word Problems II: Motion', 'Word Problems III: Work'] },
   { title: 'Proportions', icon: 'a:b', color: 'orange', lessons: ['Direct Proportion and Ratios', 'Inverse and Joint Proportion', 'Manipulating Proportions', 'Conversion Factors', 'Percent: Language and Change', 'Percent: Interest and Mixtures'] },
-  { title: 'Using the Integers', icon: 'ℤ', color: 'blue', lessons: ['Divisibility', 'Number Bases', 'The Last Digit', 'Modular Arithmetic', 'Tricks', 'Primes', 'Common and Uncommon Factors'] },
+  { title: 'Using the Integers', icon: 'ℤ', color: 'blue', lessons: ['Divisibility and Number Bases', 'The Last Digit and Modular Arithmetic', 'Divisibility Tricks', 'Primes and Prime Factorization', 'GCF and LCM'] },
   { title: 'Quadratic Equations', icon: 'x²', color: 'orange', lessons: ["What's a Quadratic?", 'Factoring Quadratics', 'The Quadratic Formula', 'Rearrangements', 'Substitutions', 'Square Roots of Irrationals and Imaginaries', 'Beyond Quadratics'] },
   { title: 'Special Factorizations and Clever Manipulations', icon: '✦', color: 'blue', lessons: ['Factorizations', 'Manipulations'] },
   { title: 'What Numbers Really Are', icon: 'ℝ', color: 'orange', lessons: ['Integers and Rationals', 'Lowest Terms and Irrationals', 'Complex and Beyond'] },
@@ -42,7 +42,7 @@ const exactRoutes = {
 
 /* Chapters rebuilt as Brilliant-style interactive lessons route to the new engine.
    Map: topic index -> { chapter number in lessons/, lesson count }. */
-const INTERACTIVE_CHAPTERS = { 0: { chapter: 1, count: 5 }, 1: { chapter: 2, count: 3 }, 2: { chapter: 3, count: 5 }, 3: { chapter: 4, count: 6 } };
+const INTERACTIVE_CHAPTERS = { 0: { chapter: 1, count: 5 }, 1: { chapter: 2, count: 3 }, 2: { chapter: 3, count: 5 }, 3: { chapter: 4, count: 6 }, 4: { chapter: 5, count: 5 } };
 export function interactiveLessonRoute(chapterIndex, lessonIndex) {
   const entry = INTERACTIVE_CHAPTERS[chapterIndex];
   if (entry && lessonIndex >= 0 && lessonIndex < entry.count) {

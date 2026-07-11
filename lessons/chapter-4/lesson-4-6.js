@@ -21,7 +21,7 @@ export default {
   kicker: 'Proportions',
   topicIndex: 3,
   lessonIndex: 5,
-  next: 'study-path.html',
+  next: 'interactive-lesson.html?chapter=5&lesson=1',
   beats: [
 
     /* ---------------- learn ---------------- */
