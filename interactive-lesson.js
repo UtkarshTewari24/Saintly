@@ -475,7 +475,8 @@ function renderBeat() {
   $('il-feedback').hidden = true;
   $('il-skip').hidden = true;
   $('il-mascot').className = 'il-mascot';
-  $('il-coach-fab').hidden = !(beat.coach?.length || beat.hint);
+  // Halo also accepts free-form questions, so its launcher belongs on every beat.
+  $('il-coach-fab').hidden = false;
   renderProgress();
   syncAction();
   typeset(stage);

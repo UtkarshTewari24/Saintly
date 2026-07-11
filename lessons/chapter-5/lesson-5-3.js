@@ -95,7 +95,7 @@ export default {
         type: 'reveal',
         face: 'Two-digit number, digits \\( a \\) and \\( b \\): alternating sum \\( = b - a \\). Why does &ldquo;divisible&rdquo; force \\( a = b \\)?',
         cta: 'Tap for the bound-and-force move',
-        hidden: 'Digits run 0–9, so \\( b - a \\) is trapped strictly between \\( -9 \\) and \\( 9 \\). The ONLY multiple of 11 in that window is 0 — so divisibility forces \\( b - a = 0 \\), i.e. \\( a = b \\): the numbers 11, 22, …, 99. This is your first taste of a competition meta-move worth naming: <b>bound it, then it&rsquo;s forced</b>. Trap a quantity in a small window, list the qualifying values, and often there&rsquo;s exactly one.',
+        hidden: 'Digits run 0–9, so \\( -9 \\le b - a \\le 9 \\). The ONLY multiple of 11 in that interval is 0 — so divisibility forces \\( b - a = 0 \\), i.e. \\( a = b \\): the numbers 11, 22, …, 99. This is your first taste of a competition meta-move worth naming: <b>bound it, then it&rsquo;s forced</b>. Trap a quantity in a small window, list the qualifying values, and often there&rsquo;s exactly one.',
       },
       success: 'Bound it, then it&rsquo;s forced — remember the move, not just the fact.',
       coach: ['How big and how small can b − a possibly be?'],

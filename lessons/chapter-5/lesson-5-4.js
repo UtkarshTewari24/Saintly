@@ -220,7 +220,7 @@ export default {
         'Therefore \\( P \\equiv 2 + 1 = 3 \\pmod 4 \\), a spoke no square can reach. Done — every case at once, no examples needed. (Sanity: \\( 2 \\cdot 3 + 1 = 7 \\), \\( 2 \\cdot 3 \\cdot 5 + 1 = 31 \\), both \\( \\equiv 3 \\).)',
       ],
       success: 'A proof, not a computation: residues rule out infinitely many candidates in four lines.',
-      note: '<b>Residues kill impossibility problems.</b> The twin: three consecutive squares sum to \\( 3n^2 + 2 \\equiv 2 \\pmod 3 \\), and squares mod 3 are only 0 or 1 — so that sum is never a square either. Same weapon, second confirmed kill.',
+      note: '<b>Residues kill impossibility problems.</b> The twin: three consecutive squares sum to \\( n^2 + (n+1)^2 + (n+2)^2 = 3n^2 + 6n + 5 \\equiv 2 \\pmod 3 \\), and squares mod 3 are only 0 or 1 — so that sum is never a square either. Same weapon, second confirmed kill.',
       coach: ['First establish what squares CAN be mod 4 — four quick checks.', 'How many factors of 2 does a product of distinct primes contain?', 'Compare P&rsquo;s spoke with the squares&rsquo; spokes.'],
     },
   ],
