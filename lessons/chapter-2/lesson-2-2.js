@@ -84,9 +84,9 @@ export default {
         + '<line x1="14" y1="150" x2="226" y2="150" stroke="#4a4a4a" stroke-width="1.5"/>'
         + '<line x1="60" y1="14" x2="60" y2="186" stroke="#4a4a4a" stroke-width="1.5"/>'
         + '<line x1="60" y1="150" x2="150" y2="110" stroke="#88b0ff" stroke-width="2.5"/>'
-        + '<circle cx="150" cy="110" r="4" fill="#88b0ff"/><text x="126" y="140" fill="#88b0ff" font-size="13">3+2i</text>'
+        + '<circle cx="150" cy="110" r="4" fill="#88b0ff"/><text x="126" y="140" class="il-svg-blue-ink" font-size="13">3+2i</text>'
         + '<line x1="150" y1="110" x2="120" y2="70" stroke="#ffb192" stroke-width="2.5"/>'
-        + '<circle cx="120" cy="70" r="5" fill="#57d364"/><text x="158" y="86" fill="#ffb192" font-size="13">then −1+2i</text>'
+        + '<circle cx="120" cy="70" r="5" fill="#57d364"/><text x="158" y="86" class="il-svg-peach-ink" font-size="13">then −1+2i</text>'
         + '</svg>'
         + 'The green dot is the sum \\( (3 + 2i) + (-1 + 2i) \\). Where did it land?',
       interaction: {

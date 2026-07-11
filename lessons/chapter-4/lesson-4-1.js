@@ -4,14 +4,14 @@
 const TAPE_SVG = `<svg viewBox="0 0 320 70" width="320" style="max-width:100%;display:block;margin:14px auto 0" role="img" aria-label="Tape diagram: 5 equal segments, 3 for boys and 2 for girls">
   <rect x="10" y="14" width="60" height="30" fill="#88b0ff" stroke="#10131c"/><rect x="70" y="14" width="60" height="30" fill="#88b0ff" stroke="#10131c"/><rect x="130" y="14" width="60" height="30" fill="#88b0ff" stroke="#10131c"/>
   <rect x="190" y="14" width="60" height="30" fill="#ffb192" stroke="#10131c"/><rect x="250" y="14" width="60" height="30" fill="#ffb192" stroke="#10131c"/>
-  <text x="100" y="60" fill="#88b0ff" font-size="12" text-anchor="middle">boys — 3 parts</text>
-  <text x="250" y="60" fill="#ffb192" font-size="12" text-anchor="middle">girls — 2 parts</text>
+  <text x="100" y="60" class="il-svg-blue-ink" font-size="12" text-anchor="middle">boys — 3 parts</text>
+  <text x="250" y="60" class="il-svg-peach-ink" font-size="12" text-anchor="middle">girls — 2 parts</text>
 </svg>`;
 
 const LINE_SVG = `<svg viewBox="0 0 320 46" width="320" style="max-width:100%;display:block;margin:14px auto 0" role="img" aria-label="Points A through E on a line with AB:BC:CD:DE = 1:3:12:6">
   <line x1="10" y1="22" x2="310" y2="22" stroke="#4a4a4a" stroke-width="2"/>
   <circle cx="10" cy="22" r="4" fill="#88b0ff"/><circle cx="23.6" cy="22" r="4" fill="#88b0ff"/><circle cx="64.9" cy="22" r="4" fill="#88b0ff"/><circle cx="228.6" cy="22" r="4" fill="#88b0ff"/><circle cx="310" cy="22" r="4" fill="#88b0ff"/>
-  <text x="10" y="12" fill="#e8e8e8" font-size="12" text-anchor="middle">A</text><text x="23.6" y="42" fill="#e8e8e8" font-size="12" text-anchor="middle">B</text><text x="64.9" y="12" fill="#e8e8e8" font-size="12" text-anchor="middle">C</text><text x="228.6" y="12" fill="#e8e8e8" font-size="12" text-anchor="middle">D</text><text x="310" y="12" fill="#e8e8e8" font-size="12" text-anchor="middle">E</text>
+  <text x="10" y="12" class="il-svg-ink" font-size="12" text-anchor="middle">A</text><text x="23.6" y="42" class="il-svg-ink" font-size="12" text-anchor="middle">B</text><text x="64.9" y="12" class="il-svg-ink" font-size="12" text-anchor="middle">C</text><text x="228.6" y="12" class="il-svg-ink" font-size="12" text-anchor="middle">D</text><text x="310" y="12" class="il-svg-ink" font-size="12" text-anchor="middle">E</text>
 </svg>`;
 
 export default {

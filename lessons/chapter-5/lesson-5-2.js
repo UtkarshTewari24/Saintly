@@ -2,14 +2,14 @@
    The book's pedagogical move, honored: last digits ARE mods. The mod wheel
    (inline SVG + sliders) turns congruence notation into geometry. */
 
-const WHEEL_SVG = `<svg viewBox="0 0 120 120" width="180" style="max-width:100%;display:block;margin:14px auto 0" role="img" aria-label="A wheel with five spokes labeled 0 through 4">
-  <circle cx="60" cy="60" r="45" fill="none" stroke="#4a4a4a" stroke-width="2"/>
-  <line x1="60" y1="60" x2="60" y2="15" stroke="#4a4a4a"/><line x1="60" y1="60" x2="102.8" y2="46.1" stroke="#4a4a4a"/><line x1="60" y1="60" x2="86.5" y2="96.4" stroke="#4a4a4a"/><line x1="60" y1="60" x2="33.5" y2="96.4" stroke="#4a4a4a"/><line x1="60" y1="60" x2="17.2" y2="46.1" stroke="#4a4a4a"/>
-  <text x="60" y="10" fill="#88b0ff" font-size="11" text-anchor="middle" font-weight="700">0</text>
-  <text x="112" y="46" fill="#e8e8e8" font-size="11" text-anchor="middle">1</text>
-  <text x="93" y="110" fill="#57d364" font-size="11" text-anchor="middle" font-weight="700">2</text>
-  <text x="27" y="110" fill="#e8e8e8" font-size="11" text-anchor="middle">3</text>
-  <text x="8" y="46" fill="#e8e8e8" font-size="11" text-anchor="middle">4</text>
+const WHEEL_SVG = `<svg class="il-mod-wheel" viewBox="0 0 120 120" width="180" role="img" aria-label="A wheel with five spokes labeled 0 through 4">
+  <circle class="il-wheel-ring" cx="60" cy="60" r="45" fill="none" stroke-width="2"/>
+  <g class="il-wheel-spokes"><line x1="60" y1="60" x2="60" y2="15"/><line x1="60" y1="60" x2="102.8" y2="46.1"/><line x1="60" y1="60" x2="86.5" y2="96.4"/><line x1="60" y1="60" x2="33.5" y2="96.4"/><line x1="60" y1="60" x2="17.2" y2="46.1"/></g>
+  <text class="is-primary" x="60" y="10" font-size="11" text-anchor="middle" font-weight="700">0</text>
+  <text x="112" y="46" font-size="11" text-anchor="middle">1</text>
+  <text class="is-accent" x="93" y="110" font-size="11" text-anchor="middle" font-weight="700">2</text>
+  <text x="27" y="110" font-size="11" text-anchor="middle">3</text>
+  <text x="8" y="46" font-size="11" text-anchor="middle">4</text>
 </svg>`;
 
 const PAIRS = [[34, 17], [48, 29], [56, 73], [81, 66], [92, 38]];

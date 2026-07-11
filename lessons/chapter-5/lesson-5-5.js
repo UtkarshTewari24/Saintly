@@ -2,16 +2,16 @@
    The factor Venn: shared primes in the intersection -> GCF; all primes at max
    power -> LCM; and (m,n)[m,n] = mn read straight off the picture. */
 
-const VENN_SVG = `<svg viewBox="0 0 320 150" width="320" style="max-width:100%;display:block;margin:14px auto 0" role="img" aria-label="Two overlapping circles: prime factors of 84 and 112, with 2, 2, 7 shared">
+const VENN_SVG = `<svg class="il-factor-venn" viewBox="0 0 320 150" width="320" role="img" aria-label="Two overlapping circles: prime factors of 84 and 112, with 2, 2, 7 shared">
   <circle cx="120" cy="75" r="62" fill="rgba(136,176,255,.10)" stroke="#88b0ff" stroke-width="1.5"/>
   <circle cx="200" cy="75" r="62" fill="rgba(255,177,146,.10)" stroke="#ffb192" stroke-width="1.5"/>
   <text x="78" y="22" fill="#88b0ff" font-size="12">84 = 2·2·3·7</text>
   <text x="196" y="22" fill="#ffb192" font-size="12">112 = 2·2·2·2·7</text>
   <text x="92" y="80" fill="#88b0ff" font-size="16" font-weight="700">3</text>
-  <text x="160" y="66" fill="#e8e8e8" font-size="15" font-weight="700" text-anchor="middle">2  2</text>
-  <text x="160" y="92" fill="#e8e8e8" font-size="15" font-weight="700" text-anchor="middle">7</text>
+  <text class="il-venn-shared" x="160" y="66" font-size="15" font-weight="700" text-anchor="middle">2  2</text>
+  <text class="il-venn-shared" x="160" y="92" font-size="15" font-weight="700" text-anchor="middle">7</text>
   <text x="228" y="80" fill="#ffb192" font-size="16" font-weight="700">2  2</text>
-  <text x="160" y="140" fill="#8f8f8f" font-size="11" text-anchor="middle">shared factors live in the overlap</text>
+  <text class="il-venn-caption" x="160" y="140" font-size="11" text-anchor="middle">shared factors live in the overlap</text>
 </svg>`;
 
 export default {

@@ -2,7 +2,7 @@
    Data-driven: a lesson module default-exports a lesson object (see lessons/LESSON-SCHEMA.md
    and lessons/chapter-1/lesson-1-1.js, the golden reference). The engine renders one "beat"
    at a time — concept + one interaction — and gates progress on answering. Misses never
-   punish: first miss shows the beat's hint, second miss shows the worked explanation and
+   punish: first miss opens Halo with the beat's hint, second miss shows the worked explanation and
    unlocks "Continue anyway". */
 
 const PATH_KEY = 'saintly-study-path-v1';
@@ -304,12 +304,18 @@ function grade() {
       slot.classList.toggle('is-wrong', !right);
       if (!right) allRight = false;
     });
-    if (!allRight) setTimeout(() => {
-      document.querySelectorAll('.il-slot.is-wrong').forEach((slot, _) => slot.classList.remove('is-wrong'));
-      /* Wrong entries bounce back to the bank; right ones stay locked. */
-      ui.placed = ui.placed.map((entry, i) => (entry !== undefined && ui.bank[entry].index === i) ? entry : undefined);
-      paintOrder();
-    }, 900);
+    if (!allRight) {
+      const gradedBeatIndex = beatIndex;
+      setTimeout(() => {
+        /* The student may use "Show answer & continue" before this animation ends.
+           Never let a stale callback mutate the following beat's interaction state. */
+        if (beatIndex !== gradedBeatIndex || beat.interaction.type !== 'order' || !Array.isArray(ui.placed)) return;
+        document.querySelectorAll('.il-slot.is-wrong').forEach(slot => slot.classList.remove('is-wrong'));
+        /* Wrong entries bounce back to the bank; right ones stay locked. */
+        ui.placed = ui.placed.map((entry, i) => (entry !== undefined && ui.bank[entry].index === i) ? entry : undefined);
+        paintOrder();
+      }, 900);
+    }
     return allRight;
   }
   /* reveal, slider, match complete by interacting — grading always passes */
@@ -359,7 +365,8 @@ function handleMiss() {
   misses += 1;
   $('il-mascot').className = 'il-mascot is-sad';
   if (misses === 1 && beat.hint) {
-    setFeedback('hint', 'Hint', beat.hint);
+    $('il-feedback').hidden = true;
+    openCoach();
   } else {
     const explain = beat.explain || beat.hint || 'Look back at the setup and try once more.';
     setFeedback('wrong', 'Walkthrough', explain);
@@ -475,8 +482,7 @@ function renderBeat() {
   $('il-feedback').hidden = true;
   $('il-skip').hidden = true;
   $('il-mascot').className = 'il-mascot';
-  // Halo also accepts free-form questions, so its launcher belongs on every beat.
-  $('il-coach-fab').hidden = false;
+  $('il-coach-fab').hidden = !(beat.coach?.length || beat.hint);
   renderProgress();
   syncAction();
   typeset(stage);
@@ -714,7 +720,10 @@ function onMatchTap(item) {
     [leftEl, item].forEach(el => el.classList.add('is-wrong'));
     setTimeout(() => [leftEl, item].forEach(el => el.classList.remove('is-wrong', 'is-active')), 700);
     ui.activeLeft = null;
-    if (misses === 1 && beat.hint) setFeedback('hint', 'Hint', beat.hint);
+    if (misses === 1 && beat.hint) {
+      $('il-feedback').hidden = true;
+      openCoach();
+    }
   }
 }
 

@@ -122,10 +122,10 @@ export default {
         + '<svg viewBox="0 0 220 220" width="220" height="220" style="display:block;margin:14px auto 0" role="img" aria-label="Complex plane with 1, i, -1, -i plotted">'
         + '<line x1="14" y1="110" x2="206" y2="110" stroke="#4a4a4a" stroke-width="1.5"/>'
         + '<line x1="110" y1="14" x2="110" y2="206" stroke="#4a4a4a" stroke-width="1.5"/>'
-        + '<circle cx="180" cy="110" r="6" fill="#88b0ff"/><text x="188" y="100" fill="#e8e8e8" font-size="15">1</text>'
-        + '<circle cx="110" cy="40" r="6" fill="#ffb192"/><text x="122" y="38" fill="#e8e8e8" font-size="15">i</text>'
-        + '<circle cx="40" cy="110" r="6" fill="#88b0ff"/><text x="18" y="100" fill="#e8e8e8" font-size="15">−1</text>'
-        + '<circle cx="110" cy="180" r="6" fill="#ffb192"/><text x="122" y="196" fill="#e8e8e8" font-size="15">−i</text>'
+        + '<circle cx="180" cy="110" r="6" fill="#88b0ff"/><text x="188" y="100" class="il-svg-ink" font-size="15">1</text>'
+        + '<circle cx="110" cy="40" r="6" fill="#ffb192"/><text x="122" y="38" class="il-svg-ink" font-size="15">i</text>'
+        + '<circle cx="40" cy="110" r="6" fill="#88b0ff"/><text x="18" y="100" class="il-svg-ink" font-size="15">−1</text>'
+        + '<circle cx="110" cy="180" r="6" fill="#ffb192"/><text x="122" y="196" class="il-svg-ink" font-size="15">−i</text>'
         + '</svg>',
       interaction: {
         type: 'reveal',

@@ -39,6 +39,19 @@ export default {
       coach: ['Which power of 10 does 4 divide? That sets the cutoff.', '48 and 748 and 91748 all agree mod 4 — why?'],
     },
     {
+      prompt: 'Same family, different cutoff. Which number is divisible by 20?',
+      body: 'Because \\( 100 \\equiv 0 \\pmod{20} \\), the last two digits decide everything.',
+      interaction: {
+        type: 'mcq',
+        options: ['43,560', '43,550', '43,540', '43,525'],
+        correct: 0,
+      },
+      hint: 'A multiple of 20 must end in a two-digit multiple of 20: 00, 20, 40, 60, or 80.',
+      explain: 'Only 43,560 ends in 60, a multiple of 20. Ending in 0 is necessary but not enough: 43,550 ends in 50, and \\( 20 \\nmid 50 \\). This is a last-<em>two</em>-digits rule because 20 divides 100, not merely a last-digit rule.',
+      note: 'Match the test to the first power of 10 that vanishes: one digit for 2, 5, 10; two for 4, 20, 25; three for 8 or 125.',
+      coach: ['Ignore every digit except the final two.', 'Test 60, 50, 40, and 25 for divisibility by 20.'],
+    },
+    {
       prompt: 'Mod 3, the powers of 10 don&rsquo;t die — they do something better.',
       body: 'Fill in the key congruences and watch every place-value collapse to 1.',
       interaction: {

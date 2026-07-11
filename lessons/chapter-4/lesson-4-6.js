@@ -5,14 +5,14 @@
 const BEAKER_SVG = `<svg viewBox="0 0 340 90" width="340" style="max-width:100%;display:block;margin:14px auto 0" role="img" aria-label="Two beakers of acid solution pouring into one combined beaker">
   <rect x="15" y="30" width="50" height="46" fill="none" stroke="#4a4a4a" stroke-width="2"/>
   <rect x="17" y="52" width="46" height="22" fill="#2a3a5c"/><rect x="17" y="65.2" width="46" height="8.8" fill="#88b0ff"/>
-  <text x="40" y="22" fill="#e8e8e8" font-size="11" text-anchor="middle">2 L · 20%</text>
+  <text x="40" y="22" class="il-svg-ink" font-size="11" text-anchor="middle">2 L · 20%</text>
   <rect x="105" y="14" width="60" height="62" fill="none" stroke="#4a4a4a" stroke-width="2"/>
   <rect x="107" y="20" width="56" height="54" fill="#2a3a5c"/><rect x="107" y="47" width="56" height="27" fill="#88b0ff"/>
-  <text x="135" y="10" fill="#e8e8e8" font-size="11" text-anchor="middle">8 L · 50%</text>
-  <text x="205" y="50" fill="#9a9a9a" font-size="16">&#8594;</text>
+  <text x="135" y="10" class="il-svg-ink" font-size="11" text-anchor="middle">8 L · 50%</text>
+  <text x="205" y="50" class="il-venn-caption" font-size="16">&#8594;</text>
   <rect x="240" y="8" width="72" height="68" fill="none" stroke="#4a4a4a" stroke-width="2"/>
   <rect x="242" y="14" width="68" height="60" fill="#2a3a5c"/><rect x="242" y="47.6" width="68" height="26.4" fill="#88b0ff"/>
-  <text x="276" y="88" fill="#88b0ff" font-size="11" text-anchor="middle">10 L · ?%</text>
+  <text x="276" y="88" class="il-svg-blue-ink" font-size="11" text-anchor="middle">10 L · ?%</text>
 </svg>`;
 
 export default {

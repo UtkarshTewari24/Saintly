@@ -8,9 +8,9 @@ const GRAPH_SVG = `<svg viewBox="0 0 260 200" width="300" style="max-width:100%;
   <line x1="0" y1="0" x2="260" y2="171.4" stroke="#88b0ff" stroke-width="2"/>
   <line x1="0" y1="200" x2="260" y2="28.6" stroke="#ffb192" stroke-width="2"/>
   <circle cx="151.7" cy="100" r="5" fill="#57d364"/>
-  <text x="18" y="26" fill="#88b0ff" font-size="12">x + y = 3</text>
-  <text x="186" y="52" fill="#ffb192" font-size="12">x &#8722; y = 1</text>
-  <text x="160" y="92" fill="#e8e8e8" font-size="12">(2, 1)</text>
+  <text x="18" y="26" class="il-svg-blue-ink" font-size="12">x + y = 3</text>
+  <text x="186" y="52" class="il-svg-peach-ink" font-size="12">x &#8722; y = 1</text>
+  <text x="160" y="92" class="il-svg-ink" font-size="12">(2, 1)</text>
 </svg>`;
 
 export default {

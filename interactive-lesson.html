@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson | Saintly</title>
   <meta name="description" content="A Saintly interactive lesson: short concept beats, one interaction at a time.">
-  <link rel="stylesheet" href="interactive-lesson.css?v=1">
+  <link rel="stylesheet" href="interactive-lesson.css?v=3">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&family=Material+Symbols+Outlined" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
   <script>
@@ -19,8 +19,9 @@
 <body class="il-page">
   <header class="il-topbar">
     <button class="il-icon-button" id="il-exit" type="button" aria-label="Exit lesson">
-      <span class="material-symbols-outlined" style="color:#8a8a8a !important">close</span>
+      <span class="material-symbols-outlined">close</span>
     </button>
+    <img class="il-brand-mark" src="assets/branding/saintly-icon.png" alt="" width="32" height="32">
     <div class="il-progress" id="il-progress" role="progressbar" aria-valuemin="1" aria-valuenow="1" aria-label="Lesson progress"></div>
     <div class="il-stats">
       <span class="il-xp"><b id="il-xp-count">0</b><span aria-hidden="true">✦</span></span>
@@ -38,7 +39,7 @@
         <div class="il-coach-body" id="il-coach-body"></div>
         <button class="il-coach-more" id="il-coach-more" type="button">Another hint</button>
         <form id="il-coach-form">
-          <input class="il-fillin-box" id="il-coach-input" style="width:100%; font-size:14px; text-align:left" placeholder="Or ask about your own work…" aria-label="Ask Coach Halo">
+          <input class="il-fillin-box il-coach-input" id="il-coach-input" placeholder="Or ask about your own work…" aria-label="Ask Coach Halo">
         </form>
         <p class="il-coach-note">Hints are free and local. Hints cap this beat’s XP — misses never do more than that.</p>
       </div>
@@ -70,10 +71,10 @@
         <a class="il-completion-primary" id="il-completion-next" href="study-path.html">Next lesson</a>
         <a class="il-completion-secondary" id="il-completion-back" href="study-path.html">Back to path</a>
       </div>
-      <a id="il-completion-notes" href="#" style="color:#88b0ff; font-size:14px" hidden>Read the full notes →</a>
+      <a class="il-completion-notes" id="il-completion-notes" href="#" hidden>Read the full notes →</a>
     </div>
   </div>
 
-  <script type="module" src="interactive-lesson.js?v=1"></script>
+  <script type="module" src="interactive-lesson.js?v=3"></script>
 </body>
 </html>

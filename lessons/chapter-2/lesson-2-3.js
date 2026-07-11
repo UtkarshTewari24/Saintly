@@ -17,8 +17,8 @@ export default {
         + '<svg viewBox="0 0 240 200" width="240" height="200" style="display:block;margin:14px auto 0" role="img" aria-label="3+2i and its reflection 3-2i across the real axis">'
         + '<line x1="14" y1="100" x2="226" y2="100" stroke="#4a4a4a" stroke-width="1.5"/>'
         + '<line x1="60" y1="14" x2="60" y2="186" stroke="#4a4a4a" stroke-width="1.5"/>'
-        + '<circle cx="168" cy="52" r="6" fill="#88b0ff"/><text x="178" y="48" fill="#e8e8e8" font-size="14">3+2i</text>'
-        + '<circle cx="168" cy="148" r="6" fill="#ffb192"/><text x="178" y="162" fill="#e8e8e8" font-size="14">?</text>'
+        + '<circle cx="168" cy="52" r="6" fill="#88b0ff"/><text x="178" y="48" class="il-svg-ink" font-size="14">3+2i</text>'
+        + '<circle cx="168" cy="148" r="6" fill="#ffb192"/><text x="178" y="162" class="il-svg-ink" font-size="14">?</text>'
         + '<line x1="168" y1="60" x2="168" y2="140" stroke="#666" stroke-width="1" stroke-dasharray="4 4"/>'
         + '</svg>',
       interaction: {

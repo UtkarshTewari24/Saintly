@@ -1,15 +1,15 @@
 /* Lesson 5.1–5.2 — Divisibility Vocabulary + Number Bases.
    Place-value columns (HTML tables + a greedy-conversion balance graph) carry the base work. */
 
-const COLUMNS_10 = `<table style="margin:14px auto 0;border-collapse:collapse;text-align:center;font-size:14px">
-  <tr>${['10^6','10^5','10^4','10^3','10^2','10^1','10^0'].map(p => `<td style="border:1px solid #4a4a4a;padding:6px 12px;color:#8f8f8f">\\( ${p} \\)</td>`).join('')}</tr>
-  <tr>${'7965841'.split('').map(d => `<td style="border:1px solid #4a4a4a;padding:6px 12px;color:#88b0ff;font-size:18px;font-weight:700">${d}</td>`).join('')}</tr>
-</table>`;
+const COLUMNS_10 = `<div class="il-place-value-scroll"><table class="il-place-value" aria-label="Place values of 7,965,841">
+  <tr>${['10^6','10^5','10^4','10^3','10^2','10^1','10^0'].map(p => `<th scope="col">\\( ${p} \\)</th>`).join('')}</tr>
+  <tr>${'7965841'.split('').map(d => `<td>${d}</td>`).join('')}</tr>
+</table></div>`;
 
-const COLUMNS_8 = `<table style="margin:14px auto 0;border-collapse:collapse;text-align:center;font-size:14px">
-  <tr><td style="border:1px solid #4a4a4a;padding:6px 14px;color:#8f8f8f">\\( 8^1 \\)</td><td style="border:1px solid #4a4a4a;padding:6px 14px;color:#8f8f8f">\\( 8^0 \\)</td></tr>
-  <tr><td style="border:1px solid #4a4a4a;padding:6px 14px;color:#ffb192;font-size:18px;font-weight:700">2</td><td style="border:1px solid #4a4a4a;padding:6px 14px;color:#ffb192;font-size:18px;font-weight:700">5</td></tr>
-</table>`;
+const COLUMNS_8 = `<div class="il-place-value-scroll"><table class="il-place-value is-base-eight" aria-label="Place values of 25 base eight">
+  <tr><th scope="col">\\( 8^1 \\)</th><th scope="col">\\( 8^0 \\)</th></tr>
+  <tr><td>2</td><td>5</td></tr>
+</table></div>`;
 
 export default {
   id: 'lesson-5-1',

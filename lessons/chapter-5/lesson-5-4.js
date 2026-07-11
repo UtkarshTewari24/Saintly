@@ -115,6 +115,32 @@ export default {
       coach: ['Run the cheap tests to find each first factor.', 'After dividing, the quotient needs its own √-bound check — it&rsquo;s smaller, so it&rsquo;s fast.'],
     },
     {
+      prompt: 'A factor tree is unfinished while even one leaf is composite.',
+      body: 'Which is the complete prime factorization of 360?',
+      interaction: {
+        type: 'mcq',
+        options: ['\\( 2^3 \\cdot 3^2 \\cdot 5 \\)', '\\( 36 \\cdot 10 \\)', '\\( 2 \\cdot 180 \\)', '\\( 6^2 \\cdot 10 \\)'],
+        correct: 0,
+      },
+      hint: 'A complete answer may contain only prime bases.',
+      explain: '\\( 360 = 36 \\cdot 10 = (2^2 \\cdot 3^2)(2 \\cdot 5) = 2^3 \\cdot 3^2 \\cdot 5 \\). The other choices are true products, but each still has composite leaves — they are stops along the road, not the destination.',
+      note: 'Prime factorization means every factor is prime. A correct multiplication statement can still be an incomplete factorization.',
+      coach: ['Check the base of every factor or exponent.', 'Split 36 and 10 one more time.'],
+    },
+    {
+      prompt: 'Use the \\( \\sqrt N \\) bound on 121. How soon can you stop?',
+      interaction: {
+        type: 'fillin',
+        fields: [
+          { label: 'smallest prime factor', answer: '11', width: 100 },
+          { label: 'other factor', answer: '11', width: 100 },
+        ],
+      },
+      hint: '\\( \\sqrt{121} = 11 \\). Test primes 2, 3, 5, 7, and then 11.',
+      explain: 'The cheap tests eliminate 2, 3, and 5; 7 misses; 11 divides exactly, giving \\( 121 = 11^2 \\). The bound includes the endpoint: a square&rsquo;s paired factors meet exactly at \\( \\sqrt N \\), so you must test 11 rather than stopping just before it.',
+      coach: ['List every prime at or below √121.', 'Do not omit the endpoint when the square root is an integer.'],
+    },
+    {
       prompt: 'Are there infinitely many primes? Euclid answered in four moves. Arrange them.',
       body: 'A proof by contradiction — suppose the primes are a finite list \\( p_1, p_2, \\ldots, p_n \\), and build a troublemaker.',
       interaction: {
