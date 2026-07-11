@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Path | Saintly</title>
+  <meta name="description" content="A free, flexible AMC 10 study path with 28 topics and more than 130 lessons.">
+  <link rel="stylesheet" href="study-path.css?v=7">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
+</head>
+<body class="study-path-page">
+  <header class="course-topbar">
+    <div class="course-nav">
+      <a class="course-brand" href="index.html"><img src="assets/branding/saintly-full-logo.png" alt="Saintly"></a>
+      <a class="course-nav-link" href="index.html"><span class="material-symbols-outlined">home</span>Home</a>
+      <button class="course-nav-link is-active" id="chapter-menu-toggle" type="button"><span class="material-symbols-outlined">library_books</span>Courses</button>
+      <div class="course-nav-right">
+        <button class="course-progress-pill" type="button" id="course-progress-button"><span id="path-progress-number">0 / 137</span><i></i></button>
+        <a class="classic-topics-link" href="topics-dashboard.html">Topics Dashboard</a>
+        <button class="course-menu-button" id="course-menu-button" type="button" aria-label="Open topics">☰</button>
+      </div>
+    </div>
+  </header>
+  <section class="free-access-banner">
+    <button id="path-halo-toggle" type="button"><span class="halo-gem">✦</span><strong>Every lesson is open.</strong> Ask Halo where to jump <u>→</u></button>
+    <span class="path-progress-track" aria-hidden="true"><span id="path-progress-fill"></span></span>
+  </section>
+
+  <main class="course-shell">
+    <aside class="course-summary-card">
+      <div class="course-art" aria-hidden="true"><span class="art-orb"></span><span class="art-diamond"></span><span class="art-block"></span><span class="art-arrow">→</span><span class="art-turn">↗</span></div>
+      <span class="course-card-kicker" id="course-card-kicker">TOPIC 1 OF 28</span>
+      <h1 id="course-card-title">Exponents and Logarithms</h1>
+      <p id="course-card-description">Build fluency with powers, roots, radicals, and logarithms.</p>
+      <div class="course-card-stats"><span>◉ <b id="course-card-lessons">5</b> Lessons</span><span>✦ Free to explore</span></div>
+      <div class="course-card-controls"><button id="previous-chapter" type="button" aria-label="Previous topic">↑</button><button id="open-topic-picker" type="button">All topics</button><button id="next-chapter" type="button" aria-label="Next topic">↓</button></div>
+    </aside>
+
+    <section class="level-stage" id="level-stage"></section>
+  </main>
+
+  <aside class="topic-picker" id="topic-picker" hidden aria-label="Choose any topic">
+    <div class="topic-picker-panel">
+      <header><div><small>SAINTLY STUDY PATH</small><h2>Choose any topic</h2><p>No locks. Jump wherever you want.</p></div><button id="topic-picker-close" type="button" aria-label="Close topics">×</button></header>
+      <nav id="chapter-list"></nav>
+    </div>
+  </aside>
+
+  <aside class="path-halo-panel" id="path-halo-panel" hidden aria-labelledby="path-halo-title">
+    <button id="path-halo-close" type="button" aria-label="Close Halo">×</button>
+    <span class="halo-gem">✦</span>
+    <div><small>COACH HALO</small><strong id="path-halo-title">Where should we jump?</strong><p id="path-halo-copy">Tell me what you want to improve and I’ll find the closest lesson.</p></div>
+    <form id="path-halo-form"><input id="path-halo-input" placeholder="e.g. I keep missing circle problems" aria-label="Ask Halo where to study"><button>Ask Halo</button></form>
+  </aside>
+
+  <aside class="lesson-detail" id="lesson-detail" hidden>
+    <button type="button" id="lesson-detail-close" aria-label="Close lesson details">⌃</button>
+    <span id="lesson-detail-topic"></span>
+    <h3 id="lesson-detail-title"></h3>
+    <p>Open this Saintly lesson now, or mark the stop explored and keep moving.</p>
+    <div><a id="lesson-open" href="#">Start lesson</a><button id="lesson-complete" type="button">Mark explored</button></div>
+  </aside>
+
+  <script type="module" src="study-path.js?v=7"></script>
+</body>
+</html>

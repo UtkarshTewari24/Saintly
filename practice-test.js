@@ -444,8 +444,10 @@ function finishCompetition(timeExpired = false) {
 
   let correct = 0, incorrect = 0, blank = 0;
   selectedCompetition.questions.forEach((question, index) => {
-    if (answers[index] === null) blank += 1;
-    else if (answers[index] === question.answer) correct += 1;
+    if (answers[index] === null) {
+      blank += 1;
+      addMistake(question, 'test', null);   /* blanks need review just like misses */
+    } else if (answers[index] === question.answer) correct += 1;
     else {
       incorrect += 1;
       addMistake(question, 'test', answers[index]);
@@ -461,7 +463,9 @@ function finishCompetition(timeExpired = false) {
   els.blankCount.textContent = blank;
   els.completionMessage.textContent = (timeExpired ? 'Time expired. ' : '') +
     `${competitionLabel(selectedCompetition)} is saved on this device.` +
-    (incorrect ? ` Your ${incorrect} miss${incorrect === 1 ? '' : 'es'} went to the mistake log — solutions unlock there once you re-solve them.` : ' Flawless on the misses front!');
+    (incorrect + blank
+      ? ` Your ${incorrect} miss${incorrect === 1 ? '' : 'es'} and ${blank} blank${blank === 1 ? '' : 's'} went to the mistake log — solutions unlock there once you re-solve them.`
+      : ' Flawless — nothing missed, nothing skipped!');
   refreshMistakePill();
   showScreen('results');
   renderCompetitionGrid();
@@ -672,6 +676,11 @@ function answerTrainer(index) {
   if (isCorrect) { ts.correct += 1; ts.streak += 1; } else { ts.streak = 0; }
   saveTrainer(state);
   updateTrainerStats();
+
+  /* Trainer attempts count toward the daily streak/goal (progress-core is optional). */
+  import('./progress-core.js')
+    .then(({ recordActivity }) => recordActivity({ xp: isCorrect ? 10 : 3, problems: 1 }))
+    .catch(() => {});
 
   const buttons = [...els.trainerOptions.querySelectorAll('.answer-choice')];
   buttons.forEach(b => { b.disabled = true; });
@@ -1215,7 +1224,14 @@ els.trainerOptions.addEventListener('click', e => {
   const choice = e.target.closest('[data-answer-index]');
   if (choice) answerTrainer(Number(choice.dataset.answerIndex));
 });
-els.trainerSkip.addEventListener('click', nextTrainerProblem);
+els.trainerSkip.addEventListener('click', () => {
+  /* A skip is an unanswered question — it goes to the mistake log like a miss. */
+  if (trainerProblem && !trainerAnswered) {
+    addMistake(trainerProblem, 'trainer', null);
+    refreshMistakePill();
+  }
+  nextTrainerProblem();
+});
 els.trainerNext.addEventListener('click', nextTrainerProblem);
 els.trainerShowSolution.addEventListener('click', () => {
   els.trainerSolutionCopy.textContent = trainerProblem.solution || 'No written solution is available for this problem.';

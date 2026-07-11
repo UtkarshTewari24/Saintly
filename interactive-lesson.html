@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson | Saintly</title>
+  <meta name="description" content="A Saintly interactive lesson: short concept beats, one interaction at a time.">
+  <link rel="stylesheet" href="interactive-lesson.css?v=1">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { enableMenu: false }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body class="il-page">
+  <header class="il-topbar">
+    <button class="il-icon-button" id="il-exit" type="button" aria-label="Exit lesson">
+      <span class="material-symbols-outlined" style="color:#8a8a8a !important">close</span>
+    </button>
+    <div class="il-progress" id="il-progress" role="progressbar" aria-valuemin="1" aria-valuenow="1" aria-label="Lesson progress"></div>
+    <div class="il-stats">
+      <span class="il-xp"><b id="il-xp-count">0</b><span aria-hidden="true">✦</span></span>
+    </div>
+  </header>
+
+  <main class="il-card" id="il-card">
+    <section class="il-stage" id="il-stage" aria-live="polite"></section>
+
+    <div class="il-coach-dock">
+      <div class="il-coach-panel" id="il-coach-panel" hidden>
+        <div class="il-coach-head"><span class="il-coach-gem">✦</span>COACH HALO
+          <button class="il-coach-close" id="il-coach-close" type="button" aria-label="Close coach">×</button>
+        </div>
+        <div class="il-coach-body" id="il-coach-body"></div>
+        <button class="il-coach-more" id="il-coach-more" type="button">Another hint</button>
+        <form id="il-coach-form">
+          <input class="il-fillin-box" id="il-coach-input" style="width:100%; font-size:14px; text-align:left" placeholder="Or ask about your own work…" aria-label="Ask Coach Halo">
+        </form>
+        <p class="il-coach-note">Hints are free and local. Hints cap this beat’s XP — misses never do more than that.</p>
+      </div>
+      <button class="il-coach-fab" id="il-coach-fab" type="button" hidden>
+        <span class="il-coach-gem">✦</span>Stuck? Ask Halo
+      </button>
+    </div>
+
+    <div class="il-mascot" id="il-mascot" aria-hidden="true">◕‿◕</div>
+
+    <footer class="il-footer">
+      <p class="il-feedback" id="il-feedback" hidden></p>
+      <div class="il-actions">
+        <button class="il-secondary-action" id="il-skip" type="button" hidden>Show answer & continue</button>
+        <button class="il-action" id="il-action" type="button" disabled>Check</button>
+      </div>
+    </footer>
+  </main>
+
+  <div class="il-overlay" id="il-overlay" hidden>
+    <div class="il-confetti" id="il-confetti" aria-hidden="true"></div>
+    <div class="il-panel" role="dialog" aria-labelledby="il-completion-title" aria-modal="true">
+      <div class="il-disc" aria-hidden="true">✓</div>
+      <small class="il-kicker" id="il-completion-kicker">LESSON</small>
+      <h1 id="il-completion-title">Lesson complete</h1>
+      <p id="il-completion-copy">Nice work.</p>
+      <div class="il-score"><strong id="il-completion-xp">+0</strong><span>XP earned</span></div>
+      <div class="il-completion-actions">
+        <a class="il-completion-primary" id="il-completion-next" href="study-path.html">Next lesson</a>
+        <a class="il-completion-secondary" id="il-completion-back" href="study-path.html">Back to path</a>
+      </div>
+      <a id="il-completion-notes" href="#" style="color:#88b0ff; font-size:14px" hidden>Read the full notes →</a>
+    </div>
+  </div>
+
+  <script type="module" src="interactive-lesson.js?v=1"></script>
+</body>
+</html>

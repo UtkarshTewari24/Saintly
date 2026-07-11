@@ -12,15 +12,23 @@
 
 [hidden] { display: none !important; }
 
+/* site-sidebar.js writes an inline margin-left on #main to clear the rail, which
+   kills `margin: 0 auto`. Let main span the full area right of the rail and center
+   each screen inside it instead, so the gutters stay even. */
 .practice-portal .portal-main {
-  width: 92%;
-  max-width: 1220px;
-  margin: 0 auto;
-  padding-bottom: 60px;
+  width: auto !important;
+  max-width: none;
+  margin-right: 0;
+  padding: 0 clamp(18px, 3vw, 44px) 60px;
 }
 
 .portal-screen { display: none; }
 .portal-screen.is-active { display: block; }
+.portal-screen { width: 100%; max-width: 1220px; margin-inline: auto; }
+
+/* Screens built around the question paper share its narrower measure so the
+   header bar lines up with the card beneath it. */
+#directions-screen, #competition-screen, #trainer-screen, #mistake-review-screen { max-width: 1020px; }
 
 /* ---------- hero ---------- */
 .portal-hero { padding: 46px 0 6px; text-align: left; }
@@ -256,7 +264,7 @@
 }
 
 .directions-paper {
-  width: min(880px, 100%);
+  width: 100%;
   margin: 26px auto 60px;
   padding: clamp(26px, 5vw, 60px);
   border: 1px solid var(--border-color);
@@ -383,7 +391,7 @@ body.in-competition main {
   margin: 0 !important;
   padding: 0 !important;
 }
-body.in-competition #competition-screen { min-height: 100dvh; }
+body.in-competition #competition-screen { min-height: 100dvh; max-width: none; }
 body.in-competition .competition-shell-header {
   margin-top: 0;
   border-radius: 0;

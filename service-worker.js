@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'saintly-v11';
+const CACHE_VERSION = 'saintly-v20';
 const CORE_ASSETS = [
   './',
   './site.css',
@@ -7,6 +7,13 @@ const CORE_ASSETS = [
   './site-footer.js',
   './halo-knowledge.js',
   './amc-10-halo.js',
+  './study-path.html',
+  './study-path.css',
+  './study-path.js',
+  './study-path-data.js',
+  './lesson.html',
+  './lesson.css',
+  './lesson.js',
   './question-bank.js',
   './practice-test.js',
   './data/amc-10-problems.json',

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson | Saintly</title>
+  <meta name="description" content="Work through a Saintly lesson one step at a time.">
+  <link rel="stylesheet" href="lesson.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
+</head>
+<body class="lesson-page">
+  <header class="lesson-topbar">
+    <button class="icon-button" id="lesson-exit" type="button" aria-label="Exit lesson">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="slide-progress" id="slide-progress" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1" aria-label="Lesson progress"></div>
+    <div class="lesson-stats">
+      <span id="xp-count">0</span>
+      <span class="stat-gem" aria-hidden="true">✦</span>
+      <span class="stat-bolt" aria-hidden="true">⚡</span>
+    </div>
+  </header>
+
+  <main class="lesson-card">
+    <aside class="card-rail">
+      <button type="button" class="icon-button" id="report-problem" aria-label="Report a problem">
+        <span class="material-symbols-outlined">flag</span>
+      </button>
+      <button type="button" class="icon-button" id="read-aloud" aria-label="Read the question aloud">
+        <span class="material-symbols-outlined">volume_up</span>
+      </button>
+    </aside>
+
+    <section class="slide" id="slide" aria-live="polite"></section>
+
+    <footer class="slide-footer">
+      <p class="slide-feedback" id="slide-feedback" hidden></p>
+      <button class="check-button" id="primary-action" type="button">Check</button>
+    </footer>
+  </main>
+
+  <div class="mascot-dock">
+    <div class="mascot" id="mascot" aria-hidden="true"><i class="mascot-smile"></i></div>
+    <div class="mascot-tools">
+      <button type="button" class="icon-button" aria-label="Ask Halo about this step">
+        <span class="material-symbols-outlined">chat_bubble</span>
+      </button>
+      <span class="tool-divider" aria-hidden="true"></span>
+      <button type="button" class="icon-button" aria-label="Answer by voice">
+        <span class="material-symbols-outlined">mic</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="completion-overlay" id="completion-overlay" hidden>
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <div class="completion-panel" role="dialog" aria-labelledby="completion-title" aria-modal="true">
+      <div class="completion-disc" aria-hidden="true"><span class="completion-check">✓</span></div>
+      <small id="completion-kicker">TOPIC 1 · EXPONENTS AND LOGARITHMS</small>
+      <h1 id="completion-title">Lesson complete</h1>
+      <p id="completion-copy">Nice work. This stop is marked explored on your study path.</p>
+      <div class="completion-score"><strong id="completion-xp">+50</strong><span>XP earned</span></div>
+      <div class="completion-actions">
+        <a class="completion-primary" id="completion-next" href="#">Next lesson</a>
+        <a class="completion-secondary" id="completion-back" href="study-path.html">Back to path</a>
+      </div>
+      <a class="completion-notes" id="completion-notes" href="#">Read the full notes →</a>
+    </div>
+  </div>
+
+  <script type="module" src="lesson.js?v=3"></script>
+</body>
+</html>

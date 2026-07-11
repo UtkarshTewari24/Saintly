@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Review | Saintly</title>
+  <meta name="description" content="Spaced-repetition daily review of your AMC 10 mistakes. Practice the problems you missed, exactly when you're about to forget them.">
+  <link rel="stylesheet" href="site.css?v=13">
+  <link rel="stylesheet" href="review.css?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=National+Park:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/branding/favicon-16.png">
+  <link rel="manifest" href="assets/branding/site.webmanifest">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div id="sidebarPlaceholder"></div>
+  <script type="module" src="site-sidebar.js"></script>
+
+  <nav id="top-bar">
+    <a class="aContainer" href="index.html">Home</a>
+    <p class="aContainer">•</p>
+    <a class="aContainer" href="amc-10.html">AMC 10</a>
+    <div class="center-align">
+      <button class="topBtn" onclick="window.location.href='index.html'">
+        <img alt="full Saintly Logo" class="fullLogo" src="assets/branding/saintly-full-logo.png">
+      </button>
+    </div>
+    <div class="right-align">
+      <span onclick="window.location.href='volunteer.html'" class="material-symbols-outlined volunteerButton">volunteer_activism</span>
+      <span class="material-symbols-outlined volunteerButton brightness" id="brightness">sunny</span>
+      <a href="https://discord.gg/SuAvtn7595" class="start-practice hover" id="joindiscord">Join Our Discord!</a>
+    </div>
+  </nav>
+
+  <main class="review-main">
+    <header class="review-header">
+      <div class="review-header-text">
+        <span class="review-eyebrow">✦ SPACED REPETITION</span>
+        <h1 class="review-title">Daily Review</h1>
+        <p class="review-subtitle">Your missed problems, resurfaced right before you'd forget them.</p>
+      </div>
+      <div class="review-stats">
+        <div class="review-stat">
+          <span class="review-stat-num" id="dueCount">0</span>
+          <span class="review-stat-label">due today</span>
+        </div>
+        <div class="review-stat">
+          <span class="review-stat-num" id="progressLabel">0 of 0</span>
+          <span class="review-stat-label">reviewed</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="review-progress-bar" aria-hidden="true"><div class="review-progress-fill" id="progressFill"></div></div>
+
+    <section id="reviewStage" class="review-stage" aria-live="polite">
+      <div class="review-card review-loading" id="loadingCard">
+        <p>Loading your review queue…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="saintly-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <img class="footer-logo" src="assets/branding/saintly-full-logo.png" height="35px">
+        <p>Making competition math accessible for everyone.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="amc-10.html">AMC 10</a></li>
+          <li><a href="amc-10-practice-test.html">Practice Arena</a></li>
+          <li><a href="study-path.html">Study Path</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <div class="social-icons"><a>saintly.math@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Saintly Math. Built with drive.</div>
+  </footer>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('brightness');
+      function apply(mode) {
+        document.documentElement.style.colorScheme = mode;
+        document.documentElement.classList.toggle('dark', mode === 'dark');
+        document.documentElement.classList.toggle('light', mode !== 'dark');
+        if (toggle) toggle.textContent = mode === 'dark' ? 'sunny' : 'bedtime';
+        localStorage.setItem('colorMode', mode);
+      }
+      apply(localStorage.getItem('colorMode') === 'dark' ? 'dark' : 'light');
+      toggle?.addEventListener('click', () => {
+        apply(document.documentElement.classList.contains('dark') ? 'light' : 'dark');
+      });
+    })();
+  </script>
+  <script type="module" src="review.js?v=1"></script>
+</body>
+</html>

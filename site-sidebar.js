@@ -69,10 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
               <li><a href="amc-10-practice-test.html">Practice Arena</a></li>
               <li><a href="amc-10-practice-test.html#trainer">Topic Trainer</a></li>
               <li><a href="amc-10-practice-test.html#mistakes">Mistake Log</a></li>
+              <li><a href="review.html">Daily Review</a></li>
             </ul>
-            <a href="topics-dashboard.html">
+            <a href="study-path.html">
               <span class="material-symbols-outlined iconsvg">book</span>
-              <span class="dropdownText">Topics Dashboard</span>
+              <span class="dropdownText">Study Path</span>
             </a>
             <a href="partners.html">
               <span class="material-symbols-outlined">handshake</span>

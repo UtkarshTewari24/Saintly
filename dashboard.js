@@ -1,3 +1,7 @@
+import { renderStreakCard } from './progress-core.js';
+
+const streakCardEl = document.getElementById('streak-card');
+if (streakCardEl) renderStreakCard(streakCardEl);
 
 const questions = window.SaintlyQuestionBank.algebra;
 const geometryQ = window.SaintlyQuestionBank.geometry
