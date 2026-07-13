@@ -10,8 +10,8 @@ export const STUDY_PATH = [
   { title: 'What Numbers Really Are', icon: 'ℝ', color: 'orange', lessons: ['Rationals: Decimals and Fractions', 'Irrationals and the Tower Completed'] },
   { title: 'An Introduction to Circles', icon: '○', color: 'blue', lessons: ['An Introduction to Circles'] },
   { title: 'Angles', icon: '∠', color: 'orange', lessons: ['Segments, Rays, and Measuring Angles', 'Parallel Lines and the Triangle’s 180°', 'Arcs, Sectors, and Circle Angles', 'The Burden of Proof'] },
-  { title: 'Triangles, a.k.a. Geometry', icon: '△', color: 'blue', lessons: ['Classifying Triangles', 'Parts of a Triangle', 'The Triangle Inequality', 'The Pythagorean Theorem', 'Congruent Triangles', 'Similar Triangles', 'Introduction to Trigonometry', 'Area of a Triangle', 'A Handful of Helpful Hints'] },
-  { title: 'Quadrilaterals', icon: '◇', color: 'orange', lessons: ['The Fundamentals', 'Trapezoids', 'Parallelograms', 'Rhombuses', 'Rectangles and Squares', 'Hints and Problems'] },
+  { title: 'Triangles, a.k.a. Geometry', icon: '△', color: 'blue', lessons: ['Classification and the Four Centers', 'Triangle Inequality and Pythagoras', 'Congruent Triangles', 'Similar Triangles', 'Introduction to Trigonometry', 'Area and the Proofs Come Due', 'Geometry Hints: Problem Lab'] },
+  { title: 'Quadrilaterals', icon: '◇', color: 'orange', lessons: ['Fundamentals and Trapezoids', 'Parallelograms and Rhombuses', 'Rectangles and Squares', 'Converses, Classification, and Problem Studio'] },
   { title: 'Polygons', icon: '⬡', color: 'blue', lessons: ['Types of Polygons', 'Angles in a Polygon', 'Regular Polygons', 'Regular Hexagons'] },
   { title: 'Angle Chasing', icon: '⌁', color: 'orange', lessons: ['Angle Chasing'] },
   { title: 'Areas', icon: '▧', color: 'blue', lessons: ['Similar Figures', 'Same Base / Same Altitude', 'Complicated Figures'] },
@@ -42,7 +42,7 @@ const exactRoutes = {
 
 /* Chapters rebuilt as Brilliant-style interactive lessons route to the new engine.
    Map: topic index -> { chapter number in lessons/, lesson count }. */
-const INTERACTIVE_CHAPTERS = { 0: { chapter: 1, count: 5 }, 1: { chapter: 2, count: 3 }, 2: { chapter: 3, count: 5 }, 3: { chapter: 4, count: 6 }, 4: { chapter: 5, count: 5 }, 5: { chapter: 6, count: 5 }, 6: { chapter: 7, count: 3 }, 7: { chapter: 8, count: 2 }, 8: { chapter: 9, count: 1 }, 9: { chapter: 10, count: 4 } };
+const INTERACTIVE_CHAPTERS = { 0: { chapter: 1, count: 5 }, 1: { chapter: 2, count: 3 }, 2: { chapter: 3, count: 5 }, 3: { chapter: 4, count: 6 }, 4: { chapter: 5, count: 5 }, 5: { chapter: 6, count: 5 }, 6: { chapter: 7, count: 3 }, 7: { chapter: 8, count: 2 }, 8: { chapter: 9, count: 1 }, 9: { chapter: 10, count: 4 }, 10: { chapter: 11, count: 7 }, 11: { chapter: 12, count: 4 } };
 export function interactiveLessonRoute(chapterIndex, lessonIndex) {
   const entry = INTERACTIVE_CHAPTERS[chapterIndex];
   if (entry && lessonIndex >= 0 && lessonIndex < entry.count) {
