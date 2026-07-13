@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'saintly-v21';
+const CACHE_VERSION = 'saintly-v25';
 const CORE_ASSETS = [
   './',
   './site.css',

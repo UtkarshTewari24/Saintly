@@ -159,6 +159,18 @@ const renderers = {
     </div>`;
   },
 
+  /* Geometry canvas: interactive figures (see geometry-canvas.js). Loaded lazily —
+     the module is only fetched by lessons that actually use it. */
+  geometry(node) {
+    node.innerHTML = '<div class="il-geo-loading">Loading figure…</div>';
+    import('./geometry-canvas.js').then(({ createGeometry }) => {
+      if (beat !== lesson.beats[beatIndex]) return;   // student advanced while it loaded
+      node.innerHTML = '';
+      ui.geo = createGeometry(node, beat.interaction, syncAction);
+      syncAction();
+    }).catch(() => { node.innerHTML = '<p class="il-geo-hint">This figure could not load.</p>'; });
+  },
+
   /* Balance solver: the equation sits on a two-pan balance; the student drives every
      step by picking an op. Ops with no transition from the current state are legal-but-
      useless — they shake and explain instead of transforming. Completes at the goal state. */
@@ -251,6 +263,7 @@ function isReady() {
     case 'order': return ui.placed.filter(v => v !== undefined).length === beat.interaction.items.length;
     case 'match': return ui.solved === beat.interaction.pairs.length;
     case 'balance': return ui.state === beat.interaction.goal;
+    case 'geometry': return !!ui.geo?.isReady();
     default: return true;
   }
 }
@@ -318,6 +331,7 @@ function grade() {
     }
     return allRight;
   }
+  if (kind === 'geometry') return ui.geo ? ui.geo.grade() : true;
   /* reveal, slider, match complete by interacting — grading always passes */
   return true;
 }
@@ -331,6 +345,14 @@ function setFeedback(kind, label, html) {
   typeset(box);
 }
 
+/* Beats that complete by DOING (never graded wrong): reveal, slider, match, balance,
+   and geometry unless it is an identify-and-check figure. */
+function isPassiveBeat() {
+  const kind = beat.interaction.type;
+  if (kind === 'geometry') return beat.interaction.mode !== 'identify';
+  return ['reveal', 'slider', 'match', 'balance'].includes(kind);
+}
+
 function beatXp() {
   if (misses === 0 && coachRungsUsed === 0) return 10;
   if (misses <= 1 && coachRungsUsed <= 1) return 5;
@@ -340,7 +362,7 @@ function beatXp() {
 function completeBeat() {
   phase = 'done';
   answeredProblems += ['mcq', 'fillin', 'errorhunt', 'order'].includes(beat.interaction.type) ? 1 : 0;
-  const earned = ['reveal', 'slider', 'match', 'balance'].includes(beat.interaction.type) ? (misses ? 2 : 5) : beatXp();
+  const earned = isPassiveBeat() ? (misses ? 2 : 5) : beatXp();
   xp += earned;
   $('il-xp-count').textContent = String(xp);
   $('il-mascot').className = 'il-mascot is-happy';
@@ -357,8 +379,44 @@ function completeBeat() {
     typeset(note);
     note.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
+  if (beat.card) awardCard(beat.card);
   renderProgress();
   syncAction();
+}
+
+/* ---------- identity deck: identities the student DERIVES get collected ---------- */
+async function deckModule() {
+  try { return await import('./identity-deck.js'); } catch { return null; }
+}
+
+async function refreshDeckButton() {
+  const deck = await deckModule();
+  if (!deck) return;
+  const count = deck.earnedCards().length;
+  $('il-deck-count').textContent = String(count);
+  $('il-deck-button').hidden = count === 0;
+}
+
+async function awardCard(id) {
+  const deck = await deckModule();
+  if (!deck) return;
+  const isNew = deck.earnCard(id);
+  await refreshDeckButton();
+  if (!isNew) return;
+  const card = document.createElement('div');
+  card.className = 'il-card-earned';
+  card.innerHTML = `<span class="il-card-earned-flag">New card — you derived it</span>${deck.cardHtml(id)}`;
+  $('il-stage').append(card);
+  typeset(card);
+  card.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+
+async function openDeck() {
+  const deck = await deckModule();
+  if (!deck) return;
+  $('il-deck-body').innerHTML = deck.deckHtml();
+  $('il-deck-panel').hidden = false;
+  typeset($('il-deck-body'));
 }
 
 function handleMiss() {
@@ -408,7 +466,7 @@ function syncAction() {
     action.className = 'il-action is-ready is-continue';
     return;
   }
-  const passive = ['reveal', 'slider', 'match', 'balance'].includes(beat.interaction.type);
+  const passive = isPassiveBeat();
   action.textContent = passive ? 'Continue' : 'Check';
   action.disabled = !isReady();
   action.className = `il-action${isReady() ? ' is-ready' : ''}${passive ? ' is-continue' : ''}`;
@@ -452,6 +510,8 @@ function revealAnswer() {
     ui.placed = beat.interaction.items.map((_, slotIndex) => ui.bank.findIndex(entry => entry.index === slotIndex));
     paintOrder();
     document.querySelectorAll('.il-slot').forEach(slot => slot.classList.add('is-correct'));
+  } else if (kind === 'geometry') {
+    ui.geo?.revealAnswer();
   }
 }
 
@@ -479,6 +539,10 @@ function renderBeat() {
   stage.style.animation = '';
 
   renderers[beat.interaction.type]($('il-interaction'));
+  /* Reset the class too — a hidden box that still reads "is-correct" from the previous
+     beat lies to anything (a test, a screen reader) that inspects it. */
+  $('il-feedback').className = 'il-feedback';
+  $('il-feedback').innerHTML = '';
   $('il-feedback').hidden = true;
   $('il-skip').hidden = true;
   $('il-mascot').className = 'il-mascot';
@@ -670,6 +734,11 @@ function wire() {
 
   $('il-action').addEventListener('click', onAction);
   $('il-skip').addEventListener('click', skipBeat);
+  $('il-deck-button').addEventListener('click', openDeck);
+  $('il-deck-close').addEventListener('click', () => { $('il-deck-panel').hidden = true; });
+  $('il-deck-panel').addEventListener('click', event => {
+    if (event.target === $('il-deck-panel')) $('il-deck-panel').hidden = true;
+  });
   $('il-exit').addEventListener('click', () => { location.href = `study-path.html#topic-${lesson.topicIndex + 1}`; });
   $('il-coach-fab').addEventListener('click', openCoach);
   $('il-coach-close').addEventListener('click', () => { $('il-coach-panel').hidden = true; });
@@ -744,6 +813,7 @@ async function boot() {
   }
   document.title = `${lesson.title} | Saintly`;
   wire();
+  refreshDeckButton();
   renderBeat();
 }
 

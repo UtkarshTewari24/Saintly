@@ -24,9 +24,22 @@
     <img class="il-brand-mark" src="assets/branding/saintly-icon.png" alt="" width="32" height="32">
     <div class="il-progress" id="il-progress" role="progressbar" aria-valuemin="1" aria-valuenow="1" aria-label="Lesson progress"></div>
     <div class="il-stats">
+      <button class="il-deck-button" id="il-deck-button" type="button" hidden aria-label="Open your identity deck">
+        <span class="material-symbols-outlined">style</span><b id="il-deck-count">0</b>
+      </button>
       <span class="il-xp"><b id="il-xp-count">0</b><span aria-hidden="true">✦</span></span>
     </div>
   </header>
+
+  <div class="il-deck-panel" id="il-deck-panel" hidden role="dialog" aria-label="Identity deck">
+    <div class="il-deck-sheet">
+      <div class="il-deck-head">
+        <span>Your identity deck</span>
+        <button class="il-coach-close" id="il-deck-close" type="button" aria-label="Close deck">×</button>
+      </div>
+      <div class="il-deck-body" id="il-deck-body"></div>
+    </div>
+  </div>
 
   <main class="il-card" id="il-card">
     <section class="il-stage" id="il-stage" aria-live="polite"></section>
@@ -44,11 +57,23 @@
         <p class="il-coach-note">Hints are free and local. Hints cap this beat’s XP — misses never do more than that.</p>
       </div>
       <button class="il-coach-fab" id="il-coach-fab" type="button" hidden>
-        <span class="il-coach-gem">✦</span>Stuck? Ask Halo
+        <span class="il-mascot" id="il-mascot" aria-hidden="true">
+          <svg class="il-halo-face" viewBox="0 0 40 40" focusable="false">
+            <ellipse class="il-halo-ring" cx="20" cy="6.5" rx="9" ry="2.6"/>
+            <circle class="il-halo-head" cx="20" cy="23" r="12.5"/>
+            <g class="il-halo-eyes">
+              <circle cx="15.6" cy="21.5" r="1.9"/>
+              <circle cx="24.4" cy="21.5" r="1.9"/>
+            </g>
+            <path class="il-halo-blink" d="M13.4 21.5q2.2 1.9 4.4 0M22.2 21.5q2.2 1.9 4.4 0"/>
+            <path class="il-halo-smile" d="M16.4 27.2q3.6 2.9 7.2 0"/>
+            <circle class="il-halo-cheek" cx="12.4" cy="26" r="1.7"/>
+            <circle class="il-halo-cheek" cx="27.6" cy="26" r="1.7"/>
+          </svg>
+        </span>
+        <span class="il-coach-fab-label">Stuck? Ask Halo</span>
       </button>
     </div>
-
-    <div class="il-mascot" id="il-mascot" aria-hidden="true">◕‿◕</div>
 
     <footer class="il-footer">
       <p class="il-feedback" id="il-feedback" hidden></p>

@@ -5,11 +5,11 @@ export const STUDY_PATH = [
   { title: 'Linear Equations', icon: '↗', color: 'blue', lessons: ['What Linear Means', 'Two Equations, Two Variables', 'Word Problems I: Translation', 'Word Problems II: Motion', 'Word Problems III: Work'] },
   { title: 'Proportions', icon: 'a:b', color: 'orange', lessons: ['Direct Proportion and Ratios', 'Inverse and Joint Proportion', 'Manipulating Proportions', 'Conversion Factors', 'Percent: Language and Change', 'Percent: Interest and Mixtures'] },
   { title: 'Using the Integers', icon: 'ℤ', color: 'blue', lessons: ['Divisibility and Number Bases', 'The Last Digit and Modular Arithmetic', 'Divisibility Tricks', 'Primes and Prime Factorization', 'GCF and LCM'] },
-  { title: 'Quadratic Equations', icon: 'x²', color: 'orange', lessons: ["What's a Quadratic?", 'Factoring Quadratics', 'The Quadratic Formula', 'Rearrangements', 'Substitutions', 'Square Roots of Irrationals and Imaginaries', 'Beyond Quadratics'] },
-  { title: 'Special Factorizations and Clever Manipulations', icon: '✦', color: 'blue', lessons: ['Factorizations', 'Manipulations'] },
-  { title: 'What Numbers Really Are', icon: 'ℝ', color: 'orange', lessons: ['Integers and Rationals', 'Lowest Terms and Irrationals', 'Complex and Beyond'] },
-  { title: 'An Introduction to Circles', icon: '○', color: 'blue', lessons: ['Circle Fundamentals'] },
-  { title: 'Angles', icon: '∠', color: 'orange', lessons: ['Lines, Rays, and Segments', 'Classification and Measurement', 'Angles and Parallel Lines', 'Arcs, Segments, Sectors, and Angles', 'Angles Formed By Lines Intersecting a Circle', 'The Burden of Proof'] },
+  { title: 'Quadratic Equations', icon: 'x²', color: 'orange', lessons: ['The Zero-Product Idea', 'Hard Factoring and Special Forms', 'The Quadratic Formula', 'Rearrangements and Substitutions', 'Denesting Radicals'] },
+  { title: 'Special Factorizations and Clever Manipulations', icon: '✦', color: 'blue', lessons: ['The Factorization Library', 'Clever Manipulations', 'Problem Lab'] },
+  { title: 'What Numbers Really Are', icon: 'ℝ', color: 'orange', lessons: ['Rationals: Decimals and Fractions', 'Irrationals and the Tower Completed'] },
+  { title: 'An Introduction to Circles', icon: '○', color: 'blue', lessons: ['An Introduction to Circles'] },
+  { title: 'Angles', icon: '∠', color: 'orange', lessons: ['Segments, Rays, and Measuring Angles', 'Parallel Lines and the Triangle’s 180°', 'Arcs, Sectors, and Circle Angles', 'The Burden of Proof'] },
   { title: 'Triangles, a.k.a. Geometry', icon: '△', color: 'blue', lessons: ['Classifying Triangles', 'Parts of a Triangle', 'The Triangle Inequality', 'The Pythagorean Theorem', 'Congruent Triangles', 'Similar Triangles', 'Introduction to Trigonometry', 'Area of a Triangle', 'A Handful of Helpful Hints'] },
   { title: 'Quadrilaterals', icon: '◇', color: 'orange', lessons: ['The Fundamentals', 'Trapezoids', 'Parallelograms', 'Rhombuses', 'Rectangles and Squares', 'Hints and Problems'] },
   { title: 'Polygons', icon: '⬡', color: 'blue', lessons: ['Types of Polygons', 'Angles in a Polygon', 'Regular Polygons', 'Regular Hexagons'] },
@@ -42,7 +42,7 @@ const exactRoutes = {
 
 /* Chapters rebuilt as Brilliant-style interactive lessons route to the new engine.
    Map: topic index -> { chapter number in lessons/, lesson count }. */
-const INTERACTIVE_CHAPTERS = { 0: { chapter: 1, count: 5 }, 1: { chapter: 2, count: 3 }, 2: { chapter: 3, count: 5 }, 3: { chapter: 4, count: 6 }, 4: { chapter: 5, count: 5 } };
+const INTERACTIVE_CHAPTERS = { 0: { chapter: 1, count: 5 }, 1: { chapter: 2, count: 3 }, 2: { chapter: 3, count: 5 }, 3: { chapter: 4, count: 6 }, 4: { chapter: 5, count: 5 }, 5: { chapter: 6, count: 5 }, 6: { chapter: 7, count: 3 }, 7: { chapter: 8, count: 2 }, 8: { chapter: 9, count: 1 }, 9: { chapter: 10, count: 4 } };
 export function interactiveLessonRoute(chapterIndex, lessonIndex) {
   const entry = INTERACTIVE_CHAPTERS[chapterIndex];
   if (entry && lessonIndex >= 0 && lessonIndex < entry.count) {

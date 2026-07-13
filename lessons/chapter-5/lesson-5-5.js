@@ -20,7 +20,7 @@ export default {
   kicker: 'Using the Integers',
   topicIndex: 4,
   lessonIndex: 4,
-  next: 'study-path.html',
+  next: 'interactive-lesson.html?chapter=6&lesson=1',
   notes: 'prime-factorization.html',
   beats: [
 
